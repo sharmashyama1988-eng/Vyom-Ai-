@@ -1,0 +1,31 @@
+[COMPUTER SCIENCE & TECHNOLOGY KNOWLEDGE BASE]
+
+1. ALGORITHMS & DATA STRUCTURES
+- Big O Notation: Measures the efficiency of an algorithm (Time & Space complexity).
+- Array: Fixed-size, contiguous memory. Fast access (O(1)), slow insertion/deletion.
+- Linked List: Nodes with data + pointer. Dynamic size. Fast insertion, slow access (O(n)).
+- Stack: LIFO (Last In First Out). Used in recursion, undo mechanisms.
+- Queue: FIFO (First In First Out). Used in task scheduling.
+- Hash Table: Key-value pairs. O(1) average lookup time.
+- Binary Search: O(log n) search on sorted arrays.
+
+2. ARTIFICIAL INTELLIGENCE (AI)
+- Machine Learning (ML): Algorithms that learn patterns from data (Supervised, Unsupervised, Reinforcement Learning).
+- Neural Networks: Layers of nodes (neurons) mimicking the human brain.
+- Deep Learning: Multi-layered neural networks (CNN for images, RNN/Transformer for text).
+- LLM (Large Language Model): Transformer-based models trained on vast text data (e.g., GPT, Llama, Vyom).
+- Backpropagation: The method used to update weights in a neural network to minimize error.
+
+3. CYBERSECURITY
+- Encryption: Converting data into unreadable code (AES, RSA).
+- Phishing: Deceptive emails/links to steal credentials.
+- DDoS: Distributed Denial of Service attack to crash a server.
+- SQL Injection: Inserting malicious SQL code into a query to manipulate a database.
+- Zero-Day Exploit: An attack that targets a software vulnerability unknown to the vendor.
+
+4. WEB DEVELOPMENT
+- HTML: Structure of the web.
+- CSS: Styling and layout.
+- JavaScript: Interactivity and logic.
+- REST API: Stateless architecture for web services (GET, POST, PUT, DELETE).
+- Database: SQL (Relational - MySQL, PostgreSQL) vs NoSQL (Document - MongoDB).

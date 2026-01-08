@@ -1,0 +1,16 @@
+[MATH: ALGEBRA & ARITHMETIC]
+1. (a + b)^2 = a^2 + b^2 + 2ab
+2. (a - b)^2 = a^2 + b^2 - 2ab
+3. a^2 - b^2 = (a - b)(a + b)
+4. (x + a)(x + b) = x^2 + (a + b)x + ab
+5. (a + b + c)^2 = a^2 + b^2 + c^2 + 2ab + 2bc + 2ca
+6. (a + b)^3 = a^3 + b^3 + 3ab(a + b)
+7. (a - b)^3 = a^3 - b^3 - 3ab(a - b)
+8. Sum of natural numbers n = n(n + 1)/2
+9. Quadratic Formula: x = [-b ± sqrt(b^2 - 4ac)] / 2a
+10. Simple Interest SI = (P * R * T) / 100
+11. Compound Interest CI = P(1 + R/100)^n - P
+12. BODMAS Rule: Bracket, Of, Division, Multiplication, Addition, Subtraction.
+13. Any number power 0 is 1 (a^0 = 1).
+14. Logarithm rule: log(mn) = log(m) + log(n).
+15. Logarithm rule: log(m/n) = log(m) - log(n).

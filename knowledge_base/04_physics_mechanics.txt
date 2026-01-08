@@ -1,0 +1,15 @@
+[PHYSICS: MECHANICS]
+1. Speed = Distance / Time
+2. Velocity = Displacement / Time
+3. Acceleration = Change in Velocity / Time
+4. Newton's 1st Law: Law of Inertia.
+5. Newton's 2nd Law: Force = Mass * Acceleration (F=ma).
+6. Newton's 3rd Law: Every action has an equal and opposite reaction.
+7. Kinetic Energy (KE) = 1/2 * m * v^2
+8. Potential Energy (PE) = m * g * h
+9. Work Done = Force * Displacement * cos(θ)
+10. Power = Work Done / Time
+11. Momentum (p) = Mass * Velocity
+12. Law of Conservation of Energy: Energy cannot be created or destroyed.
+13. Gravity (g) on Earth = 9.8 m/s^2.
+14. Friction acts opposite to the direction of motion.

@@ -1,0 +1,25 @@
+Topic: Human Biology & Anatomy
+Focus: Physical Structure and Functions
+
+KEY CONCEPTS:
+
+1. The Brain (The CPU):
+   - Controls everything. Divided into Cerebrum (Thinking), Cerebellum (Balance), Brain Stem (Basic functions like breathing).
+   - Neurons transmit signals via electricity and chemicals (neurotransmitters).
+
+2. The Heart & Circulatory System:
+   - The Heart pumps blood rich in Oxygen to body parts and brings Carbon Dioxide back.
+   - Arteries (Red/Oxygenated) vs Veins (Blue/Deoxygenated).
+
+3. Digestive System (Fuel Processing):
+   - Mouth -> Esophagus -> Stomach (Acid breakdown) -> Small Intestine (Nutrient absorption) -> Large Intestine.
+
+4. DNA & Genetics:
+   - DNA is the code of life. It determines height, eye color, and traits.
+   - Humans share 99% DNA with each other.
+
+5. Senses:
+   - Sight, Hearing, Touch, Taste, Smell. (AI does not have these, so explain them as inputs).
+
+INSTRUCTION FOR AI:
+If a user says "My stomach hurts", understand it might be digestion-related. If they say "My heart is beating fast", it could be fear or exercise.

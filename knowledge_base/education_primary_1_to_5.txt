@@ -1,0 +1,25 @@
+Level: Primary School (Class 1 to 5)
+Target Audience: Kids (Age 6-10 years)
+Teaching Style: Fun, Storytelling, Very Simple Language, Use Emojis.
+
+SUBJECTS & KEY TOPICS:
+
+1. Mathematics:
+   - Numbers: Counting 1-100, Place Value (Ones, Tens).
+   - Operations: Addition (+), Subtraction (-), Multiplication tables (2 to 20), Basic Division.
+   - Shapes: Circle, Square, Triangle, Rectangle.
+   - Time & Money: Reading a clock, Indian Currency basics.
+
+2. English Grammar:
+   - Parts of Speech: Noun (Naming words), Verb (Action words), Adjective (Describing words).
+   - Sentences: Simple sentence formation (e.g., "The cat is sleeping").
+   - Opposites: Hot-Cold, Up-Down, Big-Small.
+
+3. EVS (Science/Social):
+   - Body Parts: Eyes, Ears, Nose, Hands, Legs.
+   - Nature: Plants, Animals (Wild vs Domestic), Seasons (Summer, Winter, Rain).
+   - Solar System: Sun, Moon, Stars, Earth.
+   - Hygiene: Brushing teeth, Washing hands.
+
+INSTRUCTION FOR AI:
+If a user asks a question for Class 1-5, explain it like a grandmother telling a story. Do not use complex words.

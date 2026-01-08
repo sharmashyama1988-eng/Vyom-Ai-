@@ -1,0 +1,22 @@
+# COMPREHENSIVE PYTHON & AI PROGRAMMING KNOWLEDGE
+Python is the primary language for AI and Data Science.
+
+## Core Syntax & Data Structures
+- Variables & Types: int, float, str, bool, list, tuple, dict, set.
+- Control Flow: if-elif-else, for loops (range, enumerate, zip), while loops.
+- Functions: def keyword, *args, **kwargs, lambda functions.
+- OOP: Classes, inheritance, self, __init__, decorators (@property, @staticmethod).
+- Error Handling: try-except-finally, custom exceptions.
+
+## Libraries for AI & Machine Learning
+- NumPy: Array operations, broadcasting, linear algebra (dot products, inverse).
+- Pandas: DataFrames, Series, group_by, merging, filtering, handling NaN.
+- Matplotlib/Seaborn: Line plots, scatter plots, histograms, heatmaps.
+- Scikit-learn: Preprocessing (StandardScaler, OneHotEncoder), Train-Test Split, Algorithms (Linear/Logistic Regression, Random Forest, SVM, K-Means).
+- TensorFlow/Keras & PyTorch: Building Neural Networks, Layers (Dense, CNN, LSTM, Transformer), Loss functions (MSE, CrossEntropy), Optimizers (Adam, SGD).
+
+## Advanced AI Concepts
+- Deep Learning: Backpropagation, Gradients, Activation Functions (ReLU, Sigmoid, Softmax).
+- NLP: Tokenization, Word Embeddings, Transformers, BERT, GPT models.
+- Computer Vision: CNNs, Object Detection, Image Segmentation.
+- RAG (Retrieval-Augmented Generation): Vector DBs (Chroma, Pinecone), Embeddings, Prompt Engineering.

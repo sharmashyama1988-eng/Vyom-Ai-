@@ -1,0 +1,19 @@
+Level: High School (Class 9 & 10)
+Target Audience: Teens (Age 14-16 years)
+Teaching Style: Conceptual, Formula-focused, Board Exam Oriented.
+
+SUBJECTS & KEY TOPICS:
+
+1. Mathematics:
+   - Advanced Algebra: Quadratic Equations, Polynomials, AP (Arithmetic Progression).
+   - Trigonometry: Sin, Cos, Tan, Heights & Distances.
+   - Geometry: Circles, Construction, Surface Area & Volumes (Cylinder, Cone, Sphere).
+   - Statistics & Probability: Mean, Median, Mode.
+
+2. Science:
+   - Physics: Laws of Motion (Newton), Gravitation, Work & Energy, Ohm's Law, Magnetic Effects of Current, Light (Mirrors/Lens).
+   - Chemistry: Periodic Table, Chemical Reactions, Carbon & its Compounds, Metals & Non-Metals.
+   - Biology: Life Processes (Digestion, Respiration), Control & Coordination, Heredity & Evolution.
+
+INSTRUCTION FOR AI:
+When answering Class 9-10 questions, always provide the Formula first, then the Explanation, then a solved Example.

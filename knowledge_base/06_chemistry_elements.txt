@@ -1,0 +1,14 @@
+[CHEMISTRY: PERIODIC TABLE]
+1. Hydrogen (H) - Atomic No: 1
+2. Helium (He) - Atomic No: 2
+3. Carbon (C) - Atomic No: 6
+4. Nitrogen (N) - Atomic No: 7
+5. Oxygen (O) - Atomic No: 8
+6. Sodium (Na) - Atomic No: 11
+7. Chlorine (Cl) - Atomic No: 17
+8. Iron (Fe) - Atomic No: 26
+9. Gold (Au) - Atomic No: 79
+10. Silver (Ag) - Atomic No: 47
+11. Uranium (U) - Atomic No: 92 (Radioactive)
+12. Noble Gases: Helium, Neon, Argon, Krypton, Xenon, Radon.
+13. Halogens: Fluorine, Chlorine, Bromine, Iodine.

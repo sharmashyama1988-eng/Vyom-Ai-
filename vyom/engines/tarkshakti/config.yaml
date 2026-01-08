@@ -1,0 +1,4 @@
+vector_db_path: "ai_core_memory"
+ollama_model: "llava:latest"
+ollama_base_url: "http://localhost:11434"
+retriever_k: 5

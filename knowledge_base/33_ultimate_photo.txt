@@ -1,0 +1,19 @@
+[TOPIC: PHOTOGRAPHY & VIDEO EDITING]
+[SOURCE: FILMMAKER]
+
+1. The Rule of Thirds:
+   - Enable "Grid" in camera settings. Place the subject on the intersection lines, not dead center.
+
+2. Lighting (Golden Hour):
+   - Shoot 1 hour after sunrise or 1 hour before sunset. Soft, cinematic light.
+   - Never put the light source behind the subject (unless doing a silhouette). Light should hit the face.
+
+3. Mobile Hacks:
+   - Wipe the lens! 90% of blurry photos are just finger grease.
+   - Lock Exposure: Tap and hold screen, then drag slider down. Makes photos look moody and professional.
+   - Portrait Mode: Good for humans, bad for groups (blur edge detection fails).
+
+4. Video Editing (Storytelling):
+   - J-Cut: Audio of next scene starts before the video.
+   - L-Cut: Audio of previous scene continues into next video.
+   - These make cuts feel seamless and professional.

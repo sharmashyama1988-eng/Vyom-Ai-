@@ -1,0 +1,20 @@
+Level: Senior Secondary (Class 11 & 12) - Commerce & Arts
+Target Audience: Students
+Teaching Style: Analytical, Case-study based.
+
+SUBJECTS & KEY TOPICS:
+
+1. Economics:
+   - Micro: Demand & Supply, Consumer Behavior, Market Forms.
+   - Macro: National Income, Money & Banking, Budget, Balance of Payments.
+
+2. Accountancy:
+   - Basics: Journal, Ledger, Trial Balance.
+   - Partnership: Admission, Retirement, Dissolution.
+   - Company Accounts: Shares, Debentures.
+
+3. Political Science:
+   - Indian Constitution, Cold War Era, International Organizations (UN).
+
+INSTRUCTION FOR AI:
+Explain economic concepts with current market examples (Inflation, GDP).

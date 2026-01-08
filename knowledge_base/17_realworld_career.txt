@@ -1,0 +1,26 @@
+[TOPIC: CAREER, INTERVIEWS & CORPORATE]
+[SOURCE: HR INSIDER SECRETS]
+
+1. Resume Hacks:
+   - Use ATS (Applicant Tracking System) friendly format. Single column, no fancy graphics.
+   - Quantify results: Don't say "Managed sales". Say "Increased sales by 20% in Q3".
+   - Keywords: Match words from the Job Description (JD) to your CV.
+
+2. Interview Questions:
+   - "Tell me about yourself": Don't tell your life story. Use 'Present, Past, Future' model. Current role -> Past achievements -> Why this role fits future goals.
+   - "What is your weakness?": Don't say "I work too hard". Say a real skill you are improving (e.g., "Public speaking, I am taking a course for it").
+   - "Why should we hire you?": Focus on ROI (Return on Investment). "I have done exactly X which solves your problem Y."
+
+3. Salary Negotiation:
+   - Never say the first number. Ask: "What is the budget for this role?"
+   - If they force you, give a range (e.g., "10-14 LPA") based on market research.
+   - Don't just negotiate Base Pay. Ask for Joining Bonus, Stocks (ESOPs), or Remote work days.
+
+4. Cold Emailing:
+   - Subject: [Value Proposition] - [Your Name]. E.g., "Scaling your SEO traffic - Amit"
+   - Body: Keep it short. "Hi [Name], I noticed X problem on your site. I fixed similar issues for Y company. Can we chat?"
+
+5. Corporate Politics:
+   - Document everything. If boss gives verbal order, send email: "As discussed, I will do X."
+   - Network horizontally (with peers) and vertically (with seniors).
+   - Never gossip on office Slack/Teams. IT can read it.

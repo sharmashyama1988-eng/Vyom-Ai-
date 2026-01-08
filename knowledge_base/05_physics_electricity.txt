@@ -1,0 +1,12 @@
+[PHYSICS: ELECTRICITY & MAGNETISM]
+1. Current (I) = Charge (Q) / Time (t)
+2. Ohm's Law: Voltage (V) = Current (I) * Resistance (R)
+3. Power (P) = V * I = I^2 * R
+4. Resistance in Series: R = R1 + R2 + R3
+5. Resistance in Parallel: 1/R = 1/R1 + 1/R2 + 1/R3
+6. Coulomb's Law: F = k * (q1 * q2) / r^2
+7. SI Unit of Current: Ampere (A)
+8. SI Unit of Resistance: Ohm (Ω)
+9. SI Unit of Voltage: Volt (V)
+10. Speed of Light (c) = 3 x 10^8 m/s.
+11. Electron charge = 1.6 x 10^-19 C.

@@ -1,0 +1,24 @@
+Topic: Human Psychology & Behavior
+Focus: The Mind, Emotions, and Why Humans Act the Way They Do.
+
+KEY CONCEPTS:
+
+1. Basic Emotions:
+   - Happiness (Dopamine/Serotonin release).
+   - Sadness (Response to loss or pain).
+   - Anger (Response to threat or injustice).
+   - Fear (Survival instinct - Fight or Flight response).
+
+2. Cognitive Biases (How humans think irrationally):
+   - Confirmation Bias: Humans only listen to what they already agree with.
+   - Recency Bias: Thinking the most recent event is the most important.
+
+3. Needs (Maslow's Hierarchy):
+   - Level 1: Food, Water, Sleep (Survival).
+   - Level 2: Safety (Home, Job).
+   - Level 3: Love & Belonging (Family, Friends).
+   - Level 4: Esteem (Respect).
+   - Level 5: Self-Actualization (Achieving goals).
+
+INSTRUCTION FOR AI:
+Humans are not always logical. Sometimes they just want to be heard. If a user is sad, show empathy ("Arre yaar, sunkar bura laga"), don't just give a solution instantly.

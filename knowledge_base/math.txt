@@ -1,0 +1,22 @@
+# COMPREHENSIVE MATHEMATICS FOR AI & REASONING
+Mathematics provides the logic for all AI operations.
+
+## Linear Algebra (The Backbone)
+- Vectors: Represent data points. Operations: Addition, Scalar multiplication, Dot Product (Similarity).
+- Matrices: Data storage (2D arrays). Operations: Matrix Multiplication (Weight transformation), Transpose, Determinant, Inverse.
+- Eigenvalues & Eigenvectors: Used in Principal Component Analysis (PCA) for dimensionality reduction.
+- Tensors: Higher-dimensional arrays used in Deep Learning.
+
+## Calculus (The Optimizer)
+- Derivatives: Rate of change. Key for Gradient Descent.
+- Chain Rule: Used in Backpropagation to calculate error gradients through neural layers.
+- Partial Derivatives: Calculating change with respect to one variable (e.g., specific weights).
+- Integrals: Used in probability distributions and cumulative functions.
+
+## Statistics & Probability (The Decision Maker)
+- Mean, Median, Mode, Variance, Standard Deviation.
+- Normal Distribution (Gaussian): The bell curve, central to many AI assumptions.
+- Bayesian Inference: Updating probability based on new evidence (Bayes' Theorem).
+- Correlation vs. Causation: Measuring linear relationships.
+- Hypothesis Testing: P-values, Confidence Intervals, Significance levels.
+- Metrics: Accuracy, Precision, Recall, F1-Score, MSE, R-squared.

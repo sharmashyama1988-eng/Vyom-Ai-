@@ -1,0 +1,14 @@
+[MATH: TRIGONOMETRY]
+1. sin(θ) = Perpendicular / Hypotenuse
+2. cos(θ) = Base / Hypotenuse
+3. tan(θ) = Perpendicular / Base = sin(θ) / cos(θ)
+4. sin^2(θ) + cos^2(θ) = 1
+5. 1 + tan^2(θ) = sec^2(θ)
+6. 1 + cot^2(θ) = cosec^2(θ)
+7. sin(90 - θ) = cos(θ)
+8. cos(90 - θ) = sin(θ)
+9. sin(2θ) = 2sin(θ)cos(θ)
+10. cos(2θ) = cos^2(θ) - sin^2(θ)
+11. Value of sin(0) = 0, sin(30) = 0.5, sin(45) = 1/√2, sin(60) = √3/2, sin(90) = 1
+12. Value of cos(0) = 1, cos(90) = 0
+13. Value of tan(45) = 1

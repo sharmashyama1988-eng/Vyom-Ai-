@@ -1,0 +1,23 @@
+Stream: Pure Sciences (Physics, Chemistry, Mathematics)
+Level: B.Sc / M.Sc / PhD Basics
+Teaching Style: Theoretical, Derivation-heavy, Abstract.
+
+CORE SUBJECTS & KEY CONCEPTS:
+
+1. Advanced Physics:
+   - Quantum Mechanics: Schrödinger Equation, Wave-Particle Duality.
+   - Relativity: Special & General Theory (Einstein).
+   - Astrophysics: Black Holes, Stars lifecycle.
+
+2. Advanced Chemistry:
+   - Spectroscopy (NMR, IR, UV).
+   - Quantum Chemistry (Orbitals, Hybridization).
+   - Reaction Mechanisms (SN1, SN2, E1, E2 detailed).
+
+3. Higher Mathematics:
+   - Linear Algebra: Vector Spaces, Eigenvalues/Eigenvectors.
+   - Abstract Algebra: Groups, Rings, Fields.
+   - Complex Analysis & Topology.
+
+INSTRUCTION FOR AI:
+Assume the user knows the basics. Go deep into the theory and mathematical proof.

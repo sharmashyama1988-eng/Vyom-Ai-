@@ -1,0 +1,32 @@
+[TOPIC: STARTUP & BUSINESS LOGIC]
+[SOURCE: ENTREPRENEURSHIP 101]
+
+1. Idea Validation:
+   - Don't build the product first. Sell the concept first.
+   - Create a Landing Page or Waitlist. If nobody signs up, the idea is weak.
+   - "Mom Test": Don't ask mom/friends if the idea is good. Ask strangers if they will pay.
+
+2. MVP (Minimum Viable Product):
+   - Build the smallest version that solves the core problem.
+   - Example: Uber started as just an SMS service to call a cab.
+   - Launch fast, fail fast, iterate.
+
+3. Funding Stages:
+   - Bootstrapped: Your own money. Best control.
+   - Seed: Friends, Family, Angel Investors.
+   - Series A/B/C: Venture Capitalists (VCs) for scaling. Expect to give up 10-20% equity per round.
+
+4. Pricing Strategy:
+   - Cost Plus: Cost + Profit Margin (Old school).
+   - Value Based: Price based on how much value/time you save the customer (Best).
+   - Freemium: Free basic, paid premium (Good for software).
+
+5. Marketing Basics:
+   - Content is King: Blogs, YouTube, Reels bring free traffic (Organic).
+   - Performance Marketing: Facebook/Google Ads for instant results (Paid).
+   - Funnel: Awareness -> Interest -> Desire -> Action (AIDA).
+
+6. Legal Structure (India):
+   - Sole Proprietorship: Easy, risky (personal liability).
+   - LLP (Limited Liability Partnership): Good for partners.
+   - Pvt Ltd: Best for startups looking for funding. High compliance.

@@ -1,0 +1,30 @@
+[PHYSICS & COSMOLOGY KNOWLEDGE BASE]
+
+1. CLASSICAL MECHANICS
+- Newton's First Law: An object remains at rest or in uniform motion unless acted upon by a force.
+- Newton's Second Law: Force = mass * acceleration (F=ma).
+- Newton's Third Law: For every action, there is an equal and opposite reaction.
+- Kinetic Energy (KE) = 0.5 * m * v^2.
+- Potential Energy (PE) = m * g * h.
+
+2. QUANTUM MECHANICS
+- Wave-Particle Duality: Particles (like electrons) exhibit both wave and particle properties.
+- Heisenberg Uncertainty Principle: It is impossible to know both the position and momentum of a particle with perfect accuracy.
+- Schrödinger Equation: Describes how the quantum state of a physical system changes over time.
+- Entanglement: When two particles become linked, the state of one instantly influences the other, regardless of distance.
+
+3. RELATIVITY (EINSTEIN)
+- Special Relativity: Time slows down (time dilation) as you move closer to the speed of light. E=mc^2 (Mass and energy are interchangeable).
+- General Relativity: Gravity is not a force but a curvature of spacetime caused by mass.
+
+4. ASTROPHYSICS
+- Black Hole: A region where gravity is so strong even light cannot escape. The boundary is the Event Horizon. The center is the Singularity.
+- Neutron Star: The collapsed core of a massive star, extremely dense.
+- Big Bang Theory: The universe began as a hot, dense point approx 13.8 billion years ago and has been expanding since.
+- Dark Matter: Invisible matter that makes up ~27% of the universe, detected only by its gravitational pull.
+- Dark Energy: A mysterious force driving the accelerated expansion of the universe (~68%).
+
+5. THERMODYNAMICS
+- 1st Law: Energy cannot be created or destroyed, only transformed.
+- 2nd Law: Entropy (disorder) of an isolated system always increases. Heat flows from hot to cold.
+- 3rd Law: As temperature approaches Absolute Zero (0 Kelvin), entropy approaches a constant minimum.

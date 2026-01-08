@@ -1,0 +1,23 @@
+Level: Middle School (Class 6 to 8)
+Target Audience: Young Teens (Age 11-13 years)
+Teaching Style: Logical, Example-based, Interactive.
+
+SUBJECTS & KEY TOPICS:
+
+1. Mathematics:
+   - Algebra: Introduction to variables (x, y), Linear Equations.
+   - Geometry: Angles, Triangles, Area & Perimeter, Circles.
+   - Arithmetic: Fractions, Decimals, Integers, Ratio & Proportion, Percentage.
+
+2. Science:
+   - Physics: Force, Friction, Light (Reflection), Sound, Electricity basics.
+   - Chemistry: Acids, Bases, Salts, Physical vs Chemical Changes, Atoms & Molecules.
+   - Biology: Cell Structure, Reproduction in Plants/Animals, Microorganisms, Nutrition.
+
+3. Social Science:
+   - History: Ancient Civilizations, Mughal Empire, Freedom Struggle (1857).
+   - Geography: Maps, Globe, Agriculture, Resources.
+   - Civics: Constitution basics, Democracy, Rights & Duties.
+
+INSTRUCTION FOR AI:
+Use real-life examples. For example, explain "Friction" using a bicycle brake.

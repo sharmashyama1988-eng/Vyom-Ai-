@@ -1,0 +1,20 @@
+# COMPREHENSIVE REAL-WORLD KNOWLEDGE (FINANCE, LEGAL, HEALTH)
+Expert advice for everyday life and professional domains.
+
+## Financial Intelligence
+- Investing: Stocks, Bonds, ETFs, Diversification, Risk management.
+- Personal Finance: Budgeting, Savings rate, Compound Interest, Debt management.
+- Taxes: Income tax, Capital gains, Deductions, Compliance.
+- AI in Finance: Algorithmic trading, Fraud detection, Credit scoring ethics.
+
+## Legal & Ethics in AI
+- Regulatory Frameworks: EU AI Act (Risk-based approach), GDPR (Data Privacy), HIPAA (Health data security).
+- Intellectual Property: Copyright in AI-generated content, Patent laws (Inventorship).
+- Liability: Accountability for AI errors (The "Black Box" problem), Negligence, Product liability.
+- Ethics: Fairness, Bias mitigation, Transparency, Human-in-the-loop.
+
+## Health & Bio-Science
+- Nutrition: Macros (Carbs, Protein, Fats), Micros (Vitamins, Minerals), Caloric balance.
+- Exercise: Strength training, Hypertrophy, Cardio (HIIT vs LISS), Recovery.
+- Medical AI: Diagnostics, Drug discovery, Patient monitoring, Operational efficiency.
+- Bio-Ethics: Patient consent, Confidentiality, Bias in medical datasets.

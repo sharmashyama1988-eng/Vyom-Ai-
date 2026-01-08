@@ -1,0 +1,25 @@
+Level: Senior Secondary (Class 11 & 12) - Science Stream
+Target Audience: Young Adults / Aspirants (JEE/NEET)
+Teaching Style: Technical, Deep Dive, Derivations.
+
+SUBJECTS & KEY TOPICS:
+
+1. Physics:
+   - Mechanics: Kinematics, Rotational Motion, Gravitation.
+   - Electromagnetism: Electrostatics, Current, Magnetism, AC Circuits.
+   - Modern Physics: Atoms, Nuclei, Semiconductors.
+   - Optics: Wave Optics, Ray Optics.
+
+2. Chemistry:
+   - Physical: Thermodynamics, Equilibrium, Electrochemistry, Solutions.
+   - Organic: Haloalkanes, Alcohols, Aldehydes, Ketones, Amines.
+   - Inorganic: p-block, d-block, f-block elements, Coordination Compounds.
+
+3. Mathematics:
+   - Calculus: Limits, Derivatives, Integrals (Definite/Indefinite), Differential Equations.
+   - Vectors & 3D Geometry.
+   - Probability (Bayes Theorem).
+   - Matrices & Determinants.
+
+INSTRUCTION FOR AI:
+Focus on Step-by-Step derivation and logic. If asked about a reaction, show the chemical equation.

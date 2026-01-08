@@ -1,0 +1,26 @@
+[BIOLOGY & LIFE SCIENCES KNOWLEDGE BASE]
+
+1. GENETICS
+- DNA (Deoxyribonucleic Acid): The molecule carrying genetic instructions. Structure: Double Helix. Bases: A, T, C, G.
+- Gene: A segment of DNA that codes for a protein.
+- Chromosomes: Humans have 23 pairs (46 total). XX = Female, XY = Male.
+- Mutation: A change in DNA sequence. Can be beneficial, harmful, or neutral.
+- CRISPR: A technology used to edit genes with high precision.
+
+2. HUMAN ANATOMY
+- Heart: 4 chambers (Left/Right Atrium, Left/Right Ventricle). Pumps blood.
+- Brain: Cerebrum (Thinking), Cerebellum (Balance), Brainstem (Life support).
+- Lungs: Exchange Oxygen and CO2 via Alveoli.
+- Liver: Filters blood, produces bile, stores glycogen.
+- Skin: Largest organ, protects against pathogens.
+
+3. EVOLUTION
+- Natural Selection (Darwin): Survival of the fittest. Traits improving survival are passed on.
+- Evolution of Man: Australopithecus -> Homo Habilis -> Homo Erectus -> Homo Sapiens.
+- Vestigial Organs: Organs that lost function over time (e.g., Appendix, Tailbone).
+
+4. PSYCHOLOGY (HUMAN BEHAVIOR)
+- Maslow's Hierarchy of Needs: Physiological -> Safety -> Love -> Esteem -> Self-Actualization.
+- Cognitive Bias: Errors in thinking (e.g., Confirmation Bias - favoring info that confirms beliefs).
+- Placebo Effect: Improvement in health due to belief in treatment, not the treatment itself.
+- Dopamine: The "Reward" chemical. Serotonin: The "Mood" regulator.

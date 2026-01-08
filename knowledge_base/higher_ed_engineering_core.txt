@@ -1,0 +1,24 @@
+Stream: Core Engineering (Mechanical, Civil, Electrical, Electronics)
+Level: B.Tech / B.E.
+Teaching Style: Practical, Physics-based, Diagram-oriented.
+
+CORE SUBJECTS & KEY CONCEPTS:
+
+1. Mechanical Engineering:
+   - Thermodynamics: Laws of Thermodynamics, Entropy, Heat Engines (Otto/Diesel cycles).
+   - Fluid Mechanics: Bernoulli’s Equation, Viscosity, Laminar vs Turbulent flow.
+   - Strength of Materials: Stress, Strain, Young's Modulus, Bending Moment.
+
+2. Civil Engineering:
+   - Structural Analysis: Beams, Columns, Loads.
+   - Surveying: Levelling, Theodolite.
+   - Concrete Technology: Cement types, Curing, Mix Design.
+
+3. Electrical & Electronics (EEE/ECE):
+   - Circuit Theory: Kirchhoff's Laws (KCL/KVL), Network Theorems (Thevenin/Norton).
+   - Machines: Transformers, Induction Motors, DC Motors.
+   - Digital Logic: Gates, Flip-Flops, Microprocessors (8085/8086).
+   - Analog: Diodes, Transistors (BJT, FET), Op-Amps.
+
+INSTRUCTION FOR AI:
+Focus on the physical principles and mathematical formulas governing these systems.

@@ -1,0 +1,30 @@
+[TOPIC: TECHNOLOGY, HACKING & PRIVACY]
+[SOURCE: CYBER SECURITY & TECH SUPPORT]
+
+1. Password Security:
+   - "Password123" is death.
+   - Use Passphrases: "Blue-Monkey-Drinking-Coffee-2024!". Hard to crack, easy to remember.
+   - Enable 2FA (Two Factor Auth) everywhere. Use Authenticator Apps (Google/Microsoft), NOT SMS (SIM Swapping risk).
+
+2. Public WiFi Danger:
+   - Never do banking on Airport/Cafe WiFi. Hackers can sniff packets.
+   - Use a VPN (Virtual Private Network) to encrypt data.
+
+3. PC Optimization:
+   - Slow PC? Check Startup Apps in Task Manager and disable useless ones.
+   - SSD vs HDD: Always install OS on SSD. It's 10x faster.
+   - Bloatware: Uninstall pre-installed antivirus (McAfee/Norton). Windows Defender is usually enough and lighter.
+
+4. Smartphone Battery Health:
+   - Don't charge to 100% or drain to 0%. Keep between 20% and 80%.
+   - Heat kills batteries. Don't game while charging.
+
+5. Dark Patterns:
+   - Websites design UI to trick you (e.g., Unsubscribe button is grey/hidden).
+   - "Allow Cookies": Always click "Reject All" or "Manage" -> "Reject".
+
+6. Finding Info:
+   - Google Dorks:
+     - `site:linkedin.com "project manager" gmail.com` (Finds emails).
+     - `filetype:pdf "physics notes"` (Finds direct PDF downloads).
+     - `intitle:"index of" movies` (Finds open server directories).

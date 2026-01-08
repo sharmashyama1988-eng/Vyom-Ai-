@@ -1,0 +1,13 @@
+[COMPUTER SCIENCE: BASICS]
+1. CPU: Central Processing Unit (Brain of Computer).
+2. RAM: Random Access Memory (Volatile/Temporary).
+3. ROM: Read Only Memory (Non-Volatile/Permanent).
+4. HDD: Hard Disk Drive. SSD: Solid State Drive (Faster).
+5. OS: Operating System (e.g., Windows, Linux, macOS, Android).
+6. Binary System: Computers understand only 0 and 1.
+7. Byte: 1 Byte = 8 Bits. 1 KB = 1024 Bytes.
+8. IP Address: Internet Protocol Address.
+9. HTTP: HyperText Transfer Protocol.
+10. URL: Uniform Resource Locator.
+11. Father of Computer: Charles Babbage.
+12. First Programmer: Ada Lovelace.

@@ -1,0 +1,16 @@
+[TOPIC: GAMING & STREAMING CAREER]
+[SOURCE: PRO GAMER]
+
+1. PC Building (FPS > RGB):
+   - GPU (Graphics Card) is the most important part. Spend 40% of budget here.
+   - RAM: 16GB is minimum standard. Dual Channel (2x8GB) is faster than Single (1x16GB).
+   - PSU (Power Supply): Never cheap out. A bad PSU can fry your whole PC.
+
+2. Streaming Setup:
+   - Audio > Video. People will watch bad video, but they close the stream if audio is crackling. Get a good Mic.
+   - Lighting: A cheap ring light makes a webcam look 10x better.
+   - Consistency: Stream at the same time every day. Algorithm loves schedule.
+
+3. E-Sports health:
+   - 20-20-20 Rule: Every 20 mins, look at something 20 feet away for 20 seconds. Saves eyes.
+   - Wrist aim vs Arm aim: Use arm for low DPI (Better precision, less RSI injury risk).
