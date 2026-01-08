@@ -109,12 +109,13 @@ class DeepThoughtEngine:
 
     def _init_light(self):
         """Initialize Search Tool (Local Light)."""
+        # We now use the vyom.core.internet module directly to save on dependencies (langchain)
         try:
-            from langchain_community.tools import DuckDuckGoSearchRun
-            from langchain_community.utilities import DuckDuckGoSearchAPIWrapper
-            wrapper = DuckDuckGoSearchAPIWrapper(max_results=3)
-            self.search = DuckDuckGoSearchRun(api_wrapper=wrapper)
-            logger.info("✅ Search Engine Ready.")
+            from vyom.core import internet
+            # Create a simple wrapper to match the expected interface if needed, 
+            # or just use internet.search_google directly in solve()
+            self.search = internet
+            logger.info("✅ Search Engine Ready (Light).")
             self.is_ready = True
         except Exception as e:
             logger.error(f"Search Init Failed: {e}")
@@ -180,13 +181,14 @@ class DeepThoughtEngine:
 
             if self.search:
                 logger.info("Performing Search Fallback...")
-                res = self.search.invoke(query)
+                # self.search is now the internet module
+                res = self.search.search_google(query)
                 return f"⚠️ **Cloud Busy (Rate Limits).**\nHere is what I found on the web:\n\n{res}", True
             else:
                  # Try re-initializing search if it was None
                  self._init_light()
                  if self.search:
-                     res = self.search.invoke(query)
+                     res = self.search.search_google(query)
                      return f"⚠️ **Cloud Busy.**\nWeb Result:\n\n{res}", True
                      
         except Exception as se:

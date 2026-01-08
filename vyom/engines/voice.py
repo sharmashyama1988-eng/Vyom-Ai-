@@ -11,7 +11,12 @@ import queue
 import time
 import sys
 import asyncio
-import torch
+import os
+import queue
+import sys
+import threading
+import time
+
 from vyom import config
 
 # Global Queue
@@ -27,6 +32,10 @@ def worker():
     """Processes the speech queue."""
     global pyttsx3_engine, coqui_engine
     
+    # Check if voice is disabled via Env
+    if os.environ.get("DISABLE_VOICE") == "true":
+        return
+
     # 1. Initialize Backup Engine (pyttsx3)
     try:
         import pyttsx3
@@ -38,6 +47,7 @@ def worker():
     # 2. Initialize Coqui TTS (Heavy Mode)
     if config.MODE == 'default':
         try:
+            import torch
             from TTS.api import TTS
             print("   🧠 Loading Human Voice Model (Coqui TTS)...")
             device = "cuda" if torch.cuda.is_available() else "cpu"
