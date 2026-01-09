@@ -461,15 +461,59 @@ def find_user_by_email(email):
             return dict(row)
     return None
 
-def link_device_to_user(user_id_existing, new_device_id):
-    """Links a new device_id to an existing user's record."""
-    # Since device_id is PRIMARY KEY in our current schema, we need to update it 
-    # OR we need to change schema to support multi-device.
-    # For now, to keep it simple and fix Amit's issue, we update the device_id
+def link_device_to_user(old_id, new_id):
+    """
+    Merges an existing user account (old_id) into the current device session (new_id).
+    Preserves the new_id so the browser session stays valid.
+    """
+    if not old_id or not new_id or old_id == new_id:
+        return
+
     with get_db_connection() as conn:
-        conn.execute("UPDATE users SET device_id = ? WHERE device_id = ?", (new_device_id, user_id_existing))
-        # Update chats as well
-        conn.execute("UPDATE chats SET user_id = ? WHERE user_id = ?", (new_device_id, user_id_existing))
+        # 1. Get Old User Data
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE device_id = ?", (old_id,))
+        old_user = cursor.fetchone()
+        
+        if not old_user: return # Should not happen
+
+        # 2. Check if New Device ID exists (e.g. Guest session)
+        cursor.execute("SELECT * FROM users WHERE device_id = ?", (new_id,))
+        new_user = cursor.fetchone()
+
+        # 3. Migrate User Data
+        if new_user:
+            # Overwrite guest data with the logged-in user's data
+            # We keep 'created' from the old user to show account age
+            conn.execute('''
+                UPDATE users 
+                SET name=?, email=?, api_key=?, api_keys=?, gender=?, default_engine=?, default_model=?, created=?
+                WHERE device_id=?
+            ''', (
+                old_user['name'], old_user['email'], old_user['api_key'], 
+                old_user['api_keys'], old_user['gender'], old_user['default_engine'], 
+                old_user['default_model'], old_user['created'],
+                new_id
+            ))
+        else:
+            # Create new record for new_id with old data
+            conn.execute('''
+                INSERT INTO users (device_id, name, email, created, api_key, api_keys, gender, default_engine, default_model)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ''', (
+                new_id, old_user['name'], old_user['email'], old_user['created'],
+                old_user['api_key'], old_user['api_keys'], old_user['gender'],
+                old_user['default_engine'], old_user['default_model']
+            ))
+
+        # 4. Migrate Chats
+        # Move all chats from old_id to new_id
+        conn.execute("UPDATE chats SET user_id = ? WHERE user_id = ?", (new_id, old_id))
+
+        # 5. Delete Old User Record
+        # (Chats are already moved, so we can safely delete the user)
+        conn.execute("DELETE FROM users WHERE device_id = ?", (old_id,))
+        
         conn.commit()
 
 def update_user(device_id, data):

@@ -131,7 +131,7 @@ def user_login():
     if user:
     
         # Link current device to this user if it's different
-        history_manager.link_device_to_user(user['id'], device_id)
+        history_manager.link_device_to_user(user['device_id'], device_id)
         return jsonify({"success": True, "user": user})
     return jsonify({"success": False, "error": "User not found"})
 
