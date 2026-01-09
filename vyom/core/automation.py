@@ -11,7 +11,11 @@ import re
 def capture_camera_image():
     """Captures a single frame from the default camera."""
     try:
-        import cv2
+        try:
+            import cv2
+        except ImportError:
+             return None, "Camera module missing (opencv-python not installed)"
+
         cap = cv2.VideoCapture(0)
         if not cap.isOpened():
             return None, "Could not open camera."
@@ -83,7 +87,11 @@ def take_screenshot(url=None):
             return "Desktop screenshot failed. Please ensure 'pillow' is installed."
         
     try:
-        from playwright.sync_api import sync_playwright
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            return "Web screenshot unavailable (playwright not installed)"
+            
         with sync_playwright() as p:
             browser = p.chromium.launch()
             page = browser.new_page()
