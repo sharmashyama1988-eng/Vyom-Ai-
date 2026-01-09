@@ -3,6 +3,7 @@ from google import genai
 from google.genai import types
 from dotenv import load_dotenv
 from vyom.core import internet # Fallback ke liye
+from vyom.core import formatter # 🎨 New Formatter
 
 # Load environment variables
 
@@ -59,18 +60,7 @@ def rotate_key():
 
 
 def get_system_instruction(engine_type):
-
-    if engine_type == 'coding':
-
-        return "You are the 'Vyom Coding Engine'. Write clean, bug-free code with brief explanations."
-
-    elif engine_type == 'math':
-
-        return "You are the 'Vyom Math Engine'. Use step-by-step reasoning for complex problems."
-
-    return "You are Vyom AI, a helpful and smart problem solver."
-
-
+    return formatter.get_system_instruction(engine_type)
 
 def generate_response(prompt, engine_type="general", history=[], user_api_key=None, attachments=[]):
 
