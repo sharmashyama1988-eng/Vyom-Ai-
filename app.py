@@ -129,6 +129,7 @@ def user_login():
     # Let's find user by email and then link the new device_id to them.
     user = history_manager.find_user_by_email(email)
     if user:
+    
         # Link current device to this user if it's different
         history_manager.link_device_to_user(user['id'], device_id)
         return jsonify({"success": True, "user": user})

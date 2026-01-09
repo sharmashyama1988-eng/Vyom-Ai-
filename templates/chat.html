@@ -216,9 +216,16 @@
             background: var(--header-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border); z-index: 50;
         }
-        .brand { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .brand-logo { height: 32px; }
-        .brand-text { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo { height: 32px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .logo-btn { cursor: pointer; position: relative; z-index: 10; }
+        .logo-btn:hover { 
+            transform: scale(1.2) rotate(360deg); 
+            filter: drop-shadow(0 0 15px var(--accent)); 
+        }
+        .brand-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+        .brand-text { font-size: 1.25rem; font-weight: 600; color: var(--text-main); transition: color 0.3s; }
+        .brand-link:hover .brand-text { color: var(--accent); }
 
         .welcome-screen { margin-top: 10vh; text-align: center; padding: 0 20px; animation: fadeIn 0.8s ease forwards; }
         .welcome-logo { height: 90px; margin-bottom: 20px; filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.3)); }
@@ -600,10 +607,12 @@
                 <button class="history-toggle-btn" onclick="toggleHistory()">
                     <span class="material-symbols-rounded">menu</span>
                 </button>
-                <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'">
-                <div style="display:flex; flex-direction:column; justify-content:center;">
-                    <span class="brand-text" style="line-height:1;">Vyom AI</span>
-                </div>
+                <a href="/login" class="brand-link" title="Login / Register">
+                    <img src="logo.png" alt="Logo" class="brand-logo logo-btn" onerror="this.style.display='none'">
+                    <div style="display:flex; flex-direction:column; justify-content:center;">
+                        <span class="brand-text" style="line-height:1;">Vyom AI</span>
+                    </div>
+                </a>
             </div>
             <div class="header-actions">
                 <button class="profile-btn" id="profile-btn" onclick="toggleSettings()">G</button>
@@ -612,7 +621,9 @@
 
         <div class="chat-container" id="chat-box">
             <div id="welcome" class="welcome-screen">
-                <img src="logo.png" class="welcome-logo" onerror="this.src='https://cdn-icons-png.flaticon.com/512/6134/6134346.png'">
+                <a href="/login" style="display:inline-block">
+                    <img src="logo.png" class="welcome-logo logo-btn" onerror="this.src='https://cdn-icons-png.flaticon.com/512/6134/6134346.png'" title="Login / Register">
+                </a>
                 <h1 class="welcome-title">Namaste, <span id="user-name">Explorer</span></h1>
                 <p id="welcome-sub" style="color:#a1a1aa; font-size: 1.1rem;">Aapka apna AI companion. Poochiye jo aap chahein.</p>
                 <div class="suggestions" aria-hidden="false">
