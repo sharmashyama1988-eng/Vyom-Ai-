@@ -191,6 +191,25 @@ def initialize_voice_system():
 def is_ready():
     return _initialized
 
+def stop():
+    """Stops all current and pending speech immediately."""
+    # 1. Clear Queue
+    with speech_queue.mutex:
+        speech_queue.queue.clear()
+    
+    # 2. Stop Cloud/Pygame Audio
+    if pygame and pygame.mixer.get_init():
+        pygame.mixer.music.stop()
+        
+    # 3. Stop System Audio
+    if pyttsx3_engine:
+        try:
+            pyttsx3_engine.stop()
+        except:
+            pass
+            
+    print("   🔇 Audio Stopped by User Action.")
+
 def speak_text(text: str, gender: str = None):
     if not is_ready(): return
     

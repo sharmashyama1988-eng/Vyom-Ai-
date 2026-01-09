@@ -659,7 +659,7 @@
                     <textarea id="inp" rows="1" placeholder="Ask Vyom AI..."></textarea>
 
                     <button class="action-btn" id="mic-btn" aria-label="Start voice input" title="Voice input"><span class="material-symbols-rounded">mic</span></button>
-                    <button class="action-btn send-btn" id="send-btn" onclick="sendMessage()" aria-label="Send message" disabled><span class="material-symbols-rounded">arrow_upward</span></button>
+                    <button class="action-btn send-btn" id="send-btn" onclick="sendMessage('text')" aria-label="Send message" disabled><span class="material-symbols-rounded">arrow_upward</span></button>
                 </div>
             </div>
         </div>
@@ -1199,6 +1199,7 @@
                         message: `[[${cmd}]]`,
                         device_id: DEVICE_ID,
                         chat_id: CURRENT_CHAT_ID,
+                        input_mode: 'text', // Command is effectively text
                         settings: { engine: 'general' }
                     })
                 });
@@ -1210,7 +1211,25 @@
             } catch (e) { console.error(e); }
         }
 
-        async function sendMessage() {
+        async function playVoice(id) {
+            const el = document.querySelector('#' + id + ' .msg-bubble');
+            if(!el) return;
+            // Get clean text (remove code blocks for speech if desired, or send all)
+            const text = el.innerText || el.textContent;
+            
+            // Gender from profile
+            const gender = CURRENT_USER ? CURRENT_USER.gender : null;
+
+            try {
+                await fetch('/voice/speak_manual', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ text, gender })
+                });
+            } catch(e) { console.error(e); }
+        }
+
+        async function sendMessage(inputMode = 'text') {
             let txt = els.inp.value.trim();
             if(!txt && selectedFiles.length === 0) return;
 
@@ -1284,6 +1303,7 @@
                         message: txt,
                         device_id: DEVICE_ID,
                         chat_id: CURRENT_CHAT_ID,
+                        input_mode: inputMode,
                         settings: settings,
                         attachments: attachments
                     })
@@ -1437,6 +1457,7 @@
                 <div class="msg-meta">
                     <span class="time">${formatTime(ts)}</span>
                     <div class="msg-actions">
+                        ${role === 'ai' ? `<button onclick="playVoice('${id}')" title="Read Aloud"><span class="material-symbols-rounded" style="font-size:16px">volume_up</span></button>` : ''}
                         <button onclick="copyMsg('${id}')">Copy</button>
                         ${role === 'ai' && !opts.error ? `<button onclick="retryLast()">Retry</button>` : ''}
                     </div>
@@ -1516,7 +1537,11 @@
             rec.interimResults = false;
             rec.onstart = () => els.mic.classList.add('mic-active');
             rec.onend = () => els.mic.classList.remove('mic-active');
-            rec.onresult = (e) => { els.inp.value = e.results[0][0].transcript; updateSendState(); };
+            rec.onresult = (e) => { 
+                els.inp.value = e.results[0][0].transcript; 
+                // Auto-send on voice input
+                sendMessage('voice'); 
+            };
             rec.onerror = (e) => { console.error("Speech recognition error", e); els.mic.classList.remove('mic-active'); };
         }
         els.mic.onclick = () => { 

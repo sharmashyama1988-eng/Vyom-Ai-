@@ -340,6 +340,9 @@ def ask():
     # Engine selection early for routing
     selected_engine = settings.get('engine') or user_default_engine or 'general'
 
+    # 🛑 0. STOP PREVIOUS AUDIO (Interruption Logic)
+    voice_engine.stop()
+
     # --- Guest Restriction ---
     is_guest = not user_profile or user_profile.get('name') == 'Guest'
     if is_guest and selected_engine != 'general':
@@ -529,9 +532,12 @@ def ask():
         except:
             voice_text = raw_answer # Fallback
 
-    # Voice
-    gender = user_profile.get('gender') if user_profile else None
-    voice_engine.speak_text(voice_text, gender=gender)
+    # Voice (Smart Mode)
+    # Only speak automatically if input was Voice
+    input_mode = data.get('input_mode', 'text')
+    if input_mode == 'voice':
+        gender = user_profile.get('gender') if user_profile else None
+        voice_engine.speak_text(voice_text, gender=gender)
     
     # ⚡ Background History Save
     if chat_id and device_id:
@@ -542,6 +548,19 @@ def ask():
     performance.run_in_background(performance.optimize_memory)
     
     return jsonify({"answer": raw_answer})
+
+@app.route('/voice/speak_manual', methods=['POST'])
+def speak_manual():
+    data = request.json
+    text = data.get('text')
+    gender = data.get('gender')
+    
+    if not text: return jsonify({"status": "empty"})
+    
+    # Stop others and speak this
+    voice_engine.stop()
+    voice_engine.speak_text(text, gender=gender)
+    return jsonify({"status": "playing"})
 
 if __name__ == '__main__':
     # Initialize Engines based on the selected config
