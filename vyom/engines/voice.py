@@ -129,26 +129,31 @@ def _speak_coqui(text, lang):
 
 # --- EDGE TTS (High Quality, Low CPU) ---
 def _speak_edge(text, lang, gender):
-    """Generates speech using Microsoft Edge Online Voices."""
+    """Generates speech using Microsoft Edge Online Voices with High-Fidelity settings."""
     import edge_tts
     
     text = _clean_text(text)
     if not text: return
 
-    # Select Voice based on Lang and Gender
+    # --- Natural Indian Voices Selection ---
     if lang == "hi":
-        voice = "hi-IN-MadhurNeural" if gender == "male" else "hi-IN-SwaraNeural"
+        # Swara is highly expressive, Madhur is deep and clear
+        voice = "hi-IN-SwaraNeural" if gender == "female" else "hi-IN-MadhurNeural"
     else:
-        voice = "en-IN-PrabhatNeural" if gender == "male" else "en-IN-NeerjaNeural"
+        # Neerja and Prabhat are the latest, most natural sounding Indian-English voices
+        voice = "en-IN-NeerjaNeural" if gender == "female" else "en-IN-PrabhatNeural"
         
-    print(f"   🎙️ Generating Speech using: {voice}")
+    print(f"   🎙️ High-Fidelity Voice: {voice}")
     output_file = "temp_ai_cloud.mp3"
     
-    # Humanize: Slightly slower rate for better clarity and natural feel
-    rate = "-5%"
+    # --- Humanization Parameters ---
+    # Rate: -10% makes it sound less robotic and more thoughtful
+    # Pitch: Subtle adjustment can make it sound more natural
+    rate = "-10%"
+    pitch = "+0Hz"
     
     async def generate():
-        communicate = edge_tts.Communicate(text, voice, rate=rate)
+        communicate = edge_tts.Communicate(text, voice, rate=rate, pitch=pitch)
         await communicate.save(output_file)
     
     asyncio.run(generate())
