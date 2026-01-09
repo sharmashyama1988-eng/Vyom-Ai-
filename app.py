@@ -31,12 +31,7 @@ if __name__ == '__main__':
             print(">> Selected: Default Mode")
 
 # --- 2. IMPORTS ---
-from vyom.engines import image as image_engine
 from vyom.engines import voice as voice_engine
-from vyom.engines import thinking as thinking_engine
-from vyom.engines import math as math_engine
-from vyom.engines import trinity as trinity_engine # ⚡ New Trinity Engine
-from vyom.engines import visual_studio # 🎨 New Visual Studio
 
 from vyom.core import automation
 from vyom.core import history as history_manager
@@ -313,6 +308,13 @@ def update_location():
 # --- MAIN ASK ROUTE ---
 @app.route('/ask', methods=['POST'])
 def ask():
+    # ⚡ Lazy Load Engines to speed up Server Boot
+    from vyom.engines import image as image_engine
+    from vyom.engines import thinking as thinking_engine
+    from vyom.engines import math as math_engine
+    from vyom.engines import trinity as trinity_engine
+    from vyom.engines import visual_studio
+
     data = request.json 
     msg = data.get('message', '')
     chat_id = data.get('chat_id')

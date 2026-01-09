@@ -156,6 +156,10 @@ def _speak_edge(text, lang, gender):
 
 def _play_audio(file_path):
     """Helper to play audio file using pygame."""
+    if pygame is None or pygame.mixer.get_init() is None:
+        print("   🔇 Audio playback skipped (Server/No Audio Device)")
+        return
+
     if os.path.exists(file_path):
         try:
             pygame.mixer.music.load(file_path)
