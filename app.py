@@ -488,6 +488,8 @@ def ask():
     if selected_engine in trinity_supported:
         # We need history for context
         history = history_manager.get_chat_history(device_id, chat_id) or []
+        history = history[-15:] # ⚡ Optimize Context Window (Speed & Cost)
+        
         # Provide the user's BYOK or saved API keys to the engine if available
         api_override = settings.get('api_key') or (user_profile and user_profile.get('api_key'))
         if not api_override and user_profile and user_profile.get('api_keys'):
@@ -562,10 +564,38 @@ def speak_manual():
     voice_engine.speak_text(text, gender=gender)
     return jsonify({"status": "playing"})
 
+def cleanup_temp_files():
+    """Removes old temp files to prevent disk bloat."""
+    print("🧹 Running System Cleanup...")
+    try:
+        # 1. Clean Uploads (> 24 hours)
+        now = time.time()
+        upload_path = app.config['UPLOAD_FOLDER']
+        if os.path.exists(upload_path):
+            for f in os.listdir(upload_path):
+                f_path = os.path.join(upload_path, f)
+                if os.path.isfile(f_path):
+                    if os.stat(f_path).st_mtime < (now - 86400): # 24 hours
+                        try: os.remove(f_path)
+                        except: pass
+        
+        # 2. Clean Root Temp Audio
+        for f in os.listdir(os.getcwd()):
+            if f.startswith("temp_ai") and (f.endswith(".mp3") or f.endswith(".wav")):
+                try: os.remove(f)
+                except: pass
+                
+        print("   ✅ System Cleaned.")
+    except Exception as e:
+        print(f"   ⚠️ Cleanup Warning: {e}")
+
 if __name__ == '__main__':
     # Initialize Engines based on the selected config
     # We default to light in this script block if not set, but let's re-ensure
     if not config.MODE: config.MODE = "light"
+    
+    import time # Needed for cleanup
+    cleanup_temp_files()
     
     voice_engine.initialize_voice_system()
     
