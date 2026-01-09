@@ -1,13 +1,46 @@
+# Environments
+.env
 .venv/
+venv/
+env/
+
+# Python
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
+
+# Database & Memory
 *.db
+*.sqlite3
 *.bak
+ai_core_memory/
+processed_history.json
+users/
+
+# Large Files & Models
+TTS-0.22.0.tar.gz
+*.bin
+*.pt
+*.pth
+*.safetensors
+
+# Media Uploads
 uploads/
 static_audio/
+*.wav
+*.mp3
+*.png
+*.jpg
+*.jpeg
+*.webp
 temp_ai.wav
 temp_ai_cloud.mp3
+temp_ai_human.wav
+my_voice.wav
 test.mp3
 sample.mp3
-my_voice.wav
+
+# IDEs
+.vscode/
+.idea/

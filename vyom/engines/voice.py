@@ -6,16 +6,15 @@ and pyttsx3 (System) as fallback.
 """
 import threading
 import os
-import pygame
 import queue
 import time
 import sys
 import asyncio
-import os
-import queue
-import sys
-import threading
-import time
+
+try:
+    import pygame
+except ImportError:
+    pygame = None
 
 from vyom import config
 
