@@ -353,6 +353,7 @@ def ask():
 
     # Engine selection early for routing
     selected_engine = settings.get('engine') or user_default_engine or 'general'
+    selected_model = settings.get('model') or user_default_model
 
     # 🛑 0. STOP PREVIOUS AUDIO (Interruption Logic)
     voice_engine.stop()

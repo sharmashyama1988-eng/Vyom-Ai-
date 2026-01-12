@@ -2,7 +2,10 @@
 VYOM AI INTERNET MODULE (No-API Version)
 Uses DuckDuckGo to fetch live search results.
 """
-from duckduckgo_search import DDGS
+import warnings
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    from duckduckgo_search import DDGS
 
 def search_google(query):
     """

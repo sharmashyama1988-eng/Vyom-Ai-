@@ -95,8 +95,11 @@ def generate_response(prompt, engine_type="general", history=[], user_api_key=No
         # 1. Try with user provided key (BYOK) if exists
 
         if user_api_key:
-            # If specific model requested, try it first
-            models_to_try = [model] if model else FALLBACK_MODELS
+            # If specific model requested, try it first, but fallback to others if it fails
+            models_to_try = [model] if model else []
+            for m in FALLBACK_MODELS:
+                if m not in models_to_try:
+                    models_to_try.append(m)
             
             for model_id in models_to_try:
 
@@ -147,8 +150,11 @@ def generate_response(prompt, engine_type="general", history=[], user_api_key=No
             client = genai.Client(api_key=eff_key)
 
             
-            # If specific model requested, try it first
-            models_to_try = [model] if model else FALLBACK_MODELS
+            # If specific model requested, try it first, but fallback to others if it fails
+            models_to_try = [model] if model else []
+            for m in FALLBACK_MODELS:
+                if m not in models_to_try:
+                    models_to_try.append(m)
 
             for model_id in models_to_try:
 
