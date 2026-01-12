@@ -280,6 +280,39 @@
             text-align: center; width: 100%;
         }
 
+        /* --- MODEL SELECTOR --- */
+        .model-selector-container {
+            width: 100%; max-width: 800px;
+            display: flex; justify-content: flex-start;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        .model-select {
+            background-color: var(--bg-input);
+            color: var(--text-sec);
+            border: 1px solid var(--border);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            appearance: none; /* Remove default arrow */
+            -webkit-appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23c4c7c5%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 10px;
+            padding-right: 30px;
+        }
+        .model-select:hover {
+            background-color: var(--bg-hover);
+            color: var(--text-main);
+            border-color: var(--text-sec);
+        }
+        .model-select:focus {
+            border-color: var(--blue-accent);
+        }
+
         /* Utility */
         .hidden { display: none !important; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -356,6 +389,11 @@
 
         <!-- Input Area -->
         <div class="input-area">
+            <div class="model-selector-container">
+                <select id="model-select" class="model-select">
+                    <option value="" disabled selected>Loading Models...</option>
+                </select>
+            </div>
             <div class="input-wrapper">
                 <button class="icon-btn"><i class="ri-image-add-line"></i></button>
                 <textarea id="user-input" class="text-input" rows="1" placeholder="Enter a prompt here"></textarea>
@@ -374,7 +412,8 @@
             welcome: document.getElementById('welcome-screen'),
             chatScroll: document.getElementById('chat-scroll'),
             chatList: document.getElementById('chat-list'),
-            sidebar: document.getElementById('sidebar')
+            sidebar: document.getElementById('sidebar'),
+            modelSelect: document.getElementById('model-select')
         };
 
         let deviceId = localStorage.getItem('vyom_device_id');
@@ -388,8 +427,28 @@
         // Init
         window.onload = () => {
             loadChats();
+            loadModels();
             els.input.focus();
         };
+
+        async function loadModels() {
+            try {
+                const res = await fetch('/models');
+                const models = await res.json();
+                els.modelSelect.innerHTML = ''; // Clear loading
+                
+                models.forEach(model => {
+                    const option = document.createElement('option');
+                    option.value = model;
+                    option.text = model;
+                    if(model.includes('flash') || model.includes('2.5-flash')) option.selected = true; // Default
+                    els.modelSelect.appendChild(option);
+                });
+            } catch (e) {
+                console.error("Error loading models", e);
+                els.modelSelect.innerHTML = '<option>Default Model</option>';
+            }
+        }
 
         // Event Listeners
         els.input.addEventListener('input', function() {
@@ -465,6 +524,7 @@
             const text = els.input.value.trim();
             if (!text || isGenerating) return;
 
+            const selectedModel = els.modelSelect.value;
             els.input.value = '';
             els.input.style.height = 'auto';
             els.welcome.style.display = 'none';
@@ -481,7 +541,10 @@
                     body: JSON.stringify({
                         message: text,
                         device_id: deviceId,
-                        chat_id: currentChatId
+                        chat_id: currentChatId,
+                        settings: {
+                            model: selectedModel
+                        }
                     })
                 });
                 const data = await res.json();

@@ -62,7 +62,7 @@ def rotate_key():
 def get_system_instruction(engine_type):
     return formatter.get_system_instruction(engine_type)
 
-def generate_response(prompt, engine_type="general", history=[], user_api_key=None, attachments=[]):
+def generate_response(prompt, engine_type="general", history=[], user_api_key=None, attachments=[], model=None):
 
     try:
 
@@ -95,8 +95,10 @@ def generate_response(prompt, engine_type="general", history=[], user_api_key=No
         # 1. Try with user provided key (BYOK) if exists
 
         if user_api_key:
-
-            for model_id in FALLBACK_MODELS:
+            # If specific model requested, try it first
+            models_to_try = [model] if model else FALLBACK_MODELS
+            
+            for model_id in models_to_try:
 
                 try:
 
@@ -145,8 +147,10 @@ def generate_response(prompt, engine_type="general", history=[], user_api_key=No
             client = genai.Client(api_key=eff_key)
 
             
+            # If specific model requested, try it first
+            models_to_try = [model] if model else FALLBACK_MODELS
 
-            for model_id in FALLBACK_MODELS:
+            for model_id in models_to_try:
 
                 try:
 

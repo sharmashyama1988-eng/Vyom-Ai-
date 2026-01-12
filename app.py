@@ -66,7 +66,14 @@ AVAILABLE_ENGINES = {
 @app.route('/models', methods=['GET'])
 def get_models():
     """Returns available engines and models for the frontend."""
-    return jsonify(AVAILABLE_ENGINES)
+    # Flatten the models list for the frontend dropdown
+    all_models = set()
+    for engine in AVAILABLE_ENGINES.values():
+        for m in engine.get('models', []):
+            all_models.add(m)
+    
+    # Sort for consistency
+    return jsonify(sorted(list(all_models)))
 
 
 @app.route('/user/save_pref', methods=['POST'])
@@ -515,7 +522,7 @@ def ask():
             except StopIteration:
                 api_override = None
 
-        raw_answer = trinity_engine.generate_response(msg, engine_type=selected_engine, history=history, user_api_key=api_override, attachments=attachments)
+        raw_answer = trinity_engine.generate_response(msg, engine_type=selected_engine, history=history, user_api_key=api_override, attachments=attachments, model=selected_model)
     else:
         # Default legacy behavior or other engines
         raw_answer = thinking_engine.solve_with_reasoning(msg, user_api_key=user_api_key)
