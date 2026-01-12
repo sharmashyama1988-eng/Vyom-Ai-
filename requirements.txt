@@ -10,3 +10,15 @@ Pillow
 PyYAML
 numpy
 sympy
+pygame
+scipy
+moviepy
+cachetools
+langchain
+langchain-community
+chromadb
+playwright
+torch
+pyttsx3
+TTS
+opencv-python

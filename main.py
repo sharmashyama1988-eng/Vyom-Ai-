@@ -84,5 +84,9 @@ async def main():
 if __name__ == "__main__":
     try:
         asyncio.run(main())
-    except:
-        pass
+    except KeyboardInterrupt:
+        print("\n🛑 Execution stopped by user.")
+    except Exception as e:
+        print(f"❌ CRITICAL ERROR in main.py: {e}")
+        import traceback
+        traceback.print_exc()

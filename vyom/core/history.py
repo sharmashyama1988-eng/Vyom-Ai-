@@ -15,7 +15,7 @@ LEGACY_USERS_FILE = os.path.join(os.getcwd(), 'users', 'users.json')
 @contextmanager
 def get_db_connection():
     """Context manager for database connections."""
-    conn = sqlite3.connect(DB_FILE)
+    conn = sqlite3.connect(DB_FILE, timeout=30.0)
     conn.row_factory = sqlite3.Row
     try:
         yield conn

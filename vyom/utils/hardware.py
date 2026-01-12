@@ -1,43 +1,72 @@
-import platform
-import time
-import numpy as np
+"""
+VYOM HARDWARE ACCELERATOR
+Optimizes performance for specific hardware configurations.
+Focus: GT 730 (Kepler), Intel i5-4570S, 16GB RAM.
+"""
+import torch
+import os
+import sys
 
-def get_cpu_info():
-    """Gathers basic CPU information."""
-    return {
-        "Processor": platform.processor(),
-        "Architecture": platform.machine(),
-    }
-
-def get_gpu_info():
-    """Gathers detailed GPU information."""
-    # Lightweight check - generic message since we removed heavy libs
-    return ["GPU acceleration disabled in Lightweight Mode."]
-
-def cpu_intensive_task(x):
+def get_optimal_device():
     """
-    A sample CPU-intensive task (Simplified).
+    Determines the best execution provider based on hardware constraints.
     """
-    return np.sin(x)
-
-def main():
-    """Main function to demonstrate CPU usage."""
-    print("--- Hardware Information ---")
-    print(f"Operating System: {platform.system()} {platform.release()}")
+    print("   🔍 Hardware Scan Initiated...")
     
-    cpu_info = get_cpu_info()
-    print("CPU Information:")
-    for key, value in cpu_info.items():
-        print(f"  {key}: {value}")
+    # 1. Try DirectML (Best for Old/Mixed GPUs on Windows)
+    try:
+        import torch_directml
+        if torch_directml.is_available():
+            dml_dev = torch_directml.device()
+            print(f"   🖥️  GPU Acceleration Enabled: DirectML (Optimization for GT 730/Legacy)")
+            return dml_dev
+    except ImportError:
+        pass
 
-    print("\n--- Running CPU Task ---")
-    large_array_cpu = np.random.rand(1000000).astype(np.float32)
-    
-    start_time_actual = time.time()
-    result_cpu = cpu_intensive_task(large_array_cpu)
-    end_time_actual = time.time()
-    
-    print(f"CPU task completed in: {end_time_actual - start_time_actual:.4f} seconds")
+    # 2. Check for Standard NVIDIA CUDA
+    if torch.cuda.is_available():
+        try:
+            gpu_name = torch.cuda.get_device_name(0)
+            cap = torch.cuda.get_device_capability(0) # Returns tuple (major, minor)
+            major, minor = cap
+            
+            print(f"   🖥️  Hardware Detected: {gpu_name} (Compute {major}.{minor})")
+            
+            # CHECK FOR KEPLER (GT 730 is usually 3.5)
+            # USER RULE: MAXIMIZE GPU USAGE TO SAVE CPU
+            # Even if legacy, we attempt to use it.
+            if major < 4:
+                print("   ⚠️  Legacy GPU Detected (Kepler). Attempting to force GPU usage as per User Rule.")
+                
+            return "cuda"
+        except Exception as e:
+            print(f"   ⚠️  GPU Error: {e}")
+            return "cpu"
+            
+    print("   ⚠️  No GPU Acceleration Found. Using CPU.")
+    return "cpu"
 
-if __name__ == "__main__":
-    main()
+def configure_process():
+    """
+    Sets environment variables for low-end hardware.
+    """
+    # GT 730 Optimization (Avoid OOM)
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:512"
+    
+    # Intel i5-4570S Optimization (4 Cores)
+    torch.set_num_threads(4) 
+    
+    # Force 32-bit precision on CPU (faster than 64-bit)
+    if hasattr(torch, "set_float32_matmul_precision"):
+        try:
+            torch.set_float32_matmul_precision('medium')
+        except:
+            pass
+
+class HardwareConfig:
+    DEVICE = get_optimal_device()
+    RAM_LIMIT_GB = 12 # Reserve 4GB for OS, use 12GB for AI
+    
+    # If CPU mode, use Quantized Models (GGUF/Int8)
+    # DirectML acts like a GPU, so we treat it as non-CPU
+    USE_QUANTIZATION = (str(DEVICE) == "cpu")

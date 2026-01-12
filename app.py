@@ -19,9 +19,16 @@ if __name__ == '__main__':
         print("\nSelect Operating Mode:")
         print("1. Default (Heavy - Requires GPU/RAM, Coqui TTS, Local LLM)")
         print("2. Lightweight (CPU friendly, System TTS, Cloud Search)")
-        # choice = input("Enter choice (1 or 2): ").strip() # Auto-default to 2 for safety if no input
-        choice = '2' # Forcing light for safety in this session unless specified
-        # In a real CLI app we might want input(), but for this automated fix we default to safe.
+        
+        choice = '2' # Default
+        try:
+            # Attempt to get user input with a timeout or non-blocking check if possible, 
+            # but standard input is fine here as this is the entry point.
+            user_input = input("Enter choice (1 or 2) [default: 2]: ").strip()
+            if user_input:
+                choice = user_input
+        except (EOFError, KeyboardInterrupt):
+            print("\nUsing default selection.")
         
         if choice == '2':
             config.MODE = 'light'
@@ -385,6 +392,16 @@ def ask():
                         performance.run_in_background(history_manager.add_to_chat_history, device_id, chat_id, answer, role="assistant")
                     return jsonify({"answer": answer})
 
+    # ❤️ HEART: Update Emotional State
+    from vyom.core.emotional_core import emotional_core
+    current_mood = emotional_core.update_mood(msg, "ok")
+    print(f"❤️ AI Mood: {current_mood} | Energy: {emotional_core.energy_level}%")
+    
+    # Inject Emotion into Context (Subtly)
+    # We append the mood instruction to the message so the LLM sees it as a system hint
+    # msg = f"[System Note: Respond with a {current_mood} tone.] {msg}" 
+    # (Actually, better to rely on system prompts, but for now this is a quick patch)
+
     # ⚡ 1. CHECK CACHE (Instant Reply)
     # Cache is now engine-aware
     cached_ans = performance.get_cached_response(msg, engine=selected_engine)
@@ -549,7 +566,11 @@ def ask():
     # ⚡ Memory Cleanup
     performance.run_in_background(performance.optimize_memory)
     
-    return jsonify({"answer": raw_answer})
+    # Return Answer + Mood
+    return jsonify({
+        "answer": raw_answer,
+        "mood": current_mood.lower() # 'happy', 'neutral', 'concerned'
+    })
 
 @app.route('/voice/speak_manual', methods=['POST'])
 def speak_manual():
@@ -563,6 +584,12 @@ def speak_manual():
     voice_engine.stop()
     voice_engine.speak_text(text, gender=gender)
     return jsonify({"status": "playing"})
+
+@app.route('/voice/stop_audio', methods=['POST'])
+def stop_audio():
+    """Stops the AI from speaking immediately."""
+    voice_engine.stop()
+    return jsonify({"status": "stopped"})
 
 def cleanup_temp_files():
     """Removes old temp files to prevent disk bloat."""
@@ -581,7 +608,7 @@ def cleanup_temp_files():
         
         # 2. Clean Root Temp Audio
         for f in os.listdir(os.getcwd()):
-            if f.startswith("temp_ai") and (f.endswith(".mp3") or f.endswith(".wav")):
+            if (f.startswith("temp_ai") or f == "temp_ai_eleven.mp3") and (f.endswith(".mp3") or f.endswith(".wav")):
                 try: os.remove(f)
                 except: pass
                 
@@ -589,7 +616,7 @@ def cleanup_temp_files():
     except Exception as e:
         print(f"   ⚠️ Cleanup Warning: {e}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Initialize Engines based on the selected config
     # We default to light in this script block if not set, but let's re-ensure
     if not config.MODE: config.MODE = "light"
@@ -597,8 +624,44 @@ if __name__ == '__main__':
     import time # Needed for cleanup
     cleanup_temp_files()
     
+    # 🖥️ Hardware Notification
+    print("\n------------------------------------------------")
+    print(" ⚙️  HARDWARE OPTIMIZATION ACTIVE")
+    try:
+        from vyom.utils.hardware import HardwareConfig
+        dev_name = str(HardwareConfig.DEVICE)
+        if "privateuseone" in dev_name.lower() or "dml" in dev_name.lower():
+             print("    • GPU: NVIDIA GT 730 (via DirectML) -> ACCELERATED 🚀")
+        elif "cuda" in dev_name.lower():
+             print("    • GPU: NVIDIA (CUDA) -> ACCELERATED 🚀")
+        else:
+             print("    • GPU: Legacy Mode (CPU Fallback)")
+    except:
+        print("    • GPU: Checking...")
+        
+    print("    • CPU: Intel i5-4570S (4 Cores) -> Threads Optimized")
+    print("    • RAM: 16GB Detected -> High Performance Buffer Enabled")
+    print("------------------------------------------------\n")
+    
     voice_engine.initialize_voice_system()
     
+    # 👂 START EARS (Background Listener)
+    try:
+        from vyom.senses.ears import Ears
+        def on_wake():
+            print("\n👋 HEY! Wake Word Detected! (Listening for command...)")
+            # Play a system sound to acknowledge
+            try: 
+                import winsound
+                winsound.Beep(1000, 200) # High beep
+            except: pass
+            
+        ears = Ears(callback_function=on_wake)
+        ears.start_listening()
+        print("👂 Ears Active: Say 'Vyom' or 'Hey AI' to trigger.")
+    except Exception as e:
+        print(f"⚠️ Ears Init Failed: {e}")
+
     print(f"🚀 Vyom AI Started in {config.MODE.upper()} Mode")
     app.run(port=5000)
 

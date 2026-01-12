@@ -32,7 +32,7 @@ class VyomAIVoiceEngine {
         this.recognition = new webkitSpeechRecognition();
         this.recognition.continuous = true;      // Hamesha sunte raho
         this.recognition.interimResults = true;  // Real-time typing
-        this.recognition.lang = 'en-IN';         // Best for Hinglish
+        this.recognition.lang = 'hi-IN';         // Switched to Hindi (hi-IN) for better accuracy with Hindi queries
 
         this.recognition.onstart = () => console.log("👂 Vyom AI Ears Active");
         

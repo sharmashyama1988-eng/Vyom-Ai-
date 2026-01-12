@@ -1,5 +1,20 @@
 import random
 import urllib.parse
+import os
+import time
+from datetime import datetime
+from PIL import Image
+import io
+
+# Optional: Google GenAI Integration
+try:
+    from google import genai
+    from google.genai import types
+    from dotenv import load_dotenv
+    load_dotenv()
+    HAS_GENAI = True
+except ImportError:
+    HAS_GENAI = False
 
 # --- 🎨 PROMPT ENHANCER ---
 # Ye dictionary simple prompts ko "Professional" prompts mein badal degi
@@ -41,11 +56,48 @@ def generate(prompt, style="realistic", negative_prompt="", width=1024, height=7
     """
     Image generate karta hai aur Markdown wapas karta hai.
     """
+    # 1. Prompt ko behtar banao
+    clean_prompt = prompt.replace("generate image", "").replace("create image", "").strip()
+    final_prompt = enhance_prompt(clean_prompt, style=style)
+    
+    # --- PRIORITY 1: Google Imagen 3 (High Quality) ---
+    if HAS_GENAI:
+        api_key = os.getenv("IMAGEN_API_KEY")
+        if api_key:
+            try:
+                print(f"🎨 Generating with Google Imagen 3: {clean_prompt}...")
+                client = genai.Client(api_key=api_key)
+                
+                response = client.models.generate_images(
+                    model='imagen-3.0-generate-001',
+                    prompt=final_prompt,
+                    config=types.GenerateImagesConfig(
+                        number_of_images=1,
+                        aspect_ratio="1:1" if width==height else "16:9" 
+                    )
+                )
+                
+                if response.generated_images:
+                    # Decode and Save
+                    image_bytes = response.generated_images[0].image.image_bytes
+                    
+                    # Ensure uploads dir exists
+                    upload_dir = os.path.join(os.getcwd(), 'uploads')
+                    os.makedirs(upload_dir, exist_ok=True)
+                    
+                    filename = f"gen_img_{int(time.time())}.png"
+                    filepath = os.path.join(upload_dir, filename)
+                    
+                    image = Image.open(io.BytesIO(image_bytes))
+                    image.save(filepath)
+                    
+                    return f"Here is your **Imagen 3** generated masterpiece based on **'{clean_prompt}'**:\n\n![Generated Image](/uploads/{filename})"
+                    
+            except Exception as e:
+                print(f"⚠️ Imagen 3 Failed (Quota/Auth?): {e}. Falling back...")
+
+    # --- PRIORITY 2: Pollinations.ai (Free Fallback) ---
     try:
-        # 1. Prompt ko behtar banao
-        clean_prompt = prompt.replace("generate image", "").replace("create image", "").strip()
-        final_prompt = enhance_prompt(clean_prompt, style=style)
-        
         # 2. URL Safe banao (Spaces ko %20 mein badlo)
         encoded_prompt = urllib.parse.quote(final_prompt)
         
@@ -57,7 +109,7 @@ def generate(prompt, style="realistic", negative_prompt="", width=1024, height=7
         if negative_prompt:
             image_url += f"&negative={urllib.parse.quote(negative_prompt)}"
 
-        print(f"🎨 Generating Image: {final_prompt}")
+        print(f"🎨 Generating Image (Pollinations): {final_prompt}")
         
         return f"Here is your generated art based on **'{clean_prompt}'**:\n\n![Generated Image]({image_url})"
     

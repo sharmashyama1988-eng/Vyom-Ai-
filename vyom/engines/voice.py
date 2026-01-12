@@ -10,6 +10,7 @@ import queue
 import time
 import sys
 import asyncio
+import requests
 
 try:
     import pygame
@@ -48,8 +49,14 @@ def worker():
         try:
             import torch
             from TTS.api import TTS
+            from vyom.utils.hardware import HardwareConfig # Import Hardware Config
+
             print("   🧠 Loading Human Voice Model (Coqui TTS)...")
-            device = "cuda" if torch.cuda.is_available() else "cpu"
+            
+            # USER RULE: Use the globally detected optimal device (GPU prioritized)
+            device = HardwareConfig.DEVICE
+            print(f"   🎮 Voice Engine triggering on: {device}")
+
             coqui_engine = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
             print("   ✅ Human Voice Model Loaded.")
         except Exception as e:
@@ -63,15 +70,23 @@ def worker():
         text, lang, gender = data
         success = False
         
-        # 1. Try Coqui TTS (Cloned/Human Voice) if in Default mode
-        if config.MODE == 'default' and coqui_engine:
+        # 1. Try ElevenLabs (Premium Cloud Voice) if API Key exists
+        if config.ELEVENLABS_API_KEY:
+            try:
+                _speak_elevenlabs(text, lang, gender)
+                success = True
+            except Exception as e:
+                print(f"⚠️ ElevenLabs Voice Failed: {e}")
+
+        # 2. Try Coqui TTS (Cloned/Human Voice) if in Default mode
+        if not success and config.MODE == 'default' and coqui_engine:
             try:
                 _speak_coqui(text, lang)
                 success = True
             except Exception as e:
                 print(f"⚠️ Coqui Voice Failed: {e}")
 
-        # 2. Try Optimized Cloud Voice (Edge TTS)
+        # 3. Try Optimized Cloud Voice (Edge TTS)
         if not success:
             try:
                 _speak_edge(text, lang, gender)
@@ -79,7 +94,7 @@ def worker():
             except Exception as e:
                 print(f"⚠️ Cloud Voice Failed (Offline?): {e}")
         
-        # 3. Fallback to System Voice if all else fails
+        # 4. Fallback to System Voice if all else fails
         if not success and pyttsx3_engine:
             try:
                 print("   Using System Voice (Fallback)...")
@@ -100,6 +115,45 @@ def _clean_text(text):
     # Remove URLS
     text = re.sub(r'http\S+', '', text)
     return text.strip()
+
+# --- ELEVENLABS TTS (Premium Cloud) ---
+def _speak_elevenlabs(text, lang, gender):
+    """Generates ultra-high quality speech using ElevenLabs API."""
+    text = _clean_text(text)
+    if not text: return
+
+    # Default Voices
+    # Rachel (Female): 21m00Tcm4labaDqWkj35
+    # Josh (Male): TxGEqnHW4m3z4H957S0A
+    voice_id = "21m00Tcm4labaDqWkj35" if gender == "female" else "TxGEqnHW4m3z4H957S0A"
+    
+    url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+    
+    headers = {
+        "Accept": "audio/mpeg",
+        "Content-Type": "application/json",
+        "xi-api-key": config.ELEVENLABS_API_KEY
+    }
+    
+    data = {
+        "text": text,
+        "model_id": "eleven_monolingual_v1" if lang != "hi" else "eleven_multilingual_v2",
+        "voice_settings": {
+            "stability": 0.5,
+            "similarity_boost": 0.75
+        }
+    }
+
+    print(f"   🎙️ ElevenLabs Voice: {voice_id} (Lang: {lang})")
+    response = requests.post(url, json=data, headers=headers)
+    
+    if response.status_code == 200:
+        output_file = "temp_ai_eleven.mp3"
+        with open(output_file, "wb") as f:
+            f.write(response.content)
+        _play_audio(output_file)
+    else:
+        raise Exception(f"ElevenLabs API Error: {response.text}")
 
 # --- COQUI TTS (Human-like Cloning) ---
 def _speak_coqui(text, lang):
@@ -186,12 +240,24 @@ def initialize_voice_system():
     try:
         pygame.mixer.pre_init(44100, -16, 2, 512)
         pygame.mixer.init()
+        pygame.mixer.music.set_volume(0.5) # Default Volume (50%) to prevent harshness
     except Exception as e:
         print(f"❌ Audio Mixer Init Failed: {e}")
 
     # Start Worker
     threading.Thread(target=worker, daemon=True).start()
     _initialized = True
+
+def set_volume(level: float):
+    """Sets the volume (0.0 to 1.0)."""
+    if pygame and pygame.mixer.get_init():
+        try:
+            # Clamp value between 0.0 and 1.0
+            level = max(0.0, min(1.0, level))
+            pygame.mixer.music.set_volume(level)
+            print(f"   🔊 Volume set to {int(level*100)}%")
+        except Exception as e:
+            print(f"⚠️ Volume Control Error: {e}")
 
 def is_ready():
     return _initialized
