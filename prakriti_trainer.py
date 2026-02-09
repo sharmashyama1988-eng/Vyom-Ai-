@@ -169,7 +169,7 @@ try:
             print(f"\n✅ TARGET REACHED! Final Size: {db_size/(1024*1024):.1f} MB")
             break
             
-        now = time.time()
+        now = time.time() # type: ignore
         if (now - last_report) >= 3: # type: ignore
             # Speed calculations
             # DB Write Speed (Actual expansion on disk)
