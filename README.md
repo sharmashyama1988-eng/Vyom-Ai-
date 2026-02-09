@@ -10,7 +10,7 @@ Vyom AI is an advanced, multi-modal AI assistant designed to provide accurate, w
     *   **Default Mode**: Intended for local LLMs (requires GPU/RAM), currently falls back to Cloud/Light mode if hardware is insufficient.
 *   **Voice Interaction**: Supports voice input and output (System TTS or ElevenLabs).
 *   **Visual Studio**: Basic image editing and generation capabilities.
-*   **Web Interface**: Clean, chat-based UI.
+*   **Command Line Interface (CLI)**: Runs directly in your terminal (cmd.exe).
 
 ## Prerequisites
 
@@ -53,13 +53,16 @@ ELEVENLABS_API_KEY=your_elevenlabs_key
 
 ## Usage
 
-### Web Interface (Recommended)
-Run the web server:
+### Run the Application (CLI)
+Double-click `run.bat` or run:
 ```bash
-python app.py
+run.bat
+```
+Or manually:
+```bash
+python cli.py
 ```
 *   Select "Lightweight Mode" (Option 2) if asked.
-*   Open your browser and navigate to `http://localhost:5000`.
 
 ### Visualizer (Experimental)
 Run the standalone agent visualizer:

@@ -52,17 +52,29 @@ def compress_text(text):
     return zlib.compress(text.encode("utf-8"))
 
 # --- MAIN BOT ---
-def run_db_bot():
+def run_db_bot(limit=5):
+    """
+    Runs the research bot for a specific number of new topics.
+    limit: Number of new articles to fetch (default 5). Set to -1 for infinite.
+    """
     print(f"🚀 ULTRA-COMPRESSED DATABASE BOT STARTED: {DB_NAME}")
     
     # पहले से मौजूद टॉपिक्स लोड करो
-    cursor.execute("SELECT topic FROM knowledge")
-    existing_topics = set(row[0].lower() for row in cursor.fetchall())
-    print(f"✅ Loaded Memory: {len(existing_topics)} topics.")
+    try:
+        cursor.execute("SELECT topic FROM knowledge")
+        existing_topics = set(row[0].lower() for row in cursor.fetchall())
+        print(f"✅ Loaded Memory: {len(existing_topics)} topics.")
+    except:
+        existing_topics = set()
 
+    count = 0
     while True:
+        if limit != -1 and count >= limit:
+            print(f"🏁 Research Goal Reached ({limit} articles). Stopping...")
+            break
+            
         try:
-            print("\n🔍 Hunting for knowledge...")
+            print(f"\n🔍 Hunting for knowledge ({count + 1}/{limit})...") # type: ignore
             
             # 1. Random Educational Topic Strategy
             # हम सीधे Wikipedia से रैंडम मांगेंगे (तेज़ तरीका)
@@ -70,7 +82,7 @@ def run_db_bot():
                 topic = wikipedia.random(1)
             except: continue
 
-            if topic.lower() in existing_topics:
+            if topic.lower() in existing_topics: # type: ignore
                 continue # Duplicate check
 
             # Filter: कचरा हटाओ
@@ -114,7 +126,7 @@ TAGS: {keywords}
             # Original Size vs Compressed Size दिखाओ (ताकि तुम्हें यकीन हो)
             orig_size = len(full_text.encode('utf-8'))
             comp_size = len(compressed_blob)
-            saved_percent = round((1 - comp_size/orig_size) * 100, 2)
+            saved_percent = round((1 - comp_size/orig_size) * 100, 2) # type: ignore
 
             # 5. Save to Database
             cursor.execute('''
@@ -123,11 +135,12 @@ TAGS: {keywords}
             ''', (topic, "General", keywords, compressed_blob))
             
             conn.commit()
-            existing_topics.add(topic.lower())
+            existing_topics.add(topic.lower()) # type: ignore
 
             print(f"✅ Saved: {topic}")
             print(f"   📉 Size: {orig_size} bytes -> {comp_size} bytes (Saved {saved_percent}%)")
             
+            count += 1 # type: ignore
             time.sleep(random.randint(1, 3))
 
         except Exception as e:

@@ -1,7 +1,6 @@
 """
-VYOM AI VOICE ENGINE (Optimized & Humanized)
+VYOM AI VOICE ENGINE (API Based)
 Uses Edge TTS (Cloud) for high quality, 
-Coqui TTS (Local) for human-like voice cloning,
 and pyttsx3 (System) as fallback.
 """
 import threading
@@ -24,13 +23,12 @@ speech_queue = queue.Queue()
 
 # State
 pyttsx3_engine = None
-coqui_engine = None
 _initialized = False
 
 # --- SHARED WORKER ---
 def worker():
     """Processes the speech queue."""
-    global pyttsx3_engine, coqui_engine
+    global pyttsx3_engine
     
     # Check if voice is disabled via Env
     if os.environ.get("DISABLE_VOICE") == "true":
@@ -43,24 +41,6 @@ def worker():
         pyttsx3_engine.setProperty('rate', 160)
     except Exception:
         pass
-
-    # 2. Initialize Coqui TTS (Heavy Mode)
-    if config.MODE == 'default':
-        try:
-            import torch
-            from TTS.api import TTS
-            from vyom.utils.hardware import HardwareConfig # Import Hardware Config
-
-            print("   🧠 Loading Human Voice Model (Coqui TTS)...")
-            
-            # USER RULE: Use the globally detected optimal device (GPU prioritized)
-            device = HardwareConfig.DEVICE
-            print(f"   🎮 Voice Engine triggering on: {device}")
-
-            coqui_engine = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
-            print("   ✅ Human Voice Model Loaded.")
-        except Exception as e:
-            print(f"   ⚠️ Coqui TTS Init Failed: {e}")
 
     while True:
         data = speech_queue.get()
@@ -78,15 +58,7 @@ def worker():
             except Exception as e:
                 print(f"⚠️ ElevenLabs Voice Failed: {e}")
 
-        # 2. Try Coqui TTS (Cloned/Human Voice) if in Default mode
-        if not success and config.MODE == 'default' and coqui_engine:
-            try:
-                _speak_coqui(text, lang)
-                success = True
-            except Exception as e:
-                print(f"⚠️ Coqui Voice Failed: {e}")
-
-        # 3. Try Optimized Cloud Voice (Edge TTS)
+        # 2. Try Optimized Cloud Voice (Edge TTS)
         if not success:
             try:
                 _speak_edge(text, lang, gender)
@@ -94,7 +66,7 @@ def worker():
             except Exception as e:
                 print(f"⚠️ Cloud Voice Failed (Offline?): {e}")
         
-        # 4. Fallback to System Voice if all else fails
+        # 3. Fallback to System Voice if all else fails
         if not success and pyttsx3_engine:
             try:
                 print("   Using System Voice (Fallback)...")
@@ -123,8 +95,6 @@ def _speak_elevenlabs(text, lang, gender):
     if not text: return
 
     # Default Voices
-    # Rachel (Female): 21m00Tcm4labaDqWkj35
-    # Josh (Male): TxGEqnHW4m3z4H957S0A
     voice_id = "21m00Tcm4labaDqWkj35" if gender == "female" else "TxGEqnHW4m3z4H957S0A"
     
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
@@ -155,32 +125,6 @@ def _speak_elevenlabs(text, lang, gender):
     else:
         raise Exception(f"ElevenLabs API Error: {response.text}")
 
-# --- COQUI TTS (Human-like Cloning) ---
-def _speak_coqui(text, lang):
-    """Generates human-like speech using voice cloning."""
-    output_file = "temp_ai_human.wav"
-    speaker_wav = "my_voice.wav"
-    
-    text = _clean_text(text)
-    if not text: return
-
-    if not os.path.exists(speaker_wav):
-        # Fallback if no user voice provided
-        speaker_wav = None 
-    
-    # Map lang
-    t_lang = "hi" if lang == "hi" else "en"
-    
-    print(f"   🎙️ Generating Human Voice (Cloning) - Lang: {t_lang}")
-    coqui_engine.tts_to_file(
-        text=text,
-        speaker_wav=speaker_wav,
-        language=t_lang,
-        file_path=output_file
-    )
-    
-    _play_audio(output_file)
-
 # --- EDGE TTS (High Quality, Low CPU) ---
 def _speak_edge(text, lang, gender):
     """Generates speech using Microsoft Edge Online Voices with High-Fidelity settings."""
@@ -201,8 +145,6 @@ def _speak_edge(text, lang, gender):
     output_file = "temp_ai_cloud.mp3"
     
     # --- Humanization Parameters ---
-    # Rate: -10% makes it sound less robotic and more thoughtful
-    # Pitch: Subtle adjustment can make it sound more natural
     rate = "-10%"
     pitch = "+0Hz"
     
@@ -234,13 +176,13 @@ def initialize_voice_system():
     global _initialized
     if _initialized: return
 
-    print(f"\n🎙️ Initializing Voice Engine (Mode: {config.MODE.upper()})...")
+    print(f"\n🎙️ Initializing Voice Engine...")
     
     # Initialize Audio Mixer
     try:
         pygame.mixer.pre_init(44100, -16, 2, 512)
         pygame.mixer.init()
-        pygame.mixer.music.set_volume(0.5) # Default Volume (50%) to prevent harshness
+        pygame.mixer.music.set_volume(0.5) 
     except Exception as e:
         print(f"❌ Audio Mixer Init Failed: {e}")
 
@@ -252,7 +194,6 @@ def set_volume(level: float):
     """Sets the volume (0.0 to 1.0)."""
     if pygame and pygame.mixer.get_init():
         try:
-            # Clamp value between 0.0 and 1.0
             level = max(0.0, min(1.0, level))
             pygame.mixer.music.set_volume(level)
             print(f"   🔊 Volume set to {int(level*100)}%")
@@ -284,11 +225,7 @@ def stop():
 def speak_text(text: str, gender: str = None):
     if not is_ready(): return
     
-    # Simple Lang detection
     is_hindi = any('\u0900' <= char <= '\u097f' for char in text)
     lang = "hi" if is_hindi else "en"
-    
-    # Use global/user gender if not provided
-    # (In a real app, this would come from the current user session)
     
     speech_queue.put((text, lang, gender))
