@@ -158,7 +158,7 @@ print(f"Starting Base: {cursor.fetchone()[0]} topics\n")
 start_time = time.time()
 start_db_size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
 last_report = start_time
-last_bytes = stats["bytes"]
+last_bytes = stats["bytes"] # type: ignore
 last_db_size = start_db_size
 
 try:
@@ -170,11 +170,11 @@ try:
             break
             
         now = time.time()
-        if now - last_report >= 3:
+        if (now - last_report) >= 3: # type: ignore
             # Speed calculations
             # DB Write Speed (Actual expansion on disk)
-            db_delta = (db_size - last_db_size) / (1024 * 1024)
-            write_speed = db_delta / (now - last_report)
+            db_delta = (db_size - last_db_size) / (1024 * 1024) # type: ignore
+            write_speed = db_delta / (now - last_report) # type: ignore
             
             # Data Collection Speed (Compressed data in memory)
             data_delta = (stats["bytes"] - last_bytes) / (1024 * 1024) # type: ignore
