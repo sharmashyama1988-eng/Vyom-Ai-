@@ -7,14 +7,30 @@ import sys
 import shutil
 import time
 import concurrent.futures
-import torch
-from dotenv import load_dotenv
+import torch # type: ignore
+from dotenv import load_dotenv # type: ignore
+
+# Ensure the root project directory is in sys.path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import Configuration
-import vyom.config as config
+import vyom.config as config # type: ignore
+
+# --- LangChain & AI Imports (Consolidated at top for IDE indexing) ---
+try:
+    from langchain_community.document_loaders import DirectoryLoader, TextLoader # type: ignore
+    from langchain_text_splitters import RecursiveCharacterTextSplitter # type: ignore
+    from langchain_chroma import Chroma # type: ignore
+    from langchain_core.embeddings import Embeddings # type: ignore
+    from langchain_ollama import OllamaEmbeddings # type: ignore
+    from google import genai # type: ignore
+except ImportError:
+    # These might fail if running in minimal env, which is handled in train_system
+    pass
 
 # Load env vars
 load_dotenv()
+
 
 def train_system(force=False):
     """
@@ -64,20 +80,16 @@ def train_system(force=False):
         print("⚠️  TRAINING SKIP ⚠️")
         print("   Current Mode: LIGHT")
         print("   Vector Database training requires 'Default' (Heavy) mode or a Google API Key.")
-        print("   To force training, run: python Artificial_intelligence.py --force")
+        print("   To force training, run: python artificial_intelligence.py --force")
         return
 
     print(f"\n🧠 STARTING TRAINING SEQUENCE (Mode: {config.MODE.upper()})")
     print("   Target: Ingesting 'knowledge_base' into Vector DB...")
 
     try:
-        # --- Imports (Only needed for training) ---
-        from langchain_community.document_loaders import DirectoryLoader, TextLoader
-        from langchain_text_splitters import RecursiveCharacterTextSplitter
-        from langchain_chroma import Chroma
-        from langchain_core.embeddings import Embeddings
-        
         # --- Paths ---
+
+
         kb_path = os.path.join(os.getcwd(), 'knowledge_base')
         db_path = os.path.join(os.getcwd(), 'ai_core_memory')
         
@@ -116,9 +128,8 @@ def train_system(force=False):
         if api_key:
             print("   💎 Detected Google API Key. Using Gemini Cloud Embeddings (Optimized).")
             try:
-                from google import genai
-                
                 # Custom Wrapper for Gemini Embeddings (avoids extra pip install)
+
                 class GeminiEmbeddings(Embeddings):
                     def __init__(self, key):
                         self.client = genai.Client(api_key=key)
@@ -138,7 +149,7 @@ def train_system(force=False):
                                 # New SDK: client.models.embed_content
                                 result = self.client.models.embed_content(
                                     model="text-embedding-004", # Newer model
-                                    contents=batch
+                                    contents=batch # type: ignore
                                 )
                                 # Result structure: result.embeddings list of objects
                                 if result.embeddings:
@@ -175,14 +186,21 @@ def train_system(force=False):
                                 model="text-embedding-004",
                                 contents=text
                             )
-                            return result.embeddings[0].values
+                            if result.embeddings:
+                                return result.embeddings[0].values
                         except:
                             time.sleep(1) # Retry once
-                            result = self.client.models.embed_content(
-                                model="text-embedding-004",
-                                contents=text
-                            )
-                            return result.embeddings[0].values
+                            try:
+                                result = self.client.models.embed_content(
+                                    model="text-embedding-004",
+                                    contents=text
+                                )
+                                if result.embeddings:
+                                    return result.embeddings[0].values
+                            except:
+                                pass
+                        # Return empty list or handle failure appropriately if needed
+                        return []
                 
                 embeddings = GeminiEmbeddings(api_key)
             except Exception as e:
@@ -190,7 +208,8 @@ def train_system(force=False):
         
         if not embeddings:
             print("   🔌 Connecting to Ollama (mistral) - FORCE GPU MODE...")
-            from langchain_ollama import OllamaEmbeddings
+            # Already imported at top
+
             # Optimization: Try to use a faster embedding model if available, but stick to config
             embeddings = OllamaEmbeddings(model="mistral")
 

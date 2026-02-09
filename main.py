@@ -3,16 +3,16 @@ VYOM VISUALIZER (Heavy)
 Restored original visualization logic.
 """
 import asyncio
-import pygame
-import numpy as np
+import pygame # type: ignore
+import numpy as np # type: ignore
 import random
-from pygame.math import Vector2
-from scipy import interpolate
+from pygame.math import Vector2 # type: ignore
+from scipy import interpolate # type: ignore
 
 # Only import playwright if needed, or assume heavy env
 # For simplicity, we make this runnable even in light mode but without browser
 try:
-    from playwright.async_api import async_playwright
+    from playwright.async_api import async_playwright # type: ignore
     HAS_BROWSER = True
 except ImportError:
     HAS_BROWSER = False
