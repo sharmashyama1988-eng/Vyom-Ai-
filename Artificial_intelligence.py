@@ -32,234 +32,222 @@ except ImportError:
 load_dotenv()
 
 
+# --- HIGH PERFORMANCE TRAINING MODULE ---
+# Architecture:
+# 1. Main Thread: Reads from prakriti.db (Producer) -> Pushes to Queue
+# 2. Embedding Workers (20 Threads): Pull from Queue -> Call Gemini API -> Push to Save Queue
+# 3. Saver Thread: Pulls from Save Queue -> Writes to ChromaDB (Sequential)
+
+import queue
+import threading
+
 def train_system(force=False):
     """
-    Reads text files from 'knowledge_base', creates embeddings, 
-    and saves them to the local ChromaDB.
+    High-Performance Multi-Threaded Training.
+    Reads from DB -> Embeds in Parallel -> Saves Sequentially.
     """
-    
-    # --- GPU CHECK ---
     print("\n------------------------------------------------")
-    gpu_detected = False
-    
-    # 1. Check Torch (CUDA)
-    if torch.cuda.is_available():
-        print(f"🚀 GPU DETECTED (via Torch): {torch.cuda.get_device_name(0)}")
-        gpu_detected = True
-    else:
-        # 2. Check Nvidia-SMI (Fallback for System GPU)
-        try:
-            import subprocess
-            result = subprocess.run(['nvidia-smi', '-L'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            if result.returncode == 0 and "GPU" in result.stdout:
-                gpu_name = result.stdout.strip().split(':')[1].strip().split('(')[0]
-                print(f"🚀 GPU DETECTED (via System): {gpu_name}")
-                print("   ℹ️  Note: Python Torch is CPU-mode, but OLLAMA should use this GPU.")
-                gpu_detected = True
-        except:
-            pass
-            
-    if gpu_detected:
-        print("   Training will be ACCELERATED (using Ollama GPU).")
-    else:
-        print("⚠️  GPU NOT DETECTED. Using CPU (Will be slower).")
-    print("------------------------------------------------\n")
+    print("🚀 VYOM AI: HIGH-PERFORMANCE TRAINING ENGINE")
+    print("------------------------------------------------")
 
-    # 1. Mode Check
-    # Support for Multiple Keys (Load Balancer)
+    # --- API KEY & SETUP ---
     api_keys_str = os.getenv("GOOGLE_API_KEYS")
     api_key_single = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+    USER_PROVIDED_KEY = "AIzaSyDCHgac7XE5A_EpbRbTbENCBJL5CLD0H7Y"
     
     api_key = None
-    if api_keys_str:
-        api_key = api_keys_str.split(',')[0].strip()
-    elif api_key_single:
-        api_key = api_key_single
+    if api_keys_str: api_key = api_keys_str.split(',')[0].strip()
+    elif api_key_single: api_key = api_key_single
+    else: api_key = USER_PROVIDED_KEY
     
-    if config.MODE == 'light' and not force and not api_key:
-        print("⚠️  TRAINING SKIP ⚠️")
-        print("   Current Mode: LIGHT")
-        print("   Vector Database training requires 'Default' (Heavy) mode or a Google API Key.")
-        print("   To force training, run: python artificial_intelligence.py --force")
+    if not api_key:
+        print("❌ Error: No API Key found. Cannot allow high-speed embedding.")
         return
 
-    print(f"\n🧠 STARTING TRAINING SEQUENCE (Mode: {config.MODE.upper()})")
-    print("   Target: Ingesting 'knowledge_base' into Vector DB...")
+    print(f"   🔑 API Key: {api_key[:5]}...")
 
-    try:
-        # --- Paths ---
+    # --- QUEUES ---
+    # raw_queue: holds (topic, text_content)
+    # embedding_queue: holds (documents_with_embeddings)
+    raw_queue = queue.Queue(maxsize=200) # Buffer
+    embedding_queue = queue.Queue(maxsize=200) 
+    
+    # Flags
+    is_loading_done = False
+    
+    # --- WORKER FUNCTIONS ---
+    
+    def producer_db_reader():
+        """Reads compressed data from Prakriti DB and pushes text to raw_queue."""
+        nonlocal is_loading_done
+        try:
+            prakriti_path = os.path.join(os.getcwd(), 'prakriti.db')
+            if not os.path.exists(prakriti_path):
+                print("❌ Prakriti DB not found.")
+                is_loading_done = True
+                return
 
+            import sqlite3
+            import zlib
+            
+            conn = sqlite3.connect(prakriti_path)
+            cursor = conn.cursor()
+            
+            cursor.execute("SELECT Count(*) FROM memory")
+            total = cursor.fetchone()[0]
+            print(f"   📊 Total Items to Process: {total}")
+            
+            BATCH_SIZE = 1000
+            offset = 0
+            
+            while offset < total:
+                cursor.execute(f"SELECT topic, content FROM memory LIMIT {BATCH_SIZE} OFFSET {offset}")
+                rows = cursor.fetchall()
+                if not rows: break
+                
+                for topic, compressed_content in rows:
+                    try:
+                        text = zlib.decompress(compressed_content).decode("utf-8")
+                        raw_queue.put((topic, text)) # Blocks if full
+                    except: pass
+                
+                print(f"      [Reader] Processed {offset + len(rows)} / {total}", end='\r')
+                offset += BATCH_SIZE
+            
+            conn.close()
+            print("\n   ✅ [Reader] All data read from DB.")
+        except Exception as e:
+            print(f"   ❌ [Reader] Error: {e}")
+        finally:
+            is_loading_done = True
 
-        kb_path = os.path.join(os.getcwd(), 'knowledge_base')
+    def worker_embedder(worker_id):
+        """Pulls text, calls Gemini API, pushes ready-to-save docs to embedding_queue."""
+        client = genai.Client(api_key=api_key)
+        
+        while True:
+            try:
+                # Timeout allows checking is_loading_done
+                item = raw_queue.get(timeout=2) 
+            except queue.Empty:
+                if is_loading_done: break
+                continue
+                
+            topic, text = item
+            
+            # Simple Text Splitter (Manual to avoid overhead)
+            # Just take first 2000 chars for now to speed up, or split properly
+            chunks = [text[i:i+2000] for i in range(0, len(text), 2000)]
+            
+            processed_docs = []
+            
+            try:
+                # Batch Embed Request
+                batch_text = [c.replace("\n", " ") for c in chunks]
+                # API Call
+                result = client.models.embed_content(
+                    model="text-embedding-004", contents=batch_text
+                )
+                
+                if result.embeddings:
+                    from langchain_core.documents import Document
+                    for i, vector in enumerate(result.embeddings):
+                        processed_docs.append(
+                            (Document(page_content=chunks[i], metadata={"topic": topic}), vector.values)
+                        )
+                
+                # Push to Saver
+                if processed_docs:
+                    embedding_queue.put(processed_docs)
+                    
+            except Exception as e:
+                # print(f"W{worker_id} Error: {e}", end='\r')
+                pass
+            
+            raw_queue.task_done()
+
+    def consumer_saver():
+        """Pulls embeddings and saves to ChromaDB (Single Threaded Write)."""
         db_path = os.path.join(os.getcwd(), 'ai_core_memory')
         
-        if not os.path.exists(kb_path):
-            print(f"❌ Error: Knowledge Base directory not found: {kb_path}")
-            return
+        # Init Chroma ONCE
+        # We need a dummy embedding function because Chroma requires it, 
+        # but we are providing pre-computed embeddings!
+        class NullEmbeddings(Embeddings):
+            def embed_documents(self, texts): return []
+            def embed_query(self, text): return []
 
-        # --- 2. Load Documents ---
-        print("   📂 Loading documents (Lazy Loading)...")
-        # Fix: Explicitly specify UTF-8 encoding to avoid Windows cp1252 errors
-        loader = DirectoryLoader(kb_path, glob="*.txt", loader_cls=TextLoader, loader_kwargs={'encoding': 'utf-8'})
-        
-        # Optimization: Use lazy_load to avoid OOM on large datasets
-        docs = list(loader.lazy_load())
-        
-        if not docs:
-            print("   ⚠️ No documents found in knowledge_base.")
-            return
-            
-        print(f"   ✅ Loaded {len(docs)} documents.")
-
-        # --- 3. Split Text (OPTIMIZED) ---
-        print("   ✂️  Splitting text into chunks...")
-        # Optimization: Larger chunks = Fewer embeddings = Faster
-        text_splitter = RecursiveCharacterTextSplitter(
-            chunk_size=1500,
-            chunk_overlap=150,
-            add_start_index=True
-        )
-        splits = text_splitter.split_documents(docs)
-        print(f"   ✅ Created {len(splits)} chunks (Optimized Size).")
-
-        # --- 4. Initialize Embeddings ---
-        embeddings = None
-        
-        if api_key:
-            print("   💎 Detected Google API Key. Using Gemini Cloud Embeddings (Optimized).")
-            try:
-                # Custom Wrapper for Gemini Embeddings (avoids extra pip install)
-
-                class GeminiEmbeddings(Embeddings):
-                    def __init__(self, key):
-                        self.client = genai.Client(api_key=key)
-                        
-                    def embed_documents(self, texts):
-                        # Use Batch API to reduce request count
-                        all_embeddings = []
-                        batch_size = 50 # Google allows batches
-                        
-                        for i in range(0, len(texts), batch_size):
-                            batch = texts[i:i+batch_size]
-                            try:
-                                # Clean text
-                                batch = [t.replace("\n", " ") for t in batch]
-                                
-                                # API Call (Batch)
-                                # New SDK: client.models.embed_content
-                                result = self.client.models.embed_content(
-                                    model="text-embedding-004", # Newer model
-                                    contents=batch # type: ignore
-                                )
-                                # Result structure: result.embeddings list of objects
-                                if result.embeddings:
-                                    # Extract values from embedding objects
-                                    current_batch_embeddings = [e.values for e in result.embeddings]
-                                    all_embeddings.extend(current_batch_embeddings)
-                                
-                                # Rate Limit Guard (Free Tier safety)
-                                time.sleep(1) 
-                                
-                            except Exception as e:
-                                print(f"\n      ⚠️ Batch failed ({e}). Retrying individually...")
-                                # Fallback: Item by item
-                                for text in batch:
-                                    try:
-                                        res = self.client.models.embed_content(
-                                            model="text-embedding-004",
-                                            contents=text
-                                        )
-                                        # Single result: res.embeddings[0].values
-                                        if res.embeddings:
-                                             all_embeddings.append(res.embeddings[0].values)
-                                        time.sleep(2) # Slow down significantly
-                                    except Exception as ex:
-                                        print(f"      ❌ Drop: {ex}")
-                        
-                        return all_embeddings
-                    
-                    def embed_query(self, text):
-                        # Clean text
-                        text = text.replace("\n", " ")
-                        try:
-                            result = self.client.models.embed_content(
-                                model="text-embedding-004",
-                                contents=text
-                            )
-                            if result.embeddings:
-                                return result.embeddings[0].values
-                        except:
-                            time.sleep(1) # Retry once
-                            try:
-                                result = self.client.models.embed_content(
-                                    model="text-embedding-004",
-                                    contents=text
-                                )
-                                if result.embeddings:
-                                    return result.embeddings[0].values
-                            except:
-                                pass
-                        # Return empty list or handle failure appropriately if needed
-                        return []
-                
-                embeddings = GeminiEmbeddings(api_key)
-            except Exception as e:
-                print(f"   ❌ Gemini Init Failed: {e}. Falling back to Local...")
-        
-        if not embeddings:
-            print("   🔌 Connecting to Ollama (mistral) - FORCE GPU MODE...")
-            # Already imported at top
-
-            # Optimization: Try to use a faster embedding model if available, but stick to config
-            embeddings = OllamaEmbeddings(model="mistral")
-
-        # --- 5. Create/Update Vector DB (GPU ACCELERATED BATCHING) ---
-        print(f"   💾 Saving to ChromaDB at {db_path}...")
-        
-        # Initialize Chroma
         vector_store = Chroma(
             persist_directory=db_path,
-            embedding_function=embeddings,
+            embedding_function=NullEmbeddings(),
             collection_name="vyom_knowledge"
         )
         
-        # Optimization: MASSIVE Batch size increase for GPU
-        batch_size = 100 
-        total_batches = (len(splits) + batch_size - 1) // batch_size
-        
-        print(f"   ⏳ Processing {len(splits)} chunks in {total_batches} batches (High-Speed Mode)...")
-        
-        # Use ThreadPool to push batches faster if IO bound (Ollama HTTP)
-        def process_batch(batch_data):
-            idx, batch = batch_data
+        count = 0
+        while True:
             try:
-                vector_store.add_documents(documents=batch)
-                print(f"      - Batch {idx+1}/{total_batches} saved.", end='\r')
+                # Bulk save if possible? No, stream it.
+                batch_data = embedding_queue.get(timeout=2)
+            except queue.Empty:
+                if is_loading_done and raw_queue.empty() and embedding_queue.empty():
+                    break
+                continue
+            
+            # Unpack items
+            # batch_data is list of (doc, vector)
+            docs = [x[0] for x in batch_data]
+            ids = [f"{count}_{i}" for i in range(len(docs))]
+            embeddings = [x[1] for x in batch_data]
+            
+            try:
+                # Chroma add_texts or add_documents usually takes embeddings arg?
+                # Actually standard Chroma.add_documents RE-EMBEDS.
+                # We must use `collection.add` directly or `add_embeddings`.
+                # Langchain Chroma wrapper: `add_documents` doesn't take embeddings.
+                # We need to access the underlying collection.
+                vector_store._collection.add(
+                    ids=ids,
+                    embeddings=embeddings,
+                    documents=[d.page_content for d in docs],
+                    metadatas=[d.metadata for d in docs]
+                )
+                count += len(docs)
+                if count % 100 == 0:
+                     print(f"      💾 [Saver] Saved {count} chunks to Brain...   ", end='\r')
             except Exception as e:
-                print(f"      ❌ Batch {idx+1} Error: {e}")
-
-        # Prepare batches
-        batches = []
-        for i in range(0, len(splits), batch_size):
-            batches.append((i//batch_size, splits[i:i+batch_size]))
-
-        # Execute
-        # Warning: Chroma isn't fully thread-safe for writing, so we stick to sequential optimized batching
-        # or use a very small pool. Sequential with big batches is usually safer for SQLite/Chroma.
-        for idx, batch in batches:
-            vector_store.add_documents(documents=batch)
-            print(f"      - Batch {idx+1}/{total_batches} saved.", end='\r')
+                print(f"      ❌ [Saver] Error: {e}")
+            
+            embedding_queue.task_done()
+            
+    # --- EXECUTION ---
+    
+    # 1. Start Reader
+    reader_thread = threading.Thread(target=producer_db_reader, daemon=True)
+    reader_thread.start()
+    
+    # 2. Start Saver
+    saver_thread = threading.Thread(target=consumer_saver, daemon=True)
+    saver_thread.start()
+    
+    # 3. Start Workers
+    NUM_WORKERS = 15 # 15 threads for API calls
+    print(f"   🚀 Spawning {NUM_WORKERS} Embedding Workers...")
+    workers = []
+    for i in range(NUM_WORKERS):
+        t = threading.Thread(target=worker_embedder, args=(i,), daemon=True)
+        t.start()
+        workers.append(t)
         
-        print("\n🎉 TRAINING COMPLETE!")
-        print(f"   The AI now remembers {len(splits)} new facts from the knowledge base.")
+    # Join
+    reader_thread.join()
+    for t in workers: t.join()
+    saver_thread.join()
+    
+    print("\n🎉 HIGH PERFORMANCE TRAINING COMPLETE!")
 
-    except ImportError as e:
-        print(f"\n❌ Import Error: {e}")
-        print("   Ensure you have installed: langchain-ollama, langchain-chroma, langchain-community, google-generativeai")
-    except Exception as e:
-        print(f"\n❌ Training Failed: {e}")
-        if not api_key:
-            print("   Is Ollama running? (Run 'ollama serve' in another terminal)")
+
+if __name__ == "__main__":
+    train_system()
 
 
 if __name__ == "__main__":
