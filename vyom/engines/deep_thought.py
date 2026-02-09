@@ -23,10 +23,7 @@ logger = logging.getLogger("DeepThought")
 
 # Fallback models
 FALLBACK_MODELS = [
-    'gemini-2.5-flash',
-    'gemini-2.0-flash',
-    'gemini-2.5-pro',
-    'gemini-flash-latest',
+    'gemini-3-pro',
 ]
 
 class DeepThoughtEngine:
@@ -101,7 +98,7 @@ class DeepThoughtEngine:
         """Initialize Ollama (Local Heavy)."""
         try:
             from langchain_ollama import OllamaLLM
-            self.llm = OllamaLLM(model="llama3.2", temperature=0.7)
+            self.llm = OllamaLLM(model="mistral", temperature=0.7)
             logger.info("✅ Ollama LLM Connected.")
             self.is_ready = True
         except ImportError:

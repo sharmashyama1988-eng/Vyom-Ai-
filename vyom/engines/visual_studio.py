@@ -81,7 +81,7 @@ class VisualStudio:
             client = genai.Client(api_key=effective_key)
             
             # Step 1: Analyze all provided images
-            model_id = 'gemini-2.5-flash'
+            model_id = 'gemini-3-pro'
             
             content_list = ["You are an expert image compositor and prompt engineer. Analyze these images and the user's instruction to create a single, highly detailed master prompt for a state-of-the-art image generator (Flux)."]
             

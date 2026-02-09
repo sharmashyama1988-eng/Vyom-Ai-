@@ -1,0 +1,122 @@
+TOPIC: Cybersecurity and Infrastructure Security Agency
+CATEGORY: Cybersecurity
+QUALITY: Educational/Verified
+IMAGE: Failed
+KEYWORDS: managing national special security events, 000 sq ft building, overseeing 5g network security, infrastructure security agency act, infrastructure security agency, infrastructure protection across, new 10 story, include roles protecting, bombing prevention leads, dhs national protection, elizabeths campus headquarters, consolidated dhs st
+==================================================
+
+--- 🌍 LATEST RESEARCH/NEWS (DDGS) ---
+• What is cybersecurity? - IBM - What is cybersecurity? Cybersecurity is the practice of protecting people, systems and data from cyberattacks by using various technologies, processes and policies. At the enterprise level, …
+• What is cybersecurity? - Cisco - Cybersecurity is the convergence of people, processes, and technology that combine to protect organizations, individuals, or networks from digital attacks.
+• What is Cybersecurity? Types, Threats and Cyber Safety Tips - Cybersecurity is the practice of defending computers, servers, mobile devices, electronic systems, networks, and data from malicious attacks. It's also known as information technology security or …
+
+
+--- 📖 SUMMARY ---
+The Cybersecurity and Infrastructure Security Agency (CISA) is a component of the United States Department of Homeland Security (DHS) responsible for cybersecurity and infrastructure protection across all levels of government, coordinating cybersecurity programs with U.S. states, and improving the government's cybersecurity protections against private and nation-state hackers. The term "cyber attack" covers a wide variety of actions ranging from simple probes, to defacing websites, to denial of service, to espionage and destruction.
+The agency began in 2007 as the DHS National Protection and Programs Directorate. With the Cybersecurity and Infrastructure Security Agency Act of 2018, CISA's footprint grew to include roles protecting the census, managing National Special Security Events, and the U.S. response to the COVID-19 pandemic. It has also been involved in overseeing 5G network security, securing elections, and strengthening the US grid against electromagnetic pulses (EMPs). The Office for Bombing Prevention leads the national counter-IED effort.
+Currently headquartered in Arlington, Virginia, in 2025 CISA is planning to move its headquarters along with 6,500 employees to a new 10 story, 620,000 sq ft building on the consolidated DHS St. Elizabeths campus headquarters.
+
+
+
+--- 📚 DEEP DIVE ---
+The Cybersecurity and Infrastructure Security Agency (CISA) is a component of the United States Department of Homeland Security (DHS) responsible for cybersecurity and infrastructure protection across all levels of government, coordinating cybersecurity programs with U.S. states, and improving the government's cybersecurity protections against private and nation-state hackers. The term "cyber attack" covers a wide variety of actions ranging from simple probes, to defacing websites, to denial of service, to espionage and destruction.
+The agency began in 2007 as the DHS National Protection and Programs Directorate. With the Cybersecurity and Infrastructure Security Agency Act of 2018, CISA's footprint grew to include roles protecting the census, managing National Special Security Events, and the U.S. response to the COVID-19 pandemic. It has also been involved in overseeing 5G network security, securing elections, and strengthening the US grid against electromagnetic pulses (EMPs). The Office for Bombing Prevention leads the national counter-IED effort.
+Currently headquartered in Arlington, Virginia, in 2025 CISA is planning to move its headquarters along with 6,500 employees to a new 10 story, 620,000 sq ft building on the consolidated DHS St. Elizabeths campus headquarters.
+
+
+== History ==
+The National Protection and Programs Directorate (NPPD) was formed in 2007 as a component of the United States Department of Homeland Security. NPPD's goal was to advance the Department's national security mission by reducing and eliminating threats to U.S. critical physical and cyber infrastructure.
+On November 16, 2018, President Trump signed into law the Cybersecurity and Infrastructure Security Agency Act of 2018, which elevated the mission of the former NPPD within DHS, establishing the Cybersecurity and Infrastructure Security Agency (CISA). CISA is a successor agency to NPPD, and assists both other government agencies and private sector organizations in addressing cybersecurity issues. Former NPPD Under-Secretary Christopher Krebs was CISA's first Director, and former Deputy Under-Secretary Matthew Travis was its first deputy director.
+On January 22, 2019, CISA issued its first Emergency Directive (19-01: Mitigate DNS Infrastructure Tampering) warning that "an active attacker is targeting government organizations" using DNS spoofing techniques to perform man-in-the-middle attacks. Research group FireEye stated that "initial research suggests the actor or actors responsible have a nexus to Iran."
+In 2020, CISA created a website, titled Rumor Control, to rebut disinformation associated with the 2020 United States presidential election. On November 12, 2020, CISA issued a press release asserting, "There is no evidence that any voting system deleted or lost votes, changed votes, or was in any way compromised." On the same day, Director Krebs indicated that he expected to be dismissed from his post by the Trump administration. Krebs was subsequently fired by President Trump on November 17, 2020 via tweet for his comments regarding the security of the election. According to various reports and statistics, the scale and frequency of cyber-attacks have been steadily increasing in recent years. For example, the number of data breaches reported in 2020 alone reached a record high of 3,932, a 48% increase compared to the previous year, with over 37 billion records exposed globally, and also the average cost of a data breach in 2020 was estimated to be $3.86 million, with an average time to identify and contain a breach of 280 days.
+
+On July 12, 2021, the Senate confirmed Jen Easterly by a voice vote. Easterly's nomination had been reported favorably out of Senate Committee on Homeland Security and Governmental Affairs on June 16, but a floor vote had been reportedly held (delayed) by Senator Rick Scott over broader national security concerns, until the President or Vice President had visited the southern border with Mexico. Easterly hired new staff to monitor online disinformation to enhance what she called the nation's "cognitive infrastructure" and utilized the existing rumor control website during the 2021 elections.
+In September 2022, CISA released their 2023–2025 CISA Strategic Plan, the first comprehensive strategy document since the agency was established in 2018.
+Resentful over CISA continuing to contradict his false claims of election fraud, when Donald Trump returned to the presidency in 2025, he directed his administration to start dismantling CISA. The administration canceled programs that monitor foreign influence, foreign election disinformation, and foreign attempts to break into critical infrastructure like voting systems and electrical grids. It also canceled contracts for penetration testing of local election systems.
+
+
+== Organization ==
+
+CISA divisions include the:
+
+Cybersecurity Division
+National Cybersecurity and Communications Integration Center
+Capacity Building
+Joint Cyber Defense Collaborative
+Mission Engineering
+Office of the Technical Director
+Threat Hunting
+Vulnerability Management
+Infrastructure Security Division
+Bombing Prevention
+Chemical Security
+Exercises
+Infrastructure Assessment & Analysis
+School Safety
+Strategy, Performance & Resources
+Emergency Communications Division
+National Risk Management Center
+Integrated Operations Division
+Regions 1 through 10
+Stakeholder Engagement Division
+Council Management
+International
+Sector Management
+Strategic Relations
+
+
+== Programs ==
+The Continuous Diagnostics and Mitigations program provides cybersecurity tools and services to federal agencies.
+CISA issues "binding operational directives" that require federal government agencies to take action against specific cybersecurity risks.
+In March 2021, CISA assumed control of the .gov top-level domain (TLD) from the General Services Administration. CISA manages the approval of domains and operates the TLD Domain Name System nameservers. In April 2021, CISA removed the fee for registering domains. In January 2023, Cloudflare received a $7.2M contract to provide DNS registry and hosting services for the TLD.
+CISA provides incident response services to the federal executive branch and US-based entities.
+CISA manages the EINSTEIN intrusion detection system to detect malicious activity on federal government agency networks.
+The National Defense Authorization Act for Fiscal Year 2021 granted CISA the authority to issue administrative subpoenas in order to identify the owners of internet connected critical infrastructure related devices with specific vulnerabilities. In 2021, CISA issued 47 subpoenas.
+In August 2021, Easterly stated "One could argue we’re in the business of critical infrastructure, and the most critical infrastructure is our cognitive infrastructure, so building that resilience to misinformation and disinformation, I think, is incredibly important."
+In 2021, CISA released a report that provided guidance for how to navigate and prevent ransomware incidents. This was due to a significant jump in recent attacks related to ransomware.
+
+
+== Committees ==
+
+
+=== Cybersecurity Advisory Committee ===
+In 2021, the Agency created the Cybersecurity Advisory Committee with the following members:
+
+Steve Adler, Mayor, City of Austin, Texas
+Marene Allison, Chief Information Security Officer, Johnson & Johnson
+Lori Beer, Chief Information Officer, JPMorgan Chase
+Robert Chesney, James A. Baker III Chair in the Rule of Law and World Affairs, University of Texas School of Law
+Thomas Fanning, chairman, President and CEO, Southern Company
+Vijaya Gadde
+Patrick D. Gallagher, Chancellor, University of Pittsburgh
+Ronald Green, Executive Vice President and Chief Security Officer, Mastercard
+Niloofar Razi Howe, board member, Tenable
+Kevin Mandia, chief executive officer, Mandiant
+Jeff Moss, President, DEF CON Communications
+Nuala O’Connor, Senior Vice President & Chief Counsel, Digital Citizenship, Walmart
+Nicole Perlroth, Cybersecurity journalist
+Matthew Prince, chief executive officer, Cloudflare
+Ted Schlein, General Partner, Kleiner Perkins; and Caufield & Byers
+Stephen Schmidt, Chief Information Security Officer, Amazon Web Services
+Suzanne Spaulding, Senior Advisor for Homeland Security, CSIS
+Alex Stamos, Partner, Krebs Stamos Group
+Kate Starbird, Associate Professor, Human Centered Design & Engineering, University of Washington
+George Stathakopoulos, Vice President of Corporate Information Security, Apple
+Alicia Tate-Nadeau (ARNG-Ret.), Director, Illinois Emergency Management Agency
+Nicole Wong, Principal, NWong Strategies
+Chris Young, Executive Vice President of Business Development, Strategy, and Ventures, Microsoft
+
+
+== Directors ==
+
+
+== See also ==
+Florida Digital Service
+List of federal agencies in the United States
+
+
+== References ==
+
+
+== External links ==
+Official website

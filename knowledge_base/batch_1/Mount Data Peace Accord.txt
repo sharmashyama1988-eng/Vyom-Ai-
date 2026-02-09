@@ -1,0 +1,42 @@
+TOPIC: Mount Data Peace Accord
+TYPE: Verified Knowledge
+SOURCE: Wikipedia + DuckDuckGo
+==================================================
+
+--- 🚀 LIVE UPDATES & FACTS (DDGS) ---
+🔹 mount和mountain在表示“山”时有什么区别？ - 知乎 (https://www.zhihu.com/question/490216218)
+   Oct 1, 2021 · 同源词，曾经在表达山峰时含义相同。但是现在mount仅作为地名使用，不再单独表达山峰的含义。如：Mount Everest、Mt Kilimanjaro、 St Michael's Mount 等等，同样的称呼这些山峰地 …
+
+🔹 骑马与砍杀2:霸主 (Mount & Blade II: Bannerlord)游戏体验如何？ (https://www.zhihu.com/question/383860303)
+   玩家分享《骑马与砍杀2：霸主》的游戏体验和综合评价。
+
+🔹 linux为什么访问设备数据先要mount? - 知乎 (https://www.zhihu.com/question/524667726)
+   mount不仅仅是在目录树上挂在一个节点，还做了很多其他操作。 比如自动或手动识别设备里的文件系统，调用适当的驱动去读取文件系统的元数据，还有一些其他的初始化操作。 执行了这些操作以 …
+
+
+
+--- 📖 SUMMARY ---
+The Mount Data Peace Accord is a peace deal signed between the government of the Philippines and the Cordillera People's Liberation Army on September 13, 1986, ending hostilities due to the latter's campaign for greater autonomy for the Cordillera region.
+
+--- 📚 DETAILED KNOWLEDGE ---
+The Mount Data Peace Accord is a peace deal signed between the government of the Philippines and the Cordillera People's Liberation Army on September 13, 1986, ending hostilities due to the latter's campaign for greater autonomy for the Cordillera region.
+
+
+== Background ==
+
+Prior to 1966, the Cordillera region was administered under one unit, the old Mountain Province. Abra has been its own independent province. In June 1966, the province was divided into smaller provinces—namely, Abra, Benguet, Ifugao, Mountain Province, and Kalinga-Apayao
+Under the Regionalization Law or Presidential Order No. 1 issued by President Ferdinand Marcos, the Philippines' provinces were organized under 13 regions. The Cordilleran provinces were grouped under two separate regions: Benguet (including Baguio) and Mountain Province were included under Region I (Ilocos Region), and Ifugao and Kalinga-Apayao were included under Region II (Cagayan Valley).
+An armed movement in the Cordillera region that advocated for greater autonomy for people in the area arose from the awarding of 197,346.25 hectares (487,653.2 acres) of land, which covers parts of Abra, Mountain Province, Kalinga-Apayao, Ilocos Norte, and Ilocos Sur, to the Cellophil Resources Corporation (CRC) and Cellulose Processing Corporation (CPC), which mostly affected the Tinguian or Itneg people of Abra. The proposal to build the Chico Dam also rose tension in the region.
+Several ethnic groups of the Cordillera launched an organized effort to air their grievances against CPC through dialogue, although this was met by suppression by the Marcos administration. Some Tinguian, including Conrado Balweg, joined the communist rebellion led by the New People's Army (NPA).
+The Cordillera People's Liberation Army led by Balweg splintered from the New People's Army (NPA) to independently launch an armed struggle fight for self-determination of the people of Cordillera.
+
+
+== Deal ==
+On September 13, 1986, the Cordillera Bodong Administration–Cordillera People's Liberation Army (CBA–CPLA) and the government of the Philippines made a "sipat" (ceasefire) at the Mt. Data Hotel, in Bauko, Mountain Province. As part of the indigenous treaty, the two sides exchanged peace tokens; the CBA–CPLA gave representatives of the Philippine government a spear and a shield, and the Philippine government presented the Cordilleran side an assault rifle (from the Armed Forces of the Philippines) and a Bible and rosary (from President Corazon Aquino).
+
+
+== Aftermath ==
+The Cordillera People's Liberation Army remains an extant organization, which has ceased armed operations, and the Cordillera Administrative Region was formed in preparation for the possible transition of the area to an autonomous region. An autonomous region in the Cordilleras is yet to be established, with two plebiscite (1990 and 1998) proposing the establishment of a Cordillera autonomous region failing to gain enough traction.
+
+
+== References ==

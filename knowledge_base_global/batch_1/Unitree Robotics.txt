@@ -1,0 +1,63 @@
+TOPIC: Unitree Robotics
+CATEGORY: Robotics
+QUALITY: Educational/Verified
+IMAGE: Failed
+KEYWORDS: hangzhou yushu technology co ., ltd, chinese robotics company based, quadruped robots aimed, unitree robotics, 杭州宇树科技有限公司 ),, wang xingxing, may 2016, individual consumers, hangzhou, company, specializes, founded
+==================================================
+
+--- 🌍 LATEST RESEARCH/NEWS (DDGS) ---
+
+
+--- 📖 SUMMARY ---
+Hangzhou Yushu Technology Co., Ltd. (杭州宇树科技有限公司), doing business as Unitree Robotics, is a Chinese robotics company based in Hangzhou, China. It specializes in quadruped robots aimed on individual consumers. The company was founded by Wang Xingxing in May 2016.
+
+
+
+--- 📚 DEEP DIVE ---
+Hangzhou Yushu Technology Co., Ltd. (杭州宇树科技有限公司), doing business as Unitree Robotics, is a Chinese robotics company based in Hangzhou, China. It specializes in quadruped robots aimed on individual consumers. The company was founded by Wang Xingxing in May 2016.
+
+
+== History ==
+In 2013, Wang Xingxing developed quadrupeds during his postgraduate studies at Shanghai University. On August 26, 2016, Wang Xingxing registered and established "Hangzhou Unitree Technology Co., Ltd." in a 50 - square - meter office in Binjiang District, Hangzhou. His first quadruped device, XDog, was developed in 2016 for his master's thesis. The robotic dog became an Internet sensation which attracted buyers and investors. After Wang started to work at the Chinese company DJI, he decided to resign and start his own company, Unitree.
+In 2021, Unitree released Unitree Go1, a quadruped robot similar to Boston Dynamics' Spot. It is fitted with twelve motors; each can generate a maximum torque of 23.7 N⋅m (17.5 lbf⋅ft) and can spin at speeds of up to 30 rad/s (about 280 rpm). According to an article by The Wall Street Journal, the Unitree robotic dog can navigate to different surfaces including sand, rocks, and soil.
+In April 2024, Unitree released a video showcasing the humanoid robot H1. In August 2024, Unitree released Unitree G1, an upgraded version of the H1 robot, for mass production with a price tag of US$16,000.
+In January 2025, Unitree showcased its advanced robotics technology at the Consumer Electronics Show (CES) in Las Vegas, United States. The exhibition featured their consumer-grade quadrupedal robot Go2, its wheeled-leg variant Go2-W, the industrial-grade wheeled-leg robot B2-W, and the general-purpose humanoid robots H1 and G1. This participation marked Unitree's commitment to expanding its presence in international markets.
+In April 2025, it was reported that Unitree was exploring the possibility of holding an initial public offering in Hong Kong. In May 2025, the United States House Select Committee on Strategic Competition between the United States and the Chinese Communist Party requested that the Federal Communications Commission, Department of Commerce, and Department of Defense investigate Unitree regarding alleged connections to the People's Liberation Army and its military-civil fusion programs.
+In July 2025, the company began its IPO tutoring process with CITIC Securities.
+
+
+== Products ==
+Unitree also received backing from venture capitals such as HongShan, Matrix Partners, and Shunwei Capital.
+
+
+== Military applications ==
+
+In August 2022, Unitree denied the allegations about reports of their Go1 robot being used by the Russian Armed Forces.
+In September 2023, the United States Marine Corps used an M72 LAW anti-tank rocket launcher fixed to a Go1 robotic dog during tactical training at the Marine Corps Air Ground Combat Center Twentynine Palms in California.
+In May 2024, The Guardian reported that the Unitree Go2 robot has been used during China's joint military drills with Cambodia, having an automatic rifle on its back. According to the newspaper, this was based on footage broadcast by China Central Television. Unitree, on the same month, stated that they do not sell their products to the People's Liberation Army.
+In August 2024, Forbes reported that Ukraine has deployed a fleet of robot dogs to the frontline. A Ukraine commander states his team was using these robot dogs to explore inside buildings and trenches, where drones can hardly reach. These robot dogs are supplied by a British security company named Brit Alliance. The company purchased Unitree Go2 Pro from China at a cost of $3,500 per unit, then weaponized it with thermal-infrared camera and other military modification. A Go2 Pro can carry up to 9lbs of payload, which makes it versatile in various of battlefield tasks such as carrying supplies and ammunition, or a robot arm to open doors, or conducting a kamikaze attack if necessary.
+
+
+== Awards ==
+In July 2025, the company was one of the winners of the WIPO Global Awards in the category of information and communications technology for small and medium-sized enterprises (SMEs).
+
+
+== Security ==
+In April 2025, security researchers alleged that Unitree had put backdoors into their products that allowed the company to remotely access Unitree devices and even other devices on the same network. Unitree responded by denying that it was an intentional backdoor, and that it was a vulnerability that has since been fixed.
+In September 2025, security researchers published that the Unitree G1 Humanoid robot collects data and reports multi-modal sensor data without notifying the operator and could be used in an offensive cyber attack given weaknesses in its security.  
+Also in September 2025, the same security researchers published a wormable vulnerability that allows an attacker in close proximity to gain full control of Unitree's Go2 and B2 quadrupeds and G1 and H1 humanoids (over BLE). Infected robots would in turn be able to compromise other robots nearby. As of 29 September 2025 Unitree has declined to comment.
+
+
+== See also ==
+Boston Dynamics
+AgiBot
+Fourier
+UBtech Robotics
+
+
+== References ==
+
+
+== External links ==
+
+Official website

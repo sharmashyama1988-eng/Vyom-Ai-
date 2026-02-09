@@ -1,0 +1,144 @@
+TOPIC: FIRST Robotics Competition
+CATEGORY: Robotics
+QUALITY: Educational/Verified
+IMAGE: Failed
+KEYWORDS: international high school robotics competition operated, 2024 season included 62 regional competitions, five robotics competition programs organized, 98 district qualifying competitions, fabricate additional specialized components, first lego league explore, first lego league discover, first lego league challenge, built around two values, high school students, first robotics competition, first robotics competition
+==================================================
+
+--- 🌍 LATEST RESEARCH/NEWS (DDGS) ---
+• History Today: Apple launched its first iPhone and began ... - Firstpost - June 29 is a day to remember for many. It was on this day in 2007 that Apple released the first-ever iPhone, giving rise to the smartphone era and setting the foundation for a company that would go …
+• India vs New Zealand 1st ODI live streaming: When and where to … - 2 days ago · India will be ready with a full-strength top four against an inexperienced Kiwi bowling line-up. Check out when and where you can watch the India vs New Zealand 1st ODI in India on …
+• Cilia Flores, ‘First Revolutionary Combatant’ of Venezuela, taken ... - Jan 4, 2026 · Cilia Flores, the former first lady of Venezuela, was captured alongside her husband Nicolas Maduro by US forces. Maduro, who is currently in the Metropolitan Detention Center in …
+
+
+--- 📖 SUMMARY ---
+FIRST Robotics Competition (FRC) is an international high school robotics competition operated by FIRST. Each year, teams of high school students, coaches, and mentors work to build robots capable of competing in that year's game. Robots complete game-specific tasks which have included: scoring balls into goals, hanging on bars, placing objects in predetermined locations, and balancing robots on various field elements. The game, along with the required set of tasks, changes annually. While teams are given a kit of a standard set of parts during the annual Kickoff, they are also allowed and encouraged to purchase or fabricate additional specialized components. Teams are allowed to design and build prior to Kickoff as long as the design is publicly available. FIRST Robotics Competition is one of five robotics competition programs organized by FIRST, the other four being FIRST LEGO League Discover, FIRST LEGO League Explore, FIRST LEGO League Challenge, and FIRST Tech Challenge.
+The culture of FIRST Robotics Competition is built around two values. "Gracious Professionalism" embraces the competition inherent in the program but rejects trash talk and chest-thumping, instead embracing empathy and respect for other teams. "Coopertition" emphasizes that teams can cooperate and compete at the same time. The goal of the program is to inspire students to be science and technology leaders.
+2024 was the 33rd year of the competition. 3,468 teams, including more than 86,700 students and 27,700 mentors from 28 countries including the United States, Canada, China, and Turkey, built robots. The 2024 season included 62 Regional Competitions, 98 District Qualifying Competitions, and 11 District Championships. In 2024, over 600 teams won slots to attend the FIRST Championship event, where they competed in a tournament. In addition to on-field competition, teams and team members competed for awards recognizing entrepreneurship, creativity, engineering, industrial design, safety, controls, media, quality, and exemplifying the core values of the program. As a result of the COVID-19 pandemic, the amount of active teams decreased during the 2021 season; however, numbers began to increase during the 2022 season and onward.
+
+--- 📚 DEEP DIVE ---
+FIRST Robotics Competition (FRC) is an international high school robotics competition operated by FIRST. Each year, teams of high school students, coaches, and mentors work to build robots capable of competing in that year's game. Robots complete game-specific tasks which have included: scoring balls into goals, hanging on bars, placing objects in predetermined locations, and balancing robots on various field elements. The game, along with the required set of tasks, changes annually. While teams are given a kit of a standard set of parts during the annual Kickoff, they are also allowed and encouraged to purchase or fabricate additional specialized components. Teams are allowed to design and build prior to Kickoff as long as the design is publicly available. FIRST Robotics Competition is one of five robotics competition programs organized by FIRST, the other four being FIRST LEGO League Discover, FIRST LEGO League Explore, FIRST LEGO League Challenge, and FIRST Tech Challenge.
+The culture of FIRST Robotics Competition is built around two values. "Gracious Professionalism" embraces the competition inherent in the program but rejects trash talk and chest-thumping, instead embracing empathy and respect for other teams. "Coopertition" emphasizes that teams can cooperate and compete at the same time. The goal of the program is to inspire students to be science and technology leaders.
+2024 was the 33rd year of the competition. 3,468 teams, including more than 86,700 students and 27,700 mentors from 28 countries including the United States, Canada, China, and Turkey, built robots. The 2024 season included 62 Regional Competitions, 98 District Qualifying Competitions, and 11 District Championships. In 2024, over 600 teams won slots to attend the FIRST Championship event, where they competed in a tournament. In addition to on-field competition, teams and team members competed for awards recognizing entrepreneurship, creativity, engineering, industrial design, safety, controls, media, quality, and exemplifying the core values of the program. As a result of the COVID-19 pandemic, the amount of active teams decreased during the 2021 season; however, numbers began to increase during the 2022 season and onward.
+
+
+== History ==
+
+FIRST was founded in 1989 by American inventor and entrepreneur Dean Kamen, with inspiration and assistance from physicist and MIT professor emeritus Woodie Flowers. Kamen was disappointed with the number of kids—particularly women and minorities—who did not consider science and technology careers and decided to do something about it. As an inventor, he looked for activities that captured the enthusiasm of students and decided that combining the excitement of sports competition with science and technology had the potential to inspire students.
+
+Distilling what sports had done right into a recipe for engaging young people, Kamen says, turned out to be relatively straightforward. "It's after school, not in school. It's aspirational, not required," he explained to me.
+"You don't get quizzes and tests, you go into competitions and get trophies and letters. You don't have teachers, you have coaches. You nurture, you don't judge. You create teamwork between all the participants. We justify sports for teamwork but why, when we do it in the classroom, do we call it cheating?"
+
+Most of all, it was a nonjudgmental space, where in contrast science and math in traditional educational settings had been soured with embarrassment and uncertainty.
+Kamen has stated that FIRST is the invention he feels most proud of and predicts that participants will be responsible for significant technological advances in years to come. The first FIRST Robotics Competition season was in 1992 and had one event at a high school gymnasium in New Hampshire. That first competition was relatively small-scale, similar in size to today's FIRST Tech Challenge and Vex Robotics Competition games. Robots relied on a wired connection to receive data from drivers; in the following year, it quickly transitioned to a wireless system.
+
+
+== Teams ==
+
+3,468 teams from 28 countries competed in the 2024 Crescendo season. Of these, 3,141 are "veteran teams" (meaning they have competed in a previous season), and 327 are "rookie teams" (meaning that 2024 was their first season of competition).
+The countries represented are listed below:
+
+
+== Competition ==
+FIRST Robotics competition operates in two competition models determined by geographic location, District and Regional.
+
+
+=== Districts ===
+Teams competing in districts may attend two smaller events as part of their registration. Advancement from the district to FIRST Championship is dependent on participation in a District Championship event and the Championship slots allocated to each district. While regional teams may never compete in district events, district teams are permitted to compete in regional events but cannot qualify for the FIRST Championship from regional participation.
+Districts are geographically defined areas and all teams within the area are part of the district.
+
+
+=== Regionals ===
+All teams not located inside a district are considered Regional Model Teams. Regional Model Teams are allocated one, generally large, regional event from registration. Advancement from regional events is direct to FIRST Championship on basis of achieving specific merit requirements.
+
+
+=== FIRST Championship ===
+
+The FIRST Championship is the culmination of the FIRST Robotics Competition season, and occurs in late April each year. As of 2025, about 600 teams compete in the FIRST Championship in Houston, Texas. In the past, as many as 800 teams participated in two separate Championships, such as in 2018 where it was held in Houston, Texas and Detroit, Michigan. After the 2022 championships concluded FIRST announced that the world championship would take place at a single location, Houston, Texas, for the 2023 and 2024 seasons. This was later updated through 2027.
+In past years, there have been as many as 12 concurrent divisions at the FIRST Championship. As of 2025, FIRST Robotics Competition teams are divided into 8 divisions at the FIRST Championship:
+
+Archimedes
+Curie
+Daly
+Galileo
+Hopper
+Johnson
+Milstein
+Newton
+The divisions operate in the model of independent events. The winning alliance from each division advances to Einstein Field for a final tournament. Despite being referenced as a single field, Einstein matches take place on two fields known as Mass and Energy which are re-used from the division fields. The teams of the winning alliance are given automatic advancement to FIRST Championship for the next season and the Impact award-winning team is given automatic advancement for the next 8 seasons.
+
+
+== Media exposure ==
+The PBS documentary "Gearing Up" followed four teams through the 2008 season.
+In the television series Dean of Invention, Dean Kamen made appeals promoting FIRST prior to commercial breaks.
+In 2008, FRC Team 1114, Simbotics, was featured in an ongoing storyline on the hit Canadian TV drama "Degrassi: Next Generation". Team 1114's 2006-2007 world champion VEX robot made an appearance, as well as their 2008 world champion FRC robot.
+During the 2010 FIRST Robotics Competition season, FIRST team 3132, Thunder Down Under, was followed by a Macquarie University student film crew to document the first year of FIRST Robotics Competition in Australia. The crew produced a documentary film called I, Wombot. The film premiered during the 2011 Dungog Film Festival.
+A book called The New Cool was written by Neal Bascomb about the story of Team 1717 from Goleta, California as they competed in the 2009 game season.
+The CNN documentary "Don't Fail Me: Education in America", which aired on May 15, 2011, followed three FIRST Robotics Competition teams during the 2011 season. The documentary profiled one student from each team, covering different geographic and socioeconomic levels: Shaan Patel from Team 1403 Cougar Robotics, Maria Castro from Team 842 Falcon Robotics, and Brian Whited from Team 3675 Eagletrons.
+On August 14, 2011, ABC aired a special on FIRST called "i.am FIRST: Science is Rock and Roll" that featured many famous musical artists such as The Black Eyed Peas and Willow Smith. will.i.am himself was the executive producer of the special. The program placed a special focus on the FIRST Robotics competition, even though it included segments on the FIRST Tech Challenge, FIRST LEGO League, and FIRST LEGO League Jr.
+From 1996 to 1998, the FIRST Championship was covered by ESPN.
+For the 2013 Macy's Thanksgiving Day Parade, five FIRST Robotics Competition teams and their robots led the parade, with one robot cutting the ribbon and the others shooting confetti.
+In the 2014 movie Transformers: Age of Extinction, a FIRST Robotics Competition Robot built by Team 2468, Team Appreciate, for the 2012 Season was featured in Cade Yeager's garage shooting the foam basketball game pieces from Rebound Rumble.
+The 2015 Kickoff was, for the first time, broadcast by NBCUniversal, a subsidiary of Comcast, and was available via OnDemand for the month of January 2015.
+In 2016, Christina Li, a member of Team 217, the ThunderChickens, was spotlighted on an episode of Nickelodeon's The Halo Effect entitled "Hello World". A coding camp that Li organized for young girls was featured on the episode, and 217's robot from the 2015 season made an appearance.
+The fourth season of The Fosters (2013 TV series) had several episodes featuring characters competing in a regional FIRST Robotics Competition competition, most notably episode 8 "Girl Code".
+In June 2018, HBO aired a Real Sports with Bryant Gumbel episode, which in a segment, the correspondent Soledad O'Brien interviewed Dean Kamen about FIRST and FIRST Robotics Competition and then later interviewed students from various FRC teams.
+The February 25, 2020 episode of the ABC sitcom Black-ish features recurring character, Jack Johnson, joining a FIRST team—and a cameo by Dean Kamen.
+Episode 6 in the second season of the Netflix original series Trinkets featured a FIRST Robotics Competition competition.
+On March 18, 2022, Disney+ released a documentary directed by Gillian Jacobs titled "More than Robots", which follows four teams in the 2020 season, leading up to the COVID-19 pandemic.
+
+
+== Notable people ==
+
+
+=== Alumni ===
+Priscilla Chan (Team 69)
+Leanne Cushing
+Emma Dumont (Team 980) 
+Imraan Faruque
+Dylan Field (Team 675)
+Amanda Randles
+
+
+=== Employees and volunteers ===
+Joseph Bouchard
+Imogen Coe
+Michael Dubno
+Amber Gell
+Marc Hodosh, entrepreneur, chairman of the Boston FIRST Robotics Competition competition
+Mark Leon, NASA researcher and Master of Ceremonies for several FIRST Robotics Competition events
+David Siegel
+
+
+=== Mentors ===
+Amir Abo-Shaeer (Team 1717), teacher and engineer, subject of The New Cool
+Emma Dumont (Team 680)
+Maor Farid
+Patrick Freivald (Team 1551)
+Grant Imahara (Team 841), engineer and roboticist, former cast member of MythBusters
+Dave Lavery (Team 116), NASA scientist and former member of the FIRST Robotics Competition Game Design Committee
+Nic Radford (Team 118)
+Nancy Yasecko (Team 233)
+
+
+== Games ==
+
+
+== Gallery ==
+
+
+== Notes ==
+
+
+== References ==
+
+
+== Sources ==
+Michigan robotics champs off to world finals in St. Louis- Detroit Free Press
+FIRST Robotics Competition's 2011 Regional Season Is Worth a Look - PCWorld
+
+
+== External links ==
+
+Official website
+NASA FIRST Robotics Competition site

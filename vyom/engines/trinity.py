@@ -4,10 +4,12 @@ from google.genai import types
 from dotenv import load_dotenv
 from vyom.core import internet # Fallback ke liye
 from vyom.core import formatter # 🎨 New Formatter
+from vyom.core import knowledge # 🧠 Internal Memory
 
 # Load environment variables
 
 load_dotenv()
+
 
 
 
@@ -25,13 +27,7 @@ current_key_index = 0
 
 FALLBACK_MODELS = [
 
-    'gemini-2.5-flash',
-
-    'gemini-2.0-flash',
-
-    'gemini-2.5-pro',
-
-    'gemini-flash-latest',
+    'gemini-3-pro',
 
 ]
 
@@ -68,7 +64,15 @@ def generate_response(prompt, engine_type="general", history=[], user_api_key=No
 
         # 🖼️ Prepare Content Parts (prompt + attachments)
 
-        content_parts = [prompt]
+        # 🧠 0. Check Internal Knowledge Base (Auto-Learner Data)
+        internal_knowledge = knowledge.search_knowledge(prompt)
+        final_prompt = prompt
+        
+        if internal_knowledge:
+            print(f"🧠 Trinity: Found internal knowledge for this query.")
+            final_prompt = f"{internal_knowledge}\n\n### User Query:\n{prompt}"
+        
+        content_parts = [final_prompt]
 
         if attachments:
 
@@ -90,7 +94,68 @@ def generate_response(prompt, engine_type="general", history=[], user_api_key=No
 
                         print(f"Failed to load attachment {path}: {ie}")
 
+        # 🚀 0.5. TRY LOCAL AI (KOBOLDPP -> OLLAMA)
+        # Only if no attachments
+        if not attachments:
+            try:
+                import requests
+                import json
+                
+                # A. TRY KOBOLDPP (Preferred for GT 730)
+                kobold_url = "http://localhost:5001/api/v1/generate"
+                
+                # Simple check if Kobold is running
+                try:
+                    # Quick ping (Kobold doesn't have a standard ping, so we just assume it works if port is open or try a dummy gen)
+                    # Actually, we'll just try to generate directly.
+                    pass 
+                except:
+                    pass
 
+                # Kobold Payload
+                payload_kobold = {
+                    "prompt": f"{get_system_instruction(engine_type)}\n\n{final_prompt}\n\nResponse:",
+                    "max_length": 512,
+                    "temperature": 0.7
+                }
+
+                print(f"🐉 Trinity: Checking KoboldCPP (Port 5001)...")
+                try:
+                    response = requests.post(kobold_url, json=payload_kobold, timeout=2) # Fast check
+                    if response.status_code == 200:
+                        data = response.json()
+                        res_text = data.get("results", [{}])[0].get("text", "").strip()
+                        if res_text:
+                            print("🐉 Trinity: KoboldCPP Success!")
+                            return res_text
+                except:
+                    print("🐉 KoboldCPP not responding. Trying Ollama...")
+
+                # B. TRY OLLAMA (Fallback)
+                ollama_url = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
+                local_model = os.getenv("OLLAMA_MODEL", "mistral") 
+                timeout_sec = int(os.getenv("OLLAMA_TIMEOUT", "5")) # Short timeout
+                
+                print(f"🦙 Trinity: Attempting Local Ollama ({local_model})...")
+                
+                payload_ollama = {
+                    "model": local_model,
+                    "prompt": f"{get_system_instruction(engine_type)}\n\n{final_prompt}",
+                    "stream": False,
+                    "options": {"temperature": 0.7}
+                }
+                
+                response = requests.post(ollama_url, json=payload_ollama, timeout=timeout_sec)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    res_text = data.get("response", "")
+                    if res_text:
+                        print("🦙 Trinity: Ollama Success!")
+                        return res_text
+                    
+            except Exception as e:
+                print(f"⚠️ Local AI Failed: {str(e)}. Falling back to Cloud API...")
 
         # 1. Try with user provided key (BYOK) if exists
 

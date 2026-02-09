@@ -1,0 +1,975 @@
+TOPIC: Identity (mathematics)
+CATEGORY: Mathematics
+QUALITY: Educational/Verified
+IMAGE: Failed
+KEYWORDS: cos ^{ 2 }\ theta +\ sin ^{ 2 }\ theta, triple bar symbol ≡ instead, equality relating one mathematical expression, sin 2 ⁡ θ, cos 2 ⁡ θ, ^{ 2 }+ 2ab, b ^{ 2 }}, another mathematical expression b, b )^{ 2 }=, b 2 {\ displaystyle, universally quantified equality, 1 {\ displaystyle
+==================================================
+
+--- 🌍 LATEST RESEARCH/NEWS (DDGS) ---
+
+
+--- 📖 SUMMARY ---
+In mathematics, an identity is an equality relating one mathematical expression A to another mathematical expression B, such that A and B (which might contain some variables) produce the same value for all values of the variables within a certain domain of discourse. In other words, A = B is an identity if A and B define the same functions, and an identity is an equality between functions that are differently defined. For example, 
+  
+    
+      
+        (
+        a
+        +
+        b
+        
+          )
+          
+            2
+          
+        
+        =
+        
+          a
+          
+            2
+          
+        
+        +
+        2
+        a
+        b
+        +
+        
+          b
+          
+            2
+          
+        
+      
+    
+    {\displaystyle (a+b)^{2}=a^{2}+2ab+b^{2}}
+  
+  and 
+  
+    
+      
+        
+          cos
+          
+            2
+          
+        
+        ⁡
+        θ
+        +
+        
+          sin
+          
+            2
+          
+        
+        ⁡
+        θ
+        =
+        1
+      
+    
+    {\displaystyle \cos ^{2}\theta +\sin ^{2}\theta =1}
+  
+ are identities. Identities are sometimes indicated by the triple bar symbol ≡ instead of =, the equals sign. Formally, an identity is a universally quantified equality.
+
+
+
+--- 📚 DEEP DIVE ---
+In mathematics, an identity is an equality relating one mathematical expression A to another mathematical expression B, such that A and B (which might contain some variables) produce the same value for all values of the variables within a certain domain of discourse. In other words, A = B is an identity if A and B define the same functions, and an identity is an equality between functions that are differently defined. For example, 
+  
+    
+      
+        (
+        a
+        +
+        b
+        
+          )
+          
+            2
+          
+        
+        =
+        
+          a
+          
+            2
+          
+        
+        +
+        2
+        a
+        b
+        +
+        
+          b
+          
+            2
+          
+        
+      
+    
+    {\displaystyle (a+b)^{2}=a^{2}+2ab+b^{2}}
+  
+  and 
+  
+    
+      
+        
+          cos
+          
+            2
+          
+        
+        ⁡
+        θ
+        +
+        
+          sin
+          
+            2
+          
+        
+        ⁡
+        θ
+        =
+        1
+      
+    
+    {\displaystyle \cos ^{2}\theta +\sin ^{2}\theta =1}
+  
+ are identities. Identities are sometimes indicated by the triple bar symbol ≡ instead of =, the equals sign. Formally, an identity is a universally quantified equality.
+
+
+== Common identities ==
+
+
+=== Algebraic identities ===
+
+Certain identities, such as 
+  
+    
+      
+        a
+        +
+        0
+        =
+        a
+      
+    
+    {\displaystyle a+0=a}
+  
+ and 
+  
+    
+      
+        a
+        +
+        (
+        −
+        a
+        )
+        =
+        0
+      
+    
+    {\displaystyle a+(-a)=0}
+  
+, form the basis of algebra, while other identities, such as 
+  
+    
+      
+        (
+        a
+        +
+        b
+        
+          )
+          
+            2
+          
+        
+        =
+        
+          a
+          
+            2
+          
+        
+        +
+        2
+        a
+        b
+        +
+        
+          b
+          
+            2
+          
+        
+      
+    
+    {\displaystyle (a+b)^{2}=a^{2}+2ab+b^{2}}
+  
+ and 
+  
+    
+      
+        
+          a
+          
+            2
+          
+        
+        −
+        
+          b
+          
+            2
+          
+        
+        =
+        (
+        a
+        +
+        b
+        )
+        (
+        a
+        −
+        b
+        )
+      
+    
+    {\displaystyle a^{2}-b^{2}=(a+b)(a-b)}
+  
+, can be useful in simplifying algebraic expressions and expanding them.
+
+
+=== Trigonometric identities ===
+
+Geometrically, trigonometric identities are identities involving certain functions of one or more angles. They are distinct from triangle identities, which are identities involving both angles and side lengths of a triangle. Only the former are covered in this article.
+These identities are useful whenever expressions involving trigonometric functions need to be simplified. Another important application is the integration of non-trigonometric functions: a common technique which involves first using the substitution rule with a trigonometric function, and then simplifying the resulting integral with a trigonometric identity.
+One of the most prominent examples of trigonometric identities involves the equation 
+  
+    
+      
+        
+          sin
+          
+            2
+          
+        
+        ⁡
+        θ
+        +
+        
+          cos
+          
+            2
+          
+        
+        ⁡
+        θ
+        =
+        1
+        ,
+      
+    
+    {\displaystyle \sin ^{2}\theta +\cos ^{2}\theta =1,}
+  
+ which is true for all real values of 
+  
+    
+      
+        θ
+      
+    
+    {\displaystyle \theta }
+  
+. On the other hand, the equation
+
+  
+    
+      
+        cos
+        ⁡
+        θ
+        =
+        1
+      
+    
+    {\displaystyle \cos \theta =1}
+  
+
+is only true for certain values of 
+  
+    
+      
+        θ
+      
+    
+    {\displaystyle \theta }
+  
+, not all. For example, this equation is true when 
+  
+    
+      
+        θ
+        =
+        0
+        ,
+      
+    
+    {\displaystyle \theta =0,}
+  
+ but false when 
+  
+    
+      
+        θ
+        =
+        2
+      
+    
+    {\displaystyle \theta =2}
+  
+.
+Another group of trigonometric identities concerns the so-called addition/subtraction formulas (e.g. the double-angle identity 
+  
+    
+      
+        sin
+        ⁡
+        (
+        2
+        θ
+        )
+        =
+        2
+        sin
+        ⁡
+        θ
+        cos
+        ⁡
+        θ
+      
+    
+    {\displaystyle \sin(2\theta )=2\sin \theta \cos \theta }
+  
+, the addition formula for 
+  
+    
+      
+        tan
+        ⁡
+        (
+        x
+        +
+        y
+        )
+      
+    
+    {\displaystyle \tan(x+y)}
+  
+), which can be used to break down expressions of larger angles into those with smaller constituents.
+
+
+=== Exponential identities ===
+
+The following identities hold for all integer exponents, provided that the base is non-zero:
+
+  
+    
+      
+        
+          
+            
+              
+                
+                  b
+                  
+                    m
+                    +
+                    n
+                  
+                
+              
+              
+                
+                =
+                
+                  b
+                  
+                    m
+                  
+                
+                ⋅
+                
+                  b
+                  
+                    n
+                  
+                
+              
+            
+            
+              
+                (
+                
+                  b
+                  
+                    m
+                  
+                
+                
+                  )
+                  
+                    n
+                  
+                
+              
+              
+                
+                =
+                
+                  b
+                  
+                    m
+                    ⋅
+                    n
+                  
+                
+              
+            
+            
+              
+                (
+                b
+                ⋅
+                c
+                
+                  )
+                  
+                    n
+                  
+                
+              
+              
+                
+                =
+                
+                  b
+                  
+                    n
+                  
+                
+                ⋅
+                
+                  c
+                  
+                    n
+                  
+                
+              
+            
+          
+        
+      
+    
+    {\displaystyle {\begin{aligned}b^{m+n}&=b^{m}\cdot b^{n}\\(b^{m})^{n}&=b^{m\cdot n}\\(b\cdot c)^{n}&=b^{n}\cdot c^{n}\end{aligned}}}
+  
+
+Unlike addition and multiplication, exponentiation is not commutative. For example, 2 + 3 = 3 + 2 = 5 and 2 · 3 = 3 · 2 = 6, but 23 = 8 whereas 32 = 9.
+Also unlike addition and multiplication, exponentiation is not associative either. For example, (2 + 3) + 4 = 2 + (3 + 4) = 9 and (2 · 3) · 4 = 2 · (3 · 4) = 24, but 23 to the 4 is 84 (or 4,096) whereas 2 to the 34 is 281 (or 2,417,851,639,229,258,349,412,352). When no parentheses are written, by convention the order is top-down, not bottom-up:
+
+  
+    
+      
+        
+          b
+          
+            
+              p
+              
+                q
+              
+            
+          
+        
+        :=
+        
+          b
+          
+            (
+            
+              p
+              
+                q
+              
+            
+            )
+          
+        
+        ,
+      
+    
+    {\displaystyle b^{p^{q}}:=b^{(p^{q})},}
+  
+   whereas   
+  
+    
+      
+        (
+        
+          b
+          
+            p
+          
+        
+        
+          )
+          
+            q
+          
+        
+        =
+        
+          b
+          
+            p
+            ⋅
+            q
+          
+        
+        .
+      
+    
+    {\displaystyle (b^{p})^{q}=b^{p\cdot q}.}
+  
+
+
+=== Logarithmic identities ===
+
+Several important formulas, sometimes called logarithmic identities or log laws, relate logarithms to one another:
+
+
+==== Product, quotient, power and root ====
+The logarithm of a product is the sum of the logarithms of the numbers being multiplied; the logarithm of the ratio of two numbers is the difference of the logarithms. The logarithm of the pth power of a number is p times the logarithm of the number itself; the logarithm of a pth root is the logarithm of the number divided by p. The following table lists these identities with examples. Each of the identities can be derived after substitution of the logarithm definitions  
+  
+    
+      
+        x
+        =
+        
+          b
+          
+            
+              log
+              
+                b
+              
+            
+            ⁡
+            x
+          
+        
+        ,
+      
+    
+    {\displaystyle x=b^{\log _{b}x},}
+  
+ and/or 
+  
+    
+      
+        y
+        =
+        
+          b
+          
+            
+              log
+              
+                b
+              
+            
+            ⁡
+            y
+          
+        
+        ,
+      
+    
+    {\displaystyle y=b^{\log _{b}y},}
+  
+ in the left hand sides.
+
+
+==== Change of base ====
+The logarithm logb(x) can be computed from the logarithms of x and b with respect to an arbitrary base k using the following formula:
+
+  
+    
+      
+        
+          log
+          
+            b
+          
+        
+        ⁡
+        (
+        x
+        )
+        =
+        
+          
+            
+              
+                log
+                
+                  k
+                
+              
+              ⁡
+              (
+              x
+              )
+            
+            
+              
+                log
+                
+                  k
+                
+              
+              ⁡
+              (
+              b
+              )
+            
+          
+        
+        .
+      
+    
+    {\displaystyle \log _{b}(x)={\frac {\log _{k}(x)}{\log _{k}(b)}}.}
+  
+
+Typical scientific calculators calculate the logarithms to bases 10 and e. Logarithms with respect to any base b can be determined using either of these two logarithms by the previous formula:
+
+  
+    
+      
+        
+          log
+          
+            b
+          
+        
+        ⁡
+        (
+        x
+        )
+        =
+        
+          
+            
+              
+                log
+                
+                  10
+                
+              
+              ⁡
+              (
+              x
+              )
+            
+            
+              
+                log
+                
+                  10
+                
+              
+              ⁡
+              (
+              b
+              )
+            
+          
+        
+        =
+        
+          
+            
+              
+                log
+                
+                  e
+                
+              
+              ⁡
+              (
+              x
+              )
+            
+            
+              
+                log
+                
+                  e
+                
+              
+              ⁡
+              (
+              b
+              )
+            
+          
+        
+        .
+      
+    
+    {\displaystyle \log _{b}(x)={\frac {\log _{10}(x)}{\log _{10}(b)}}={\frac {\log _{e}(x)}{\log _{e}(b)}}.}
+  
+
+Given a number x and its logarithm logb(x) to an unknown base b, the base is given by:
+
+  
+    
+      
+        b
+        =
+        
+          x
+          
+            
+              1
+              
+                
+                  log
+                  
+                    b
+                  
+                
+                ⁡
+                (
+                x
+                )
+              
+            
+          
+        
+        .
+      
+    
+    {\displaystyle b=x^{\frac {1}{\log _{b}(x)}}.}
+  
+
+
+=== Hyperbolic function identities ===
+
+The hyperbolic functions satisfy many identities, all of them similar in form to the trigonometric identities. In fact, Osborn's rule states that one can convert any trigonometric identity into a hyperbolic identity by expanding it completely in terms of integer powers of sines and cosines, changing sine to sinh and cosine to cosh, and switching the sign of every term which contains a product of an even number of hyperbolic sines.
+The Gudermannian function gives a direct relationship between the trigonometric functions and the hyperbolic ones that does not involve complex numbers.
+
+
+== Logic and universal algebra ==
+Formally, an identity is a true universally quantified formula of the form 
+  
+    
+      
+        ∀
+        
+          x
+          
+            1
+          
+        
+        ,
+        …
+        ,
+        
+          x
+          
+            n
+          
+        
+        :
+        s
+        =
+        t
+        ,
+      
+    
+    {\displaystyle \forall x_{1},\ldots ,x_{n}:s=t,}
+  
+ where s and t are terms with no other free variables than 
+  
+    
+      
+        
+          x
+          
+            1
+          
+        
+        ,
+        …
+        ,
+        
+          x
+          
+            n
+          
+        
+        .
+      
+    
+    {\displaystyle x_{1},\ldots ,x_{n}.}
+  
+ The quantifier prefix 
+  
+    
+      
+        ∀
+        
+          x
+          
+            1
+          
+        
+        ,
+        …
+        ,
+        
+          x
+          
+            n
+          
+        
+      
+    
+    {\displaystyle \forall x_{1},\ldots ,x_{n}}
+  
+ is often left implicit, when it is stated that the formula is an identity. For example, the axioms of a monoid are often given as the formulas
+
+  
+    
+      
+        ∀
+        x
+        ,
+        y
+        ,
+        z
+        :
+        x
+        ∗
+        (
+        y
+        ∗
+        z
+        )
+        =
+        (
+        x
+        ∗
+        y
+        )
+        ∗
+        z
+        ,
+        
+        ∀
+        x
+        :
+        x
+        ∗
+        1
+        =
+        x
+        ,
+        
+        ∀
+        x
+        :
+        1
+        ∗
+        x
+        =
+        x
+        ,
+      
+    
+    {\displaystyle \forall x,y,z:x*(y*z)=(x*y)*z,\quad \forall x:x*1=x,\quad \forall x:1*x=x,}
+  
+
+or, shortly,
+
+  
+    
+      
+        x
+        ∗
+        (
+        y
+        ∗
+        z
+        )
+        =
+        (
+        x
+        ∗
+        y
+        )
+        ∗
+        z
+        ,
+        
+        x
+        ∗
+        1
+        =
+        x
+        ,
+        
+        1
+        ∗
+        x
+        =
+        x
+        .
+      
+    
+    {\displaystyle x*(y*z)=(x*y)*z,\qquad x*1=x,\qquad 1*x=x.}
+  
+
+So, these formulas are identities in every monoid. As for any equality, the formulas without quantifier are often called equations. In other words, an identity is an equation that is true for all values of the variables.
+
+
+== See also ==
+Accounting identity
+List of mathematical identities
+Law (mathematics)
+
+
+== References ==
+
+
+=== Notes ===
+
+
+=== Citations ===
+
+
+=== Sources ===
+
+
+== External links ==
+The Encyclopedia of Equation   Online encyclopedia of mathematical identities (archived)
+A Collection of Algebraic Identities Archived 2011-10-01 at the Wayback Machine

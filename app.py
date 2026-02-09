@@ -54,11 +54,11 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Available engines and models (served to frontend)
 AVAILABLE_ENGINES = {
-    "general": {"display": "Default", "models": ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-pro"]},
-    "reasoning": {"display": "Reasoning", "models": ["gemini-2.5-pro", "gemini-2.0-flash", "gemini-flash-latest"]},
-    "coding": {"display": "Coding", "models": ["gemini-2.5-flash", "gemini-2.0-flash"]},
-    "math": {"display": "Math", "models": ["gemini-2.5-flash", "gemini-2.0-flash"]},
-    "trinity": {"display": "Trinity", "models": ["gemini-2.5-pro", "gemini-2.5-flash"]},
+    "general": {"display": "Default", "models": ["gemini-3-pro", "mistral"]},
+    "reasoning": {"display": "Reasoning", "models": ["gemini-3-pro"]},
+    "coding": {"display": "Coding", "models": ["gemini-3-pro"]},
+    "math": {"display": "Math", "models": ["gemini-3-pro"]},
+    "trinity": {"display": "Trinity", "models": ["gemini-3-pro", "mistral"]},
     "image": {"display": "Image", "models": ["realistic", "anime", "digital", "painting", "3d-model"]}
 }
 

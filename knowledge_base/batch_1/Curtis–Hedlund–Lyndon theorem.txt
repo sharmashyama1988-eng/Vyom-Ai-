@@ -1,0 +1,91 @@
+TOPIC: Curtis–Hedlund–Lyndon theorem
+TYPE: Verified Knowledge
+SOURCE: Wikipedia + DuckDuckGo
+==================================================
+
+--- 🚀 LIVE UPDATES & FACTS (DDGS) ---
+🔹 Curtis - 知乎 (https://www.zhihu.com/people/ri-xi-15/answers)
+   回答数 8，获得 7,319 次赞同
+
+🔹 在进行肠道菌群β多样性分析时，为什么能将Bray-Curtis distance绘制成柱状图或盒 … (https://www.zhihu.com/question/657555347)
+   在肠道菌群的β多样性分析中，Bray-Curtis距离是一种常用的度量方法，用于量化不同样本间微生物群落组成的差异。这个距离考虑了两个群落中物种的相对丰度， …
+
+🔹 求问deepseek出现这种情况怎么办啊？ - 知乎 (https://www.zhihu.com/question/10976549748)
+   Jan 31, 2025 · Claude 3.5 Sonnect超过对话长度限制的错误提示 所以这种情况在目前这个阶段是无法避免的，目前比较通用的办法就是 让LLM自己对于这段对 …
+
+
+
+--- 📖 SUMMARY ---
+The Curtis–Hedlund–Lyndon theorem is a mathematical characterization of cellular automata in terms of their symbolic dynamics. It is named after Morton L. Curtis, Gustav A. Hedlund, and Roger Lyndon; in his 1969 paper stating the theorem, Hedlund credited Curtis and Lyndon as co-discoverers. It has been called "one of the fundamental results in symbolic dynamics".
+The theorem states that a function from a shift space to itself represents the transition function of a one-dimensional cellular automaton if and only if it is continuous (with respect to the Cantor topology) and equivariant (with respect to the shift map). More generally, it asserts that the morphisms between any two shift spaces (that is, continuous mappings that commute with the shift) are exactly those mappings which can be defined uniformly by a local rule.
+The version of the theorem in Hedlund's paper applied only to one-dimensional finite automata, but a generalization to higher dimensional integer lattices was soon afterwards published by Richardson (1972), and it can be even further generalized from lattices to discrete groups. One important consequence of the theorem is that, for reversible cellular automata, the reverse dynamics of the automaton can also be described by a cellular automaton.
+
+--- 📚 DETAILED KNOWLEDGE ---
+The Curtis–Hedlund–Lyndon theorem is a mathematical characterization of cellular automata in terms of their symbolic dynamics. It is named after Morton L. Curtis, Gustav A. Hedlund, and Roger Lyndon; in his 1969 paper stating the theorem, Hedlund credited Curtis and Lyndon as co-discoverers. It has been called "one of the fundamental results in symbolic dynamics".
+The theorem states that a function from a shift space to itself represents the transition function of a one-dimensional cellular automaton if and only if it is continuous (with respect to the Cantor topology) and equivariant (with respect to the shift map). More generally, it asserts that the morphisms between any two shift spaces (that is, continuous mappings that commute with the shift) are exactly those mappings which can be defined uniformly by a local rule.
+The version of the theorem in Hedlund's paper applied only to one-dimensional finite automata, but a generalization to higher dimensional integer lattices was soon afterwards published by Richardson (1972), and it can be even further generalized from lattices to discrete groups. One important consequence of the theorem is that, for reversible cellular automata, the reverse dynamics of the automaton can also be described by a cellular automaton.
+
+
+== Definitions ==
+An alphabet is any finite set of symbols, which may be thought of as the states of the cells in a cellular automaton. A configuration is a bi-infinite sequence of symbols from the alphabet:
+
+..., x−2, x−1, x0, x1, x2, ....
+A position in a configuration is an integer, the index of one of the symbols in the sequence; the positions may be thought of as the cells of a cellular automaton. A pattern is a finite set of positions and an assignment of symbols to each of these positions.
+The shift space is the set of all possible configurations over a given alphabet. It may be given the structure of a topological space according to the Cantor topology, in which the fundamental open sets are the sets of configurations that match any single pattern and the open sets are arbitrary unions of fundamental open sets. In this topology, a function f from configurations to configurations is continuous if, for any fixed pattern p defining a fundamental open set P, the set f−1(P) of configurations mapped by f into P can itself be described by a (possibly infinite) set S of patterns, with the property that a configuration belongs to f−1(P) if and only if it matches a pattern in S.
+The shift map is a particular continuous function s on the shift space that transforms a configuration x into a new configuration y in which each symbol is shifted one position over from its previous position: that is, for every integer i, yi = xi − 1. A function f is equivariant under the shift map if the transformation on configurations described by f commutes with the shift map; that is, for every configuration x, it must be the case that f(s(x)) = s(f(x)). Intuitively, this means that every position of the configuration is updated by f using the same rule as every other position.
+A cellular automaton is defined by a rule for computing the new value of each position in a configuration based only on the values of cells in a prior-fixed finite neighborhood surrounding the position, with all positions of the configuration being updated simultaneously based on the same update rule. That is, the new value of a position is a function only of the values of the cells in its neighborhood rather than depending more generally on an unbounded number of cells of the previous configuration. The function f that uses this rule to map a configuration of the cellular automaton into its successor configuration is necessarily equivariant with respect to the shift map, by the assumption that all positions use the same update rule. It is also necessarily continuous in the Cantor topology: if p is a fixed pattern, defining a fundamental open set P, then f−1(P) is defined by a finite set of patterns, the assignments to cells in the neighborhood of p that cause f to produce p. The Curtis–Hedlund–Lyndon theorem states that these two properties are sufficient to define cellular automata: every continuous equivariant function is the update rule of a cellular automaton.
+
+
+== Proof ==
+Ceccherini-Silberstein and Coornaert provide the following proof of the Curtis–Hedlund–Lyndon theorem.
+Suppose f is a continuous shift-equivariant function on the shift space. For each configuration x, let p be the pattern consisting of the single symbol that appears at position zero of f(x).
+By continuity of f, there must exist a finite pattern q in x such that, if the positions outside q are changed arbitrarily but the positions within q are fixed to their values in x, then the result of applying f remains the same at position zero. Equivalently, there must exist a fundamental open set Qx such that x belongs to Qx and such that for every configuration y in  Qx, f(x) and f(y) have the same value at position zero. These fundamental open sets Qx (for all possible configurations x) form an open cover of the shift space. However, the shift space is a compact space: it is a product of finite topological spaces with the alphabet as their points, so compactness follows from Tychonoff's theorem. By compactness, every open cover has a finite subcover. The finite set of positions appearing in this finite subcover may be used as the neighborhood of position zero in a description of f as a cellular automaton rule.
+The same proof applies more generally when the set of integer positions is replaced by any discrete group G, the space of configurations is replaced by the set of functions from G to a finite alphabet, and shift-equivariance is replaced by equivariance under the action of G on itself. In particular, it applies to cellular automata defined on an integer grid of any dimension.
+
+
+== Counterexample for infinite alphabets ==
+Consider the space of bi-infinite sequences of integers, and define a function 
+  
+    
+      
+        f
+      
+    
+    {\displaystyle f}
+  
+ from this space to itself according to the rule that, if f(x) = y, then for every position i, yi = xi + xi. This rule is the same for each position, so it is shift-equivariant.  And it can be shown to be continuous according to the Cantor topology: for each finite pattern p in y, there is a pattern in x with at most twice as many positions that forces 
+  
+    
+      
+        f
+      
+    
+    {\displaystyle f}
+  
+  to generate p, consisting of the cells in p together with the cells whose values are copied into p. However, despite being continuous and equivariant, 
+  
+    
+      
+        f
+      
+    
+    {\displaystyle f}
+  
+  is not a cellular automaton rule, because the value of any cell can potentially depend on the value of any other cell rather than only depending on the cells in any prior-fixed finite neighborhood.
+
+
+== Application to reversible cellular automata ==
+A cellular automaton is said to be reversible when every configuration of the automaton has exactly one predecessor. It follows by a compactness argument that the function mapping each configuration to its predecessor is itself continuous in the shift space, and it is clearly also shift-invariant. Therefore, by the Curtis–Hedlund–Lyndon theorem, the time-reversed dynamics of the cellular automaton may itself be generated using a different cellular automaton rule. However, the neighborhood of a cell in the reverse automaton may be significantly larger than the neighborhood of the same cell in the forward automaton.
+
+
+== Generalization ==
+One can generalize the definition of cellular automaton to those maps that are defined by rules for computing the new value of each position in a configuration based on the values of cells in a finite but variable neighborhood surrounding the position. In this case, as in the classical definition, the local rule is the same for all cells, but the neighborhood is also a function of the configuration around the position.
+The counterexample given above for a continuous and shift-equivariant map which is not a classical cellular automaton, is an example of a generalized cellular automaton. When the alphabet is finite, the definition of generalized cellular automata coincides with the classical definition of cellular automata due to the compactness of the shift space.
+Generalized cellular automata were proposed by Sobottka & Gonçalves (2017)  where it was proved they correspond to continuous shift-equivariant maps.
+
+
+== See also ==
+Surjunctive group
+
+
+== References ==

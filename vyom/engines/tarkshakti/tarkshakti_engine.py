@@ -17,10 +17,7 @@ logger = logging.getLogger("Tarkshakti")
 
 # Fallback models
 FALLBACK_MODELS = [
-    'gemini-2.5-flash',
-    'gemini-2.0-flash',
-    'gemini-2.5-pro',
-    'gemini-flash-latest',
+    'gemini-3-pro',
 ]
 
 class TarkshaktiEngine:
@@ -71,7 +68,7 @@ class TarkshaktiEngine:
 
     def _init_embeddings(self):
         self.embeddings = OllamaEmbeddings(
-            model=self.config.get("ollama_model", "llama3.2"),
+            model=self.config.get("ollama_model", "mistral"),
             base_url=self.config.get("ollama_base_url", "http://localhost:11434")
         )
 
@@ -88,7 +85,7 @@ class TarkshaktiEngine:
     def _init_llm_local(self):
         try:
             self.llm_local = Ollama(
-                model=self.config.get("ollama_model", "llama3.2"),
+                model=self.config.get("ollama_model", "mistral"),
                 base_url=self.config.get("ollama_base_url", "http://localhost:11434"),
                 timeout=30
             )

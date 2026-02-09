@@ -1,0 +1,88 @@
+TOPIC: Domain (biology)
+CATEGORY: Biology
+QUALITY: Educational/Verified
+IMAGE: Failed
+KEYWORDS: dominium ), also dominion, highest taxonomic rank, celled microorganisms without, organisms taken together, domain system include, either three domains, eukaryota ),, two domains, two domains, taxonomy devised, otto kandler, mark wheelis
+==================================================
+
+--- 🌍 LATEST RESEARCH/NEWS (DDGS) ---
+• 什么是域名？域名的格式是什么? - 知乎 - 顶级域 [2] （或顶级域名；英语：Top-level Domain；英文缩写：TLD）是互联网DNS等级之中的最高级的域，它保存于DNS根域的名字空间中。
+• 在 JavaScript 中，如何处理域名（domain name）？ - 知乎 - 在 JavaScript 中，处理域名主要涉及以下几个方面： 获取当前页面的域名：可以使用 window.location.host 或 window.location.hostname 来获取当前页面的域名。例如：
+• domain 和 motif 的区别是什么？ - 知乎 - 很好的问题，这两个概念即使是很多做结构的研究生或是博士生都分不清。实际上，这两个概念有相似性，其指代的对象有交叉，但又不完全相同。domain强调的是某个结构的独立性和功能 …
+
+
+--- 📖 SUMMARY ---
+In biological taxonomy, a domain ( or ) (Latin: regio or dominium), also dominion, superkingdom, realm, or empire, is the highest taxonomic rank of all organisms taken together. It was introduced in the three-domain system of taxonomy devised by Carl Woese, Otto Kandler and Mark Wheelis in 1990.
+According to the domain system, the tree of life consists of either three domains, Archaea, Bacteria, and Eukarya, or two domains, Archaea and Bacteria, with Eukarya included in Archaea. In the three-domain model, the first two are prokaryotes, single-celled microorganisms without a membrane-bound nucleus. All organisms that have a cell nucleus and other membrane-bound organelles are included in Eukarya and called eukaryotes.
+Non-cellular life, most notably the viruses, is not included in this system. Alternatives to the three-domain system include the earlier two-empire system (with the empires Prokaryota and Eukaryota), and the eocyte hypothesis (with two domains of Bacteria and Archaea, with Eukarya included as a branch of Archaea).
+
+--- 📚 DEEP DIVE ---
+In biological taxonomy, a domain ( or ) (Latin: regio or dominium), also dominion, superkingdom, realm, or empire, is the highest taxonomic rank of all organisms taken together. It was introduced in the three-domain system of taxonomy devised by Carl Woese, Otto Kandler and Mark Wheelis in 1990.
+According to the domain system, the tree of life consists of either three domains, Archaea, Bacteria, and Eukarya, or two domains, Archaea and Bacteria, with Eukarya included in Archaea. In the three-domain model, the first two are prokaryotes, single-celled microorganisms without a membrane-bound nucleus. All organisms that have a cell nucleus and other membrane-bound organelles are included in Eukarya and called eukaryotes.
+Non-cellular life, most notably the viruses, is not included in this system. Alternatives to the three-domain system include the earlier two-empire system (with the empires Prokaryota and Eukaryota), and the eocyte hypothesis (with two domains of Bacteria and Archaea, with Eukarya included as a branch of Archaea).
+
+
+== Terminology ==
+The term domain was proposed by Carl Woese, Otto Kandler, and Mark Wheelis (1990) in a three-domain system.
+
+
+== Development of the domain system ==
+Carl Linnaeus made the classification "domain" popular in the famous taxonomy system he created in the middle of the eighteenth century. This system was further improved by the studies of Charles Darwin later on but could not classify bacteria easily, as they have very few observable features to compare to the other domains. 
+The mycologist Royall T. Moore proposed the similar term dominion (Latin: dominium) in 1974, but this was not widely adopted. His proposed system had three dominions: Virus, Prokaryota, and Eukaryota.
+Carl Woese made a revolutionary breakthrough when, in 1977, he compared the nucleotide sequences of the 16s ribosomal RNA and discovered that the rank "domain" contained three branches, not two as scientists had previously thought. Initially, due to their physical similarities, Archaea and Bacteria were classified together and called "archaebacteria". However, scientists now know that these two domains are hardly similar and are internally distinctly different.
+
+
+== Characteristics of the three domains ==
+
+Each of these three domains contains unique ribosomal RNA. This forms the basis of the three-domain system. While the presence of a nuclear membrane differentiates the Eukarya from the Archaea and Bacteria, both of which lack a nuclear envelope, the Archaea and Bacteria are distinct from each other due to differences in the biochemistry of their cell membranes and RNA markers.
+
+
+=== Archaea ===
+
+Archaea are  prokaryotic cells, typically characterized by membrane lipids that are branched hydrocarbon chains attached to glycerol by ether linkages. The presence of these ether linkages in Archaea adds to their ability to withstand extreme temperatures and highly acidic conditions, but many archaea live in mild environments. Halophiles (organisms that thrive in highly salty environments) and hyperthermophiles (organisms that thrive in extremely hot environments) are examples of Archaea.
+Archaea are relatively small. They range from 0.1 μm to 15 μm diameter and up to 200 μm long, about the size of bacteria and the mitochondria found in eukaryotic cells. Members of the genus Thermoplasma are the smallest Archaea.
+
+
+=== Bacteria ===
+
+Cyanobacteria and mycoplasmas are two examples of bacteria.
+Even though bacteria are prokaryotic cells like Archaea, their cell membranes are instead made of phospholipid bilayers, with none of the ether linkages that Archaea have. Internally, bacteria have different RNA structures in their ribosomes, hence they are grouped into a different category. In the two- and three-domain systems, this puts them into a separate domain.
+There is a great deal of diversity in the domain Bacteria. That diversity is further confounded by the exchange of genes between different bacterial lineages. The occurrence of duplicate genes between otherwise distantly-related bacteria makes it nearly impossible to distinguish bacterial species, count the bacterial species on the Earth, or organize them into a tree-like structure (unless the structure includes cross-connections between branches, making it a "network" instead of a "tree").
+
+
+=== Eukarya ===
+
+Members of the domain Eukarya—called eukaryotes—have membrane-bound organelles (including a nucleus containing genetic material) and are represented by five kingdoms: Plantae, Protozoa, Animalia, Chromista, and Fungi.
+
+
+== Exclusion of viruses and prions ==
+
+The three-domain system includes no form of non-cellular life. Stefan Luketa proposed a five-dominion system in 2012, adding Prionobiota (acellular and without nucleic acid) and Virusobiota (acellular but with nucleic acid) to the traditional three domains.
+
+
+== Alternative classifications ==
+
+Alternative classifications of life include:
+
+The two-empire system, proposed by Mayr (1998), with top-level groupings of Prokaryota (or Monera) and Eukaryota.
+The eocyte hypothesis, proposed by Lake et al. (1984), which posits two domains, Bacteria and Archaea, with Eukaryota included as a subordinate clade branching from Archaea.
+The five-dominium system, proposed by Stefan Luketa (2012), The listed Eukarya, Archaea, Bacteria, Virusobiota, Prionobiota
+The nine-domain system, proposed by Ceylin Catri (2026), The listed Eukarya, Archaea, Bacteria, Virusobiota, Prionobiota, Transposonobiota, Transfectionobiota, Transformationobiota, Transductionobiota
+The four-empire system, proposed by Ceylin Catri (2026), The listed Eukaryota, Prokaryota, Euacellota, Pseudoacellota
+The two-nation system, proposed by Ceylin Catri (2026), and many peoples, The listed Cytota, Acytota
+
+
+== See also ==
+Biological dark matter
+Neomura, which is the two domains of life of Archaea and Eukaryota
+Phylogenetics
+Protein structure
+Realm (virology), an equivalent rank for non-cellular life
+Systematics
+
+
+== References ==
+
+
+== External links ==
+Learn Biology: Classification-Domains on YouTube

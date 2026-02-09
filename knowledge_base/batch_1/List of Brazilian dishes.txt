@@ -1,0 +1,70 @@
+TOPIC: List of Brazilian dishes
+DATE: 2026-01-12
+SENTIMENT: Neutral ⚪
+IMAGE STATUS: Image Download Failed
+KEYWORDS: national cuisine marked, latin american region, fifth largest country, largest country, brazilian cuisine, brazilian cuisine, varies greatly, south america, regional differences, native american
+==================================================
+
+--- 🌐 LIVE UPDATES (DuckDuckGo) ---
+• Python 列表 (List) | 菜鸟教程 - Python 列表 (List) 序列是Python中最基本的数据结构。序列中的每个元素都分配一个数字 - 它的位置，或索引，第一个索引是0，第二个索引是1，依此类推。 Python有6个序列的内置类型，但 …
+• C++ 容器类  | 菜鸟教程 - C++ 容器类  C++ 标准库提供了丰富的功能，其中  是一个非常重要的容器类，用于存储元素集合，支持双向迭代器。  是 C++ 标准模板库（STL）中的一个序列容器，它允许 …
+• Python list 常用操作 - 菜鸟教程 - Python list 常用操作 Python3 实例 1.list 定义 实例 [mycode4 type='python'] >>> li = ['a', 'b', 'mpilgrim', 'z', 'example'] >>> li ['a', ..
+
+
+--- 📝 SUMMARY (Wikipedia) ---
+This is a list of dishes found in Brazilian cuisine. Brazilian cuisine was developed from Portuguese, African, Native American, Spanish, French, Italian, Japanese and German influences. It varies greatly by region, reflecting the country's mix of native and immigrant populations, and its continental size as well. This has created a national cuisine marked by the preservation of regional differences. Brazil is the largest country in both South America and the Latin American region. It is the world's fifth largest country, both by geographical area and by population, with over 202,000,000 people.
+
+--- 📊 DETAILED ANALYSIS ---
+This is a list of dishes found in Brazilian cuisine. Brazilian cuisine was developed from Portuguese, African, Native American, Spanish, French, Italian, Japanese and German influences. It varies greatly by region, reflecting the country's mix of native and immigrant populations, and its continental size as well. This has created a national cuisine marked by the preservation of regional differences. Brazil is the largest country in both South America and the Latin American region. It is the world's fifth largest country, both by geographical area and by population, with over 202,000,000 people.
+
+
+== Appetizers ==
+
+
+=== Additional appetizer dishes ===
+
+
+== Side dishes ==
+
+
+== Main courses or entrées ==
+
+
+=== Additional main course dishes ===
+
+June Harvest Festival Foods (Comidas Típicas de São João)
+• Canjica
+• Mungunzá 
+• Bolo de milho
+• Pamonha
+• Bolo de mandioca
+• Cuscuz com charque
+• Curau de milho
+• Paçoquinha de colher
+• Pé de moleque
+• Bolo Souza Leão 
+• Quindim
+• Arroz Doce (rice pudding made with cinnamon sticks)
+• Cocada
+• Maria mole
+• Queijadinha
+• Tapioca de coco
+• Quebra queixo
+• Doce de abóbora 
+• Doce de batata doce
+• Quentão (warm alcoholic beverage)
+
+
+== Sweets ==
+
+
+== Beverages ==
+
+
+== See also ==
+Amazonian cuisine
+List of Brazilian drinks
+List of Brazilian sweets and desserts
+
+
+== References ==

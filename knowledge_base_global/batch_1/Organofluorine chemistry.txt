@@ -1,0 +1,196 @@
+TOPIC: Organofluorine chemistry
+CATEGORY: Chemistry
+QUALITY: Educational/Verified
+IMAGE: Failed
+KEYWORDS: organofluorine chemistry often requires special techniques associated, organofluorine compounds find diverse applications ranging, market ... contain fluorine "., carbon – fluorine bond, organofluorine chemistry describes, new pharmaceuticals ..., organofluorine compounds, organofluorine compounds, organic compounds, water repellents, ozone depletion, global warming
+==================================================
+
+--- 🌍 LATEST RESEARCH/NEWS (DDGS) ---
+• Facebook - log in or sign up - Log into Facebook to start sharing and connecting with your friends, family, and people you know.
+• ‎Facebook App - App Store - Download Facebook by Meta Platforms, Inc. on the App Store. See screenshots, ratings and reviews, user tips and more games like Facebook.
+• Facebook - Messenger - Do you want to join Facebook?Sign Up Meta © 2026
+
+
+--- 📖 SUMMARY ---
+Organofluorine chemistry describes the chemistry of organofluorine compounds, organic compounds that contain a carbon–fluorine bond. Organofluorine compounds find diverse applications ranging from oil and water repellents to pharmaceuticals, refrigerants, and reagents in catalysis. In fact, "about 40% of new pharmaceuticals ... and 25% of all those on the market...  contain fluorine".
+In addition to these applications, some organofluorine compounds are pollutants because of their contributions to ozone depletion, global warming, bioaccumulation, and toxicity. The area of organofluorine chemistry often requires special techniques associated with the handling of fluorinating agents.
+
+
+
+--- 📚 DEEP DIVE ---
+Organofluorine chemistry describes the chemistry of organofluorine compounds, organic compounds that contain a carbon–fluorine bond. Organofluorine compounds find diverse applications ranging from oil and water repellents to pharmaceuticals, refrigerants, and reagents in catalysis. In fact, "about 40% of new pharmaceuticals ... and 25% of all those on the market...  contain fluorine".
+In addition to these applications, some organofluorine compounds are pollutants because of their contributions to ozone depletion, global warming, bioaccumulation, and toxicity. The area of organofluorine chemistry often requires special techniques associated with the handling of fluorinating agents.
+
+
+== The carbon–fluorine bond ==
+
+Fluorine has several distinctive differences from all other substituents encountered in organic molecules. As a result, the physical and chemical properties of organofluorines can be distinctive in comparison to other organohalogens.
+
+The carbon–fluorine bond is one of the strongest in organic chemistry (an average bond energy around 480 kJ/mol). This is significantly stronger than the bonds of carbon with other halogens (an average bond energy of e.g. C–Cl bond is around 320 kJ/mol) and is one of the reasons why fluoroorganic compounds have high thermal and chemical stability.
+The carbon–fluorine bond is relatively short (around 1.4 Å).
+The Van der Waals radius of the fluorine substituent is only 1.47 Å, which is shorter than in any other substituent and is close to that of hydrogen (1.2 Å). This, together with the short bond length, is the reason why there is no steric strain in polyfluorinated compounds. This is another reason for their high thermal stability. In addition, the fluorine substituents in polyfluorinated compounds efficiently shield the carbon skeleton from possible attacking reagents. This is another reason for the high chemical stability of polyfluorinated compounds.
+Fluorine has the highest electronegativity of all elements: 3.98. This causes the high dipole moment of C–F bond (1.41 D).
+Fluorine has the lowest polarizability of all atoms: 0.56 
+  
+    
+      
+        ×
+      
+    
+    {\displaystyle \times }
+  
+ 10−24 cm3. This causes very weak dispersion forces between polyfluorinated molecules and is the reason for the often-observed boiling point reduction on fluorination as well as for the simultaneous hydrophobicity and lipophobicity of polyfluorinated compounds whereas other perhalogenated compounds are more lipophilic.
+In comparison to aryl chlorides and bromides, aryl fluorides form Grignard reagents only reluctantly.  On the other hand, aryl fluorides, e.g. fluoroanilines and fluorophenols, often undergo nucleophilic substitution efficiently.
+
+
+== Types of organofluorine compounds ==
+
+
+=== Fluorocarbons ===
+
+Formally, fluorocarbons only contain carbon and fluorine. Sometimes they are called perfluorocarbons. They can be gases, liquids, waxes, or solids, depending upon their molecular weight. The simplest fluorocarbon is the gas tetrafluoromethane (CF4). Liquids include perfluorooctane and perfluorodecalin. While fluorocarbons with single bonds are stable, unsaturated fluorocarbons are more reactive, especially those with triple bonds. Fluorocarbons are more chemically and thermally stable than hydrocarbons, reflecting the relative inertness of the C–F bond. They are also relatively lipophobic. Because of the reduced intermolecular van der Waals interactions, fluorocarbon-based compounds are sometimes used as lubricants or are highly volatile. Fluorocarbon liquids have medical applications as oxygen carriers.
+The structure of organofluorine compounds can be distinctive.  As shown below, perfluorinated aliphatic compounds tend to segregate from hydrocarbons.  This "like dissolves like effect" is related to the usefulness of fluorous phases and the use of PFOA in processing of fluoropolymers.  In contrast to the aliphatic derivatives, perfluoroaromatic derivatives tend to form mixed phases with nonfluorinated aromatic compounds, resulting from donor-acceptor interactions between the pi-systems.
+
+
+=== Fluoropolymers ===
+
+Polymeric organofluorine compounds are numerous and commercially significant. They range from fully fluorinated species, e.g. PTFE to partially fluorinated, e.g. polyvinylidene fluoride ([CH2CF2]n) and polychlorotrifluoroethylene ([CFClCF2]n).  The fluoropolymer polytetrafluoroethylene (PTFE/Teflon) is a solid.
+
+
+=== Hydrofluorocarbons ===
+
+Hydrofluorocarbons (HFCs), organic compounds that contain fluorine and hydrogen atoms, are the most common type of organofluorine compounds. They are commonly used in air conditioning and as refrigerants in place of the older chlorofluorocarbons such as R-12 and hydrochlorofluorocarbons such as R-21. They do not harm the ozone layer as much as the compounds they replace; however, they do contribute to global warming. Their atmospheric concentrations and contribution to anthropogenic greenhouse gas emissions are rapidly increasing, causing international concern about their radiative forcing.
+Fluorocarbons with few C–F bonds behave similarly to the parent hydrocarbons, but their reactivity can be altered significantly. For example, both uracil and 5-fluorouracil are colourless, high-melting crystalline solids, but the latter is a potent anti-cancer drug.  The use of the C–F bond in pharmaceuticals is predicated on this altered reactivity. Several drugs and agrochemicals contain only one fluorine center or one trifluoromethyl group.
+Unlike other greenhouse gases in the Paris Agreement, hydrofluorocarbons have other international negotiations.
+In September 2016, the so-called New York Declaration urged a global reduction in the use of HFCs. On 15 October 2016, due to these chemicals contribution to climate change, negotiators from 197 nations meeting at the summit of the United Nations Environment Programme in Kigali, Rwanda reached a legally binding accord to phase out hydrofluorocarbons (HFCs) in an amendment to the Montreal Protocol.
+
+
+=== Fluorocarbenes ===
+As indicated throughout this article, fluorine-substituents lead to reactivity that differs strongly from classical organic chemistry. The premier example is difluorocarbene, CF2, which is a singlet whereas carbene (CH2) has a triplet ground state.  This difference is significant because difluorocarbene is a precursor to tetrafluoroethylene.
+
+
+=== Perfluorinated compounds ===
+
+Perfluorinated compounds are fluorocarbon derivatives, as they are closely structurally related to fluorocarbons. However, they also possess nitrogen, iodine, or oxygen. Perfluorinated carboxylic acids are examples. 
+Highly fluorinated substituents, e.g. perfluorohexyl (C6F13) confer distinctive solubility properties to molecules, which facilitates purification of products in organic synthesis. This area, described as "fluorous chemistry," exploits the concept of like-dissolves-like in the sense that fluorine-rich compounds dissolve preferentially in fluorine-rich solvents.  Because of the relative inertness of the C–F bond, such fluorous phases are compatible with harsh reagents.  This theme has spawned techniques of fluorous tagging and fluorous protection.  Illustrative of fluorous technology is the use of fluoroalkyl-substituted tin hydrides for reductions, the products being easily separated from the spent tin reagent by extraction using fluorinated solvents. 
+Triphenylphosphine has been modified by attachment of perfluoroalkyl substituents that confer solubility in perfluorohexane as well as supercritical carbon dioxide.  As a specific example, [(C8F17C3H6-4-C6H4)3P.
+Hydrophobic fluorinated ionic liquids, such as organic salts of bistriflimide or hexafluorophosphate, can form phases that are insoluble in both water and organic solvents, producing multiphasic liquids.
+Fluorine-containing compounds are often featured in noncoordinating or weakly coordinating anions.  Both tetrakis(pentafluorophenyl)borate, B(C6F5)4−, and the related tetrakis[3,5-bis(trifluoromethyl)phenyl]borate, are useful in Ziegler–Natta catalysis and related alkene polymerization methodologies.  The fluorinated substituents render the anions weakly basic and enhance the solubility in weakly basic solvents, which are compatible with strong Lewis acids.
+
+
+== Methods for preparation of C–F bonds ==
+Organofluorine compounds are prepared by numerous routes, depending on the degree and regiochemistry of fluorination sought and the nature of the precursors.  The direct fluorination of hydrocarbons with F2, often diluted with N2, is useful for highly fluorinated compounds:
+
+R3CH + F2 → R3CF + HF
+Such reactions however are often unselective and require care because hydrocarbons can uncontrollably "burn" in F2, analogous to the combustion of hydrocarbon in O2. For this reason, alternative fluorination methodologies have been developed. Generally, such methods are classified into two classes.
+
+
+=== Electrophilic fluorination ===
+
+Electrophilic fluorination rely on sources of "F+".  Often such reagents feature N–F bonds, for example F-TEDA-BF4.  Asymmetric fluorination, whereby only one of two possible enantiomeric products are generated from a prochiral substrate, rely on electrophilic fluorination reagents.  Illustrative of this approach is the preparation of a precursor to anti-inflammatory agents:
+
+
+==== Electrosynthetic methods ====
+
+A specialized but important method of electrophilic fluorination involves electrosynthesis.  The method is mainly used to perfluorinate, i.e. replace all C–H bonds by C–F bonds.  The hydrocarbon is dissolved or suspended in liquid HF, and the mixture is electrolyzed at 5–6 V using Ni anodes.  The method was first demonstrated with the preparation of perfluoropyridine (C5F5N) from pyridine (C5H5N). Several variations of this technique have been described, including the use of molten potassium bifluoride or organic solvents.
+
+
+=== Nucleophilic fluorination ===
+The major alternative to electrophilic fluorination is nucleophilic fluorination using reagents that are sources of "F−," for Nucleophilic displacement typically of chloride and bromide.  Metathesis reactions employing alkali metal fluorides are the simplest. For aliphatic compounds this is sometimes called the Finkelstein reaction, while for aromatic compounds it is known as the Halex process.
+
+R3CCl + MF → R3CF + MCl (M = Na, K, Cs)
+Alkyl monofluorides can be obtained from alcohols and Olah reagent (pyridinium fluoride) or another fluoridating agents.
+The decomposition of aryldiazonium tetrafluoroborates  in the Sandmeyer or Schiemann reactions exploit fluoroborates as F− sources.
+
+ArN2BF4 → ArF + N2 + BF3
+Although hydrogen fluoride may appear to be an unlikely nucleophile, it is the most common source of fluoride in the synthesis of organofluorine compounds. Such reactions are often catalysed by metal fluorides such as chromium trifluoride. 1,1,1,2-Tetrafluoroethane, a replacement for CFCs, is prepared industrially using this approach:
+
+Cl2C=CClH + 4 HF → F3CCFH2 + 3 HCl
+Notice that this transformation entails two reaction types, metathesis (replacement of Cl− by F−) and hydrofluorination of an alkene.
+
+
+=== Deoxofluorination ===
+Deoxofluorination convert a variety of oxygen-containing groups into fluorides. The usual reagent is sulfur tetrafluoride: 
+
+RCO2H + SF4 → RCF3 + SO2 + HF
+A more convenient alternative to SF4 is the diethylaminosulfur trifluoride, which is a liquid whereas SF4 is a corrosive gas: 
+
+C6H5CHO  +  R2NSF3   →   C6H5CHF2  +  "R2NSOF"
+Apart from DAST, a wide variety of similar reagents exist, including, but not limited to, 2-pyridinesulfonyl fluoride (PyFluor) and N-tosyl-4-chlorobenzenesulfonimidoyl fluoride (SulfoxFluor). Many of these display improved properties such as better safety profile, higher thermodynamic stability, ease of handling, high enantioselectivity, and selectivity over elimination side-reactions.
+
+
+=== From fluorinated building blocks ===
+Many organofluorine compounds are generated from reagents that deliver perfluoroalkyl and perfluoroaryl groups. (Trifluoromethyl)trimethylsilane, CF3Si(CH3)3, is used as a source of the trifluoromethyl group, for example.  Among the available fluorinated building blocks are CF3X (X = Br, I), C6F5Br, and C3F7I.  These species form Grignard reagents that then can be treated with a variety of electrophiles. The development of fluorous technologies (see below, under solvents) is leading to the development of reagents for the introduction of "fluorous tails".
+A special but significant application of the fluorinated building block approach is the synthesis of tetrafluoroethylene, which is produced on a large-scale industrially via the intermediacy of difluorocarbene.  The process begins with the thermal (600–800 °C) dehydrochlorination of chlorodifluoromethane:
+
+CHClF2  →   CF2  +  HCl
+2 CF2  →   C2F4
+Sodium fluorodichloroacetate (CAS# 2837-90-3) is used to generate chlorofluorocarbene, for cyclopropanations.
+
+
+=== 18F-Delivery methods ===
+The usefulness of fluorine-containing radiopharmaceuticals in 18F-positron emission tomography has motivated the development of new methods for forming C–F bonds. Because of the short half-life of 18F, these syntheses must be highly efficient, rapid, and easy. Illustrative of the methods is the preparation of fluoride-modified glucose by displacement of a triflate by a labeled fluoride nucleophile:
+
+
+== Biological role ==
+Biologically synthesized organofluorines have been found in microorganisms and plants, but not animals. The most common example is fluoroacetate, which occurs as a plant defence against herbivores in at least 40 plants in Australia, Brazil and Africa. Other biologically synthesized organofluorines include ω-fluoro fatty acids, fluoroacetone, and 2-fluorocitrate which are all believed to be biosynthesized in biochemical pathways from the intermediate fluoroacetaldehyde. Adenosyl-fluoride synthase is an enzyme capable of biologically synthesizing the carbon–fluorine bond.
+
+
+== Applications ==
+Organofluorine chemistry impacts many areas of everyday life and technology. The C–F bond is found in pharmaceuticals, agrochemicals, fluoropolymers, refrigerants, surfactants, anesthetics, oil-repellents, catalysts, and water-repellents, among others.
+
+
+=== Pharmaceuticals and agrochemicals ===
+The carbon-fluorine bond is commonly found in pharmaceuticals and agrochemicals. An estimated 1/5 of pharmaceuticals contain fluorine, including several of the top drugs. Examples include 5-fluorouracil, flunitrazepam (Rohypnol), fluoxetine (Prozac), paroxetine (Paxil), ciprofloxacin (Cipro), mefloquine, and fluconazole. Introducing the carbon–fluorine bond to organic compounds is the major challenge for medicinal chemists using organofluorine chemistry, as the carbon–fluorine bond increases the probability of having a successful drug by about a factor of ten.  Over half of agricultural chemicals contain C–F bonds.  A common example is trifluralin.  The effectiveness of organofluorine compounds is attributed to their metabolically stability, i.e. they are not degraded rapidly so remain active.  Also, fluorine acts as a bioisostere of the hydrogen atom.
+
+
+=== Inhaler propellant ===
+Fluorocarbons are also used as a propellant for metered-dose inhalers used to administer some asthma medications. The current generation of propellant consists of hydrofluoroalkanes (HFA), which have replaced CFC-propellant-based inhalers. CFC inhalers were banned as of 2008 as part of the Montreal Protocol because of environmental concerns with the ozone layer.  HFA propellant inhalers like FloVent  and ProAir (Salbutamol) have no generic versions available as of October 2014.
+
+
+=== Fluorosurfactants ===
+Fluorosurfactants, which have a polyfluorinated "tail" and a hydrophilic "head", serve as surfactants because they concentrate at the liquid-air interface due to their lipophobicity. Fluorosurfactants have low surface energies and dramatically lower surface tension. The fluorosurfactants perfluorooctanesulfonic acid (PFOS) and perfluorooctanoic acid (PFOA) are two of the most studied because of their ubiquity, proposed toxicity, and long residence times in humans and wildlife.
+
+
+=== Solvents ===
+Fluorinated compounds often display distinct solubility properties. Dichlorodifluoromethane and chlorodifluoromethane were at one time widely used refrigerants. CFCs have potent ozone depletion potential due to the homolytic cleavage of the carbon-chlorine bonds; their use is largely prohibited by the Montreal Protocol. Hydrofluorocarbons (HFCs), such as tetrafluoroethane, serve as CFC replacements because they do not catalyze ozone depletion. 
+Oxygen exhibits a high solubility in perfluorocarbon compounds, reflecting on their lipophilicity. Perfluorodecalin has been demonstrated as a blood substitute transporting oxygen to the lungs. Fluorine-substituted ethers are volatile anesthetics, including the commercial products methoxyflurane, enflurane, isoflurane, sevoflurane and desflurane. Fluorocarbon anesthetics reduce the hazard of flammability with diethyl ether and cyclopropane. Perfluorinated alkanes are used as blood substitutes.
+The solvent 1,1,1,2-tetrafluoroethane has been used for extraction of natural products such as taxol, evening primrose oil, and vanillin.  2,2,2-trifluoroethanol is an oxidation-resistant polar solvent.
+
+
+=== Organofluorine reagents ===
+The development of organofluorine chemistry has contributed many reagents of value beyond organofluorine chemistry. Triflic acid (CF3SO3H) and trifluoroacetic acid (CF3CO2H) are useful throughout organic synthesis.  Their strong acidity is attributed to the electronegativity of the trifluoromethyl group that stabilizes the negative charge. The triflate-group (the conjugate base of the triflic acid) is a good leaving group in substitution reactions.
+Fluorocarbon substituents can enhance the Lewis acidity of metal centers.  A premier example is "Eufod," a coordination complex of europium(III) that features a perfluoroheptyl modified acetylacetonate ligand.  This and related species are useful in organic synthesis and as "shift reagents" in NMR spectroscopy.
+
+
+=== Materials science ===
+Organofluorine compounds enjoy many niche applications in materials science.  With a low coefficient of friction, fluid fluoropolymers are used as specialty lubricants. Fluorocarbon-based greases are used in demanding applications. Representative products include Fomblin and Krytox, made by Solvay Solexis and DuPont, respectively. Certain firearm lubricants such as "Tetra Gun" contain fluorocarbons.  Capitalizing on their nonflammability, fluorocarbons are used in fire fighting foam.  Organofluorine compounds are components of liquid crystal displays.  The polymeric analogue of triflic acid, nafion is a solid acid that is used as the membrane in most low temperature fuel cells.  The bifunctional monomer 4,4'-difluorobenzophenone is a precursor to PEEK-class polymers.
+
+
+== Biosynthesis of organofluorine compounds ==
+
+In contrast to the many naturally occurring organic compounds containing the heavier halides, chloride, bromide, and iodide, only a handful of biologically synthesized carbon-fluorine bonds are known. The most common natural organofluorine species is fluoroacetate, a toxin found in a few species of plants. Others include fluorooleic acid, fluoroacetone, nucleocidin (4'-fluoro-5'-O-sulfamoyladenosine), fluorothreonine, and 2-fluorocitrate.  Several of these species are probably biosynthesized from fluoroacetaldehyde. The enzyme fluorinase catalyzed the synthesis of 5'-deoxy-5'-fluoroadenosine (see scheme to right).
+
+
+== History ==
+Organofluorine chemistry began in the 1800s with the development of organic chemistry. The first organofluorine compound was discovered in 1835, when Dumas and Péligot distilled dimethyl sulfate with potassium fluoride and got fluoromethane. In 1862, Alexander Borodin pioneered a now-common method of halogen exchange: he acted on benzoyl chloride with potassium bifluoride and first synthesized benzoyl fluoride. Besides salts, organofluorine compounds were often prepared using HF as the F− source because elemental fluorine, as its discoverer Henri Moissan and his followers found out, was prone to explosions when mixed with organics. Frédéric Swarts also introduced antimony fluoride in this role in 1898.
+The nonflammability and nontoxicity of the chlorofluorocarbons CCl3F and CCl2F2 attracted industrial attention in the 1920s. General Motors settled on these CFCs as refrigerants and had DuPont produce them via Swarts' method. In 1931, Bancroft and Wherty managed to solve fluorine's explosion problem by diluting it with inert nitrogen.
+On April 6, 1938, Roy J. Plunkett a young research chemist who worked at DuPont's Jackson Laboratory in Deepwater, New Jersey, accidentally discovered polytetrafluoroethylene (PTFE). Subsequent major developments, especially in the US, benefited from expertise gained in the production of uranium hexafluoride. Starting in the late 1940s, a series of electrophilic fluorinating methodologies were introduced, beginning with CoF3. Electrochemical fluorination ("electrofluorination") was announced, which Joseph H. Simons had developed in the 1930s to generate highly stable perfluorinated materials compatible with uranium hexafluoride. These new methodologies allowed the synthesis of C–F bonds without using elemental fluorine and without relying on metathetical methods.
+In 1957, the anticancer activity of 5-fluorouracil was described.  This report provided one of the first examples of rational design of drugs. This discovery sparked a surge of interest in fluorinated pharmaceuticals and agrichemicals.  The discovery of the noble gas compounds, e.g. XeF4, provided a host of new reagents starting in the early 1960s. In the 1970s, fluorodeoxyglucose was established as a useful reagent in 18F positron emission tomography. In Nobel Prize-winning work, CFCs were shown to contribute to the depletion of atmospheric ozone.  This discovery alerted the world to the negative consequences of organofluorine compounds and motivated the development of new routes to organofluorine compounds. In 2002, the first C–F bond-forming enzyme, fluorinase, was reported.
+
+
+== Environmental and health concerns ==
+Only a few organofluorine compounds are acutely bioactive and highly toxic, such as fluoroacetate and perfluoroisobutene.
+Some organofluorine compounds pose significant risks and dangers to health and the environment. CFCs and HCFCs (hydrochlorofluorocarbon) deplete the ozone layer and are potent greenhouse gases. HFCs are potent greenhouse gases and are facing calls for stricter international regulation and phase out schedules as a fast-acting greenhouse emission abatement measure, as are perfluorocarbons (PFCs), and sulfur hexafluoride (SF6).
+Because of the compound's effect on climate, the G-20 major economies agreed in 2013 to support initiatives to phase out use of HCFCs. They affirmed the roles of the Montreal Protocol and the United Nations Framework Convention on Climate Change in global HCFC accounting and reduction. The U.S. and China at the same time announced a bilateral agreement to similar effect.
+
+
+=== Persistence and bioaccumulation ===
+Because of the strength of the carbon–fluorine bond, many synthetic fluorocarbons and fluorocarbon-based compounds are persistent in the environment. Fluorosurfactants, such as PFOS and PFOA, are persistent global contaminants. Fluorocarbon based CFCs and tetrafluoromethane have been reported in igneous and metamorphic rock. PFOS is a persistent organic pollutant and may be harming the health of wildlife; the potential health effects of PFOA to humans are under investigation by the C8 Science Panel.
+
+
+== See also ==
+Hydrofluoroolefin
+
+
+== References ==
