@@ -1,6 +1,10 @@
 """
-BALANCED COLLECTOR - Fast but не Rate Limited
-==============================================
+PRAKRITI BULK HARVESTER (20MB/s Target)
+=======================================
+- Engine: Raw MediaWiki API (Bulk Fetch)
+- Throughput: 50 articles/request
+- Concurrency: Multi-threaded producer-consumer
+- Database: SQLite WAL (Supercharged)
 """
 import warnings
 warnings.filterwarnings("ignore")
@@ -11,150 +15,185 @@ import time
 import os
 import zlib
 import threading
+import requests # type: ignore
+from queue import Queue
 from concurrent.futures import ThreadPoolExecutor
 
-try:
-    import wikipedia # type: ignore
-    wikipedia.set_rate_limiting(True)  # Respect limits
-except:
-    os.system("pip install -q wikipedia")
-    import wikipedia # type: ignore
-    wikipedia.set_rate_limiting(True)
-
-# Config
+# --- CONFIGURATION ---
 DB_NAME = "prakriti.db"
 TARGET_GB = 15
 TARGET_BYTES = TARGET_GB * 1024 * 1024 * 1024
-NUM_WORKERS = 8  # Reduced to avoid blocking
+NUM_WORKERS = 30  # Increased for more parallelism
+API_URL = "https://en.wikipedia.org/w/api.php"
+HEADERS = {"User-Agent": "PrakritiHarvester/3.0 (contact: prakriti@example.com) requests/2.0"}
 
-# DB
+# DB Setup (Thread-safe)
 db_lock = threading.Lock()
 conn = sqlite3.connect(DB_NAME, check_same_thread=False)
 conn.execute("PRAGMA journal_mode=WAL;")
+conn.execute("PRAGMA synchronous=OFF;")
+conn.execute("PRAGMA cache_size=500000;") # ~500MB cache
 cursor = conn.cursor()
 cursor.execute('''CREATE TABLE IF NOT EXISTS memory (id INTEGER PRIMARY KEY AUTOINCREMENT, topic TEXT UNIQUE, content BLOB)''')
 conn.commit()
 
-SEEDS = [
-    "Science", "Technology", "History", "Art", "Music", "Geography", "Mathematics", 
-    "Physics", "Chemistry", "Biology", "Medicine", "Philosophy", "Literature", 
-    "Engineering", "Astronomy", "Economics", "Countries", "Cities", "Animals", "Plants",
-    "Wars", "Inventions", "Scientists", "Artists", "Musicians", "Athletes", "Politicians",
-    "Movies", "Books", "Games", "Sports", "Languages", "Religions", "Cultures",
-    "Mountains", "Rivers", "Oceans", "Deserts", "Forests", "Islands", "Planets",
-    "Elements", "Chemicals", "Diseases", "Treatments", "Psychology", "Sociology",
-    "Anthropology", "Archaeology", "Geology", "Meteorology", "Ecology", "Genetics"
-]
-
-def compress(text):
-    return zlib.compress(text.encode("utf-8"), 3)  # Balanced
-
-stats = {"ok": 0, "skip": 0, "err": 0}
+# Stats
+stats = {"ok": 0, "bytes": 0, "errors": 0}
 stats_lock = threading.Lock()
 
-def worker(topic):
-    try:
-        page = wikipedia.page(topic, auto_suggest=False)
-        if len(page.content) < 300:
-            return None
-        
-        blob = compress(page.content)
-        
-        with db_lock:
-            cursor.execute("INSERT OR IGNORE INTO memory (topic, content) VALUES (?, ?)", (topic, blob))
-            conn.commit()
-            with stats_lock:
-                stats["ok"] += 1
-            return len(blob)
-    except wikipedia.exceptions.DisambiguationError:
-        with stats_lock:
-            stats["skip"] += 1
-        return None
-    except:
-        with stats_lock:
-            stats["err"] += 1
-        return None
+def compress(text):
+    return zlib.compress(text.encode("utf-8"), 1) # Level 1 = Fastest
 
-print(f"\n🚀 BALANCED COLLECTOR")
+def fetch_bulk(titles):
+    """Fetch content for 50 titles in ONE call"""
+    params = {
+        "action": "query",
+        "format": "json",
+        "prop": "extracts",
+        "explaintext": True,
+        "titles": "|".join(titles)
+    }
+    try:
+        response = requests.get(API_URL, params=params, headers=HEADERS, timeout=10)
+        data = response.json()
+        pages = data.get("query", {}).get("pages", {})
+        
+        results = []
+        for p_id in pages:
+            p_data = pages[p_id]
+            title = p_data.get("title")
+            content = p_data.get("extract")
+            if title and content and len(content) > 500:
+                results.append((title, content))
+        return results
+    except Exception:
+        return []
+
+def worker():
+    """Consumes titles from queue and fetches bulk data"""
+    while True:
+        batch = []
+        # Pull 20 titles from queue (Wikipedia prop=extracts limit)
+        for _ in range(20):
+            if not title_queue.empty():
+                batch.append(title_queue.get())
+        
+        if not batch:
+            time.sleep(0.5)
+            continue
+            
+        # Fetch data in bulk
+        items = fetch_bulk(batch)
+        
+        if items:
+            with db_lock:
+                for title, content in items:
+                    blob = compress(content)
+                    try:
+                        cursor.execute("INSERT OR IGNORE INTO memory (topic, content) VALUES (?, ?)", (title, blob))
+                    except:
+                        pass
+                # Commit every 100 articles to reduce IO overhead
+                if stats["ok"] % 100 == 0:
+                    conn.commit()
+            
+            with stats_lock:
+                stats["ok"] += len(items)
+                stats["bytes"] += sum(len(compress(c)) for _, c in items)
+                # print(f"\n📦 Worker: Saved {len(items)} articles.") # Silent to reduce console lag
+        else:
+            with stats_lock:
+                stats["errors"] += 1
+            # Put back in queue or discard? For now discard to avoid loops
+        
+        # Mark tasks done
+        for _ in range(len(batch)):
+            title_queue.task_done()
+
+title_queue = Queue(maxsize=1000)
+
+def producer():
+    """Systematically discovers topics via AllPages"""
+    print("📡 Producer started: Systematic Discovery Mode...")
+    letters = "abcdefghijklmnopqrstuvwxyz"
+    while True:
+        if title_queue.full():
+            time.sleep(1)
+            continue
+            
+        start_char = random.choice(letters) + random.choice(letters)
+        params = {
+            "action": "query",
+            "format": "json",
+            "list": "allpages",
+            "apnamespace": 0,
+            "aplimit": 50,
+            "apfrom": start_char
+        }
+        try:
+            resp = requests.get(API_URL, params=params, headers=HEADERS, timeout=5)
+            if resp.status_code != 200:
+                time.sleep(5)
+                continue
+            data = resp.json()
+            titles = [p["title"] for p in data.get("query", {}).get("allpages", [])]
+            random.shuffle(titles) # Mix things up
+            for t in titles:
+                title_queue.put(t)
+        except Exception:
+            time.sleep(2)
+
+# Start Producer
+threading.Thread(target=producer, daemon=True).start()
+
+# Start Workers
+for _ in range(NUM_WORKERS):
+    threading.Thread(target=worker, daemon=True).start()
+
+print(f"\n🚀 PRAKRITI BULK HARVESTER v3")
 print(f"Workers: {NUM_WORKERS} | Target: {TARGET_GB} GB")
 cursor.execute("SELECT COUNT(*) FROM memory")
-print(f"Starting: {cursor.fetchone()[0]} topics\n")
+print(f"Starting Base: {cursor.fetchone()[0]} topics\n")
 
-start = time.time()
-start_size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
-last_report = start
-last_size = start_size
+start_time = time.time()
+start_db_size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
+last_report = start_time
+last_bytes = stats["bytes"]
+last_db_size = start_db_size
 
-def get_topics():
-    """Generate topics avoiding duplicates"""
-    checked = set()
+try:
     while True:
-        seed = random.choice(SEEDS)
-        try:
-            results = wikipedia.search(seed, results=20)
-            for t in results:
-                if t not in checked:
-                    checked.add(t)
-                    # Quick DB check
-                    with db_lock:
-                        cursor.execute("SELECT 1 FROM memory WHERE topic=? LIMIT 1", (t,))
-                        if not cursor.fetchone():
-                            yield t
-        except:
-            pass
+        db_size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
         
-        # Random pages
-        try:
-            r = wikipedia.random(1)
-            if r not in checked:
-                checked.add(r)
-                with db_lock:
-                    cursor.execute("SELECT 1 FROM memory WHERE topic=? LIMIT 1", (r,))
-                    if not cursor.fetchone():
-                        yield r
-        except:
-            pass
-
-topic_gen = get_topics()
-
-with ThreadPoolExecutor(max_workers=NUM_WORKERS) as exe:
-    futures = set()
-    
-    while True:
-        size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
-        
-        if size >= TARGET_BYTES:
-            print(f"\n✅ REACHED {size/(1024*1024):.1f} MB!")
+        if db_size >= TARGET_BYTES:
+            print(f"\n✅ TARGET REACHED! Final Size: {db_size/(1024*1024):.1f} MB")
             break
-        
-        # Keep workers busy
-        while len(futures) < NUM_WORKERS * 3:
-            try:
-                topic = next(topic_gen)
-                future = exe.submit(worker, topic) # type: ignore
-                futures.add(future)
-            except:
-                break
-        
-        # Clean done
-        futures = {f for f in futures if not f.done()}
-        
-        # Report
-        now = time.time() # type: ignore
-        if now - last_report >= 3: # type: ignore
-            mb = size / (1024 * 1024) # type: ignore
-            added = (size - last_size) / (1024 * 1024) # type: ignore
-            speed = added / 3 # type: ignore
             
-            print(f"💾 {mb:.1f} MB | +{speed:.2f} MB/s | "
-                  f"✓{stats['ok']} ⊗{stats['skip']} ✗{stats['err']}", flush=True) # type: ignore
+        now = time.time()
+        if now - last_report >= 3:
+            # Speed calculations
+            # DB Write Speed (Actual expansion on disk)
+            db_delta = (db_size - last_db_size) / (1024 * 1024)
+            write_speed = db_delta / (now - last_report)
+            
+            # Data Collection Speed (Compressed data in memory)
+            data_delta = (stats["bytes"] - last_bytes) / (1024 * 1024) # type: ignore
+            collect_speed = data_delta / (now - last_report) # type: ignore
+            
+            size_mb = db_size / (1024 * 1024)
+            
+            print(f"\r💾 {size_mb:.1f} MB | Speed: {write_speed:.2f} MB/s | " # type: ignore
+                  f"✓{stats['ok']} Topics | ✗{stats['errors']} Errors | Queue: {title_queue.qsize()}", end="", flush=True) # type: ignore
             
             last_report = now
-            last_size = size
-        
-        time.sleep(0.1)
+            last_bytes = stats["bytes"] # type: ignore
+            last_db_size = db_size
+            
+        time.sleep(0.5)
 
-total = time.time() - start # type: ignore
-added = (size - start_size) / (1024 * 1024) # type: ignore
-print(f"\n✅ Done! +{added:.1f} MB in {total/60:.1f} min")
-print(f"Avg: {added/total:.2f} MB/s | Topics: {stats['ok']}")
+except KeyboardInterrupt:
+    print("\n\n⏹ Stop requested. Saving and exiting...")
+
+final_db_size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
+print(f"Final Count: {stats['ok']} new topics.")
+print(f"Final Size: {final_db_size/(1024*1024):.1f} MB")
