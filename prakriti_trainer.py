@@ -1,171 +1,160 @@
 """
-PRAKRITI SPEED COLLECTOR V2 (Clean & Fast)
-==========================================
-- Warnings Suppressed
-- Real Progress Tracking
-- Efficient Batch Collection
+BALANCED COLLECTOR - Fast but не Rate Limited
+==============================================
 """
 import warnings
-warnings.filterwarnings("ignore")  # Suppress all warnings
+warnings.filterwarnings("ignore")
 
-import time
 import sqlite3
 import random
-import zlib
+import time
 import os
-from datetime import datetime
+import zlib
+import threading
+from concurrent.futures import ThreadPoolExecutor
 
-# Try imports
 try:
     import wikipedia # type: ignore
-    wikipedia.set_lang("en")
+    wikipedia.set_rate_limiting(True)  # Respect limits
 except:
     os.system("pip install -q wikipedia")
     import wikipedia # type: ignore
-    wikipedia.set_lang("en")
+    wikipedia.set_rate_limiting(True)
 
-try:
-    from google import generativeai as genai # type: ignore
-except:
-    os.system("pip install -q google-generativeai")
-    from google import generativeai as genai # type: ignore
-
-# --- CONFIGURATION ---
-GOOGLE_API_KEY = "AIzaSyCnDW2sd_Lvb92w4JEXu1WxiD79N0g_Y64"
-genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel('gemini-pro')
-
+# Config
 DB_NAME = "prakriti.db"
 TARGET_GB = 15
 TARGET_BYTES = TARGET_GB * 1024 * 1024 * 1024
+NUM_WORKERS = 8  # Reduced to avoid blocking
 
-# Setup DB
+# DB
+db_lock = threading.Lock()
 conn = sqlite3.connect(DB_NAME, check_same_thread=False)
 conn.execute("PRAGMA journal_mode=WAL;")
-conn.execute("PRAGMA synchronous=NORMAL;")  # Balance between speed and safety
 cursor = conn.cursor()
-
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS memory (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        topic TEXT UNIQUE,
-        category TEXT,
-        content BLOB, 
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-    )
-''')
+cursor.execute('''CREATE TABLE IF NOT EXISTS memory (id INTEGER PRIMARY KEY AUTOINCREMENT, topic TEXT UNIQUE, content BLOB)''')
 conn.commit()
 
-# Topic Seeds
-TOPICS = [
-    "Science", "Technology", "History", "Geography", "Mathematics", "Physics", "Chemistry", 
-    "Biology", "Astronomy", "Medicine", "Psychology", "Philosophy", "Art", "Music", "Literature",
-    "Sports", "Politics", "Economics", "Sociology", "Anthropology", "Architecture", "Engineering",
-    "Computer Science", "Programming", "Artificial Intelligence", "Machine Learning", "Robotics",
-    "Space Exploration", "Climate Change", "Renewable Energy", "Quantum Physics", "Genetics"
+SEEDS = [
+    "Science", "Technology", "History", "Art", "Music", "Geography", "Mathematics", 
+    "Physics", "Chemistry", "Biology", "Medicine", "Philosophy", "Literature", 
+    "Engineering", "Astronomy", "Economics", "Countries", "Cities", "Animals", "Plants",
+    "Wars", "Inventions", "Scientists", "Artists", "Musicians", "Athletes", "Politicians",
+    "Movies", "Books", "Games", "Sports", "Languages", "Religions", "Cultures",
+    "Mountains", "Rivers", "Oceans", "Deserts", "Forests", "Islands", "Planets",
+    "Elements", "Chemicals", "Diseases", "Treatments", "Psychology", "Sociology",
+    "Anthropology", "Archaeology", "Geology", "Meteorology", "Ecology", "Genetics"
 ]
 
 def compress(text):
-    return zlib.compress(text.encode("utf-8"), level=6)  # Balanced compression
+    return zlib.compress(text.encode("utf-8"), 3)  # Balanced
 
-def get_size():
-    return os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
+stats = {"ok": 0, "skip": 0, "err": 0}
+stats_lock = threading.Lock()
 
-def collect_via_api(topic, retries=2):
-    """Fast collection using Google API."""
-    for attempt in range(retries):
-        try:
-            prompt = f"Write a comprehensive, detailed article about '{topic}'. Include history, key concepts, and modern applications. Length: 2000+ words."
-            response = model.generate_content(prompt)
-            if response and response.text:
-                return response.text
-        except:
-            time.sleep(0.5)
-    return None
-
-def collect_via_wiki(topic):
-    """Fallback to Wikipedia."""
+def worker(topic):
     try:
         page = wikipedia.page(topic, auto_suggest=False)
-        return page.content
+        if len(page.content) < 300:
+            return None
+        
+        blob = compress(page.content)
+        
+        with db_lock:
+            cursor.execute("INSERT OR IGNORE INTO memory (topic, content) VALUES (?, ?)", (topic, blob))
+            conn.commit()
+            with stats_lock:
+                stats["ok"] += 1
+            return len(blob)
+    except wikipedia.exceptions.DisambiguationError:
+        with stats_lock:
+            stats["skip"] += 1
+        return None
     except:
+        with stats_lock:
+            stats["err"] += 1
         return None
 
-def main():
-    print(f"\n🚀 PRAKRITI SPEED COLLECTOR V2")
-    print(f"=" * 50)
-    print(f"🎯 Target: {TARGET_GB} GB")
-    print(f"🔑 Using: Google API + Wikipedia")
-    print(f"=" * 50)
-    
-    collected = 0
-    api_count = 0
-    wiki_count = 0
-    
-    # Load existing topics to avoid duplicates
-    cursor.execute("SELECT topic FROM memory")
-    known = set(row[0].lower() for row in cursor.fetchall())
-    
+print(f"\n🚀 BALANCED COLLECTOR")
+print(f"Workers: {NUM_WORKERS} | Target: {TARGET_GB} GB")
+cursor.execute("SELECT COUNT(*) FROM memory")
+print(f"Starting: {cursor.fetchone()[0]} topics\n")
+
+start = time.time()
+start_size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
+last_report = start
+last_size = start_size
+
+def get_topics():
+    """Generate topics avoiding duplicates"""
+    checked = set()
     while True:
-        size = get_size()
-        size_mb = size / (1024 * 1024)
-        
-        if size >= TARGET_BYTES:
-            print(f"\n✅ TARGET REACHED! {size_mb:.2f} MB")
-            break
-        
-        # Progress every 10 items
-        if collected % 10 == 0:
-            print(f"\r💾 {size_mb:.2f} MB | Topics: {collected} (API:{api_count} Wiki:{wiki_count})", end="", flush=True)
-        
-        # Get topic
-        base = random.choice(TOPICS)
-        search_res = wikipedia.search(base, results=20)
-        
-        topic = None
-        for t in search_res:
-            if t.lower() not in known:
-                topic = t
-                break
-        
-        if not topic:
-            continue
-        
-        # Collect content (API first, then Wiki)
-        content = collect_via_api(topic)
-        source = "API"
-        if content:
-            api_count += 1 # type: ignore
-        else:
-            content = collect_via_wiki(topic)
-            source = "Wiki"
-            if content:
-                wiki_count += 1 # type: ignore
-        
-        if not content or len(content) < 300:
-            continue
-        
-        # Save
-        final = f"""TOPIC: {topic}
-SOURCE: {source}
-DATE: {datetime.now()}
-=============================
-{content}
-"""
-        blob = compress(final)
-        
+        seed = random.choice(SEEDS)
         try:
-            cursor.execute("INSERT OR IGNORE INTO memory (topic, category, content) VALUES (?, ?, ?)", 
-                          (topic, "General", blob))
-            conn.commit()
-            known.add(topic.lower()) # type: ignore
-            collected += 1 # type: ignore
+            results = wikipedia.search(seed, results=20)
+            for t in results:
+                if t not in checked:
+                    checked.add(t)
+                    # Quick DB check
+                    with db_lock:
+                        cursor.execute("SELECT 1 FROM memory WHERE topic=? LIMIT 1", (t,))
+                        if not cursor.fetchone():
+                            yield t
         except:
             pass
         
-        time.sleep(0.1)  # Small delay to avoid rate limits
-    
-    print(f"\n\n✅ COMPLETE! Collected {collected} topics.")
+        # Random pages
+        try:
+            r = wikipedia.random(1)
+            if r not in checked:
+                checked.add(r)
+                with db_lock:
+                    cursor.execute("SELECT 1 FROM memory WHERE topic=? LIMIT 1", (r,))
+                    if not cursor.fetchone():
+                        yield r
+        except:
+            pass
 
-if __name__ == "__main__":
-    main()
+topic_gen = get_topics()
+
+with ThreadPoolExecutor(max_workers=NUM_WORKERS) as exe:
+    futures = set()
+    
+    while True:
+        size = os.path.getsize(DB_NAME) if os.path.exists(DB_NAME) else 0
+        
+        if size >= TARGET_BYTES:
+            print(f"\n✅ REACHED {size/(1024*1024):.1f} MB!")
+            break
+        
+        # Keep workers busy
+        while len(futures) < NUM_WORKERS * 3:
+            try:
+                topic = next(topic_gen)
+                future = exe.submit(worker, topic) # type: ignore
+                futures.add(future)
+            except:
+                break
+        
+        # Clean done
+        futures = {f for f in futures if not f.done()}
+        
+        # Report
+        now = time.time() # type: ignore
+        if now - last_report >= 3: # type: ignore
+            mb = size / (1024 * 1024) # type: ignore
+            added = (size - last_size) / (1024 * 1024) # type: ignore
+            speed = added / 3 # type: ignore
+            
+            print(f"💾 {mb:.1f} MB | +{speed:.2f} MB/s | "
+                  f"✓{stats['ok']} ⊗{stats['skip']} ✗{stats['err']}", flush=True) # type: ignore
+            
+            last_report = now
+            last_size = size
+        
+        time.sleep(0.1)
+
+total = time.time() - start # type: ignore
+added = (size - start_size) / (1024 * 1024) # type: ignore
+print(f"\n✅ Done! +{added:.1f} MB in {total/60:.1f} min")
+print(f"Avg: {added/total:.2f} MB/s | Topics: {stats['ok']}")
