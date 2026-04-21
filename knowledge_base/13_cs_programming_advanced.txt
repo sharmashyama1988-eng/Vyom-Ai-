@@ -13,7 +13,7 @@
 - Machine Learning (ML): Algorithms that learn patterns from data (Supervised, Unsupervised, Reinforcement Learning).
 - Neural Networks: Layers of nodes (neurons) mimicking the human brain.
 - Deep Learning: Multi-layered neural networks (CNN for images, RNN/Transformer for text).
-- LLM (Large Language Model): Transformer-based models trained on vast text data (e.g., GPT, Llama, Vyom).
+- LLM (Large Language Model): Transformer-based models trained on vast text data (e.g., GPT, Llama, Prakriti).
 - Backpropagation: The method used to update weights in a neural network to minimize error.
 
 3. CYBERSECURITY

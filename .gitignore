@@ -3,6 +3,10 @@
 .venv/
 venv/
 env/
+dist/
+build/
+*.egg-info/
+
 
 # Python
 __pycache__/
@@ -24,6 +28,10 @@ TTS-0.22.0.tar.gz
 *.pt
 *.pth
 *.safetensors
+*.exe
+*.zip
+*.7z
+
 
 # Media Uploads
 uploads/

@@ -22,7 +22,7 @@ class PragyanAI:
         self.vector_db = Chroma(
             persist_directory=DB_PATH,
             embedding_function=self.embeddings,
-            collection_name="vyom_knowledge"
+            collection_name="Prakriti_knowledge"
         )
         print("🧠 Pragyan: Connected to Core Memory.")
 

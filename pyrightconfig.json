@@ -1,11 +1,24 @@
 {
-    "venvPath": ".",
-    "venv": ".venv",
-    "extraPaths": [
-        ".",
-        "./.venv/Lib/site-packages"
-    ],
+    "venvPath": "d:/ai",
+    "venv": "venv",
     "pythonVersion": "3.10",
     "pythonPlatform": "Windows",
-    "typeCheckingMode": "off"
+    "typeCheckingMode": "off",
+    "extraPaths": [
+        "d:/ai"
+    ],
+    "exclude": [
+        "**/venv",
+        "**/Amit_CLI",
+        "**/new_vyom",
+        "**/prakriti_core",
+        "**/go",
+        "**/legacy_v1",
+        "**/__pyrefly_virtual__",
+        "**/AppData/Local/Temp"
+    ],
+    "include": [
+        "d:/ai/amit.py",
+        "d:/ai/amit_core"
+    ]
 }
